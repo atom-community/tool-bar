@@ -1,0 +1,31 @@
+@import "ui-variables";
+
+@size: 60px;
+
+#toolbar {
+  background-color: @app-background-color;
+
+  &.top {
+    width: 100%;
+    height: @size;
+    border-bottom: 1px solid @base-border-color;
+  }
+
+  &.right {
+    width: @size;
+    height: 100%;
+    border-left: 1px solid @base-border-color;
+  }
+
+  &.bottom {
+    width: 100%;
+    height: @size;
+    border-top: 1px solid @base-border-color;
+  }
+
+  &.left {
+    width: @size;
+    height: 100%;
+    border-right: 1px solid @base-border-color;
+  }
+}

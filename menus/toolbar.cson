@@ -1,0 +1,11 @@
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'Toolbar'
+      'submenu': [
+        { 'label': 'Toggle', 'command': 'toolbar:toggle' }
+      ]
+    ]
+  }
+]
