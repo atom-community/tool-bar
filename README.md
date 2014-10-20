@@ -46,6 +46,13 @@ atom.packages.activatePackage('toolbar')
 
 You can also prepend buttons/spacers using `prependButton()` and `prependSpacer()` methods.
 
+Both `prependButton()` and `appendButton` return `ToolbarButtonView` instance which has `setEnabled()` method:
+
+```coffeescript
+button = @toolbar.appendButton 'octoface', 'application:about', 'About Atom'
+button.setEnabled false
+```
+
 # Supported icon sets
 
 * [Octicons](https://octicons.github.com/) (Atom's flavour)
