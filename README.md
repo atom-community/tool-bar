@@ -2,12 +2,27 @@
 
 This package provides extensible toolbar for Atom.
 
-Supports four orientations: top, right, bottom and left.
-
 ![Horizontal](http://f.cl.ly/items/453U17471p0C2P2L0t0c/toolbar-horizontal.png)
 
 ![Vertical](http://f.cl.ly/items/3y041V2Y1l1x3B0G0g1u/toolbar-vertical.png)
 
+![Big Icons](http://f.cl.ly/items/3M1x1A0J0r3m0q292728/toolbar-big.png)
+
+![Light Theme](http://f.cl.ly/items/351g2D1f1o3f0O1H0N2b/toolbar-light.png)
+
+# Configuration
+
+### Orientation
+
+* Top
+* Right
+* Bottom
+* Left
+
+### Icon size
+
+* Small *(16px)*
+* Big *(24px)*
 
 # Plugins
 
