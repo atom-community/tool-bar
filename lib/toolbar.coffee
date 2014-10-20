@@ -1,4 +1,5 @@
 ToolbarView = null
+ToolbarButtonView = null
 $$ = null
 
 module.exports =
@@ -7,6 +8,8 @@ module.exports =
   activate: (state) ->
     ToolbarView ?= require './toolbar-view'
     @toolbarView = new ToolbarView(state.toolbarViewState)
+
+    ToolbarButtonView ?= require './toolbar-button-view'
 
     {$$} = require 'atom'
 
@@ -46,14 +49,18 @@ module.exports =
     button
 
   prependButton: (icon, callback, tooltip=null, iconset=null) ->
-    @toolbarView.prepend @prepareButton(icon, callback, tooltip, iconset)
+    button = new ToolbarButtonView icon, callback, tooltip, iconset
+    @toolbarView.prepend button
+    button
 
   prependSpacer: (view) ->
     @toolbarView.prepend $$ ->
       @div class: 'spacer'
 
   appendButton: (icon, callback, tooltip=null, iconset=null) ->
-    @toolbarView.append @prepareButton(icon, callback, tooltip, iconset)
+    button = new ToolbarButtonView icon, callback, tooltip, iconset
+    @toolbarView.append button
+    button
 
   appendSpacer: (view) ->
     @toolbarView.append $$ ->
