@@ -1,9 +1,12 @@
 @import "ui-variables";
 
-@size: 60px;
+@size: 48px;
 
 #toolbar {
   background-color: @app-background-color;
+  color: @text-color;
+  text-align: center;
+  line-height: @size;
 
   &.top {
     width: 100%;
@@ -27,5 +30,37 @@
     width: @size;
     height: 100%;
     border-right: 1px solid @base-border-color;
+  }
+
+  &.horizontal {
+    .icon {
+      width: @size;
+      height: 100%;
+    }
+
+    .spacer {
+      height: 100%;
+      border-right: 1px solid @overlay-border-color;
+    }
+  }
+
+  &.vertical {
+    .icon {
+      width: 100%;
+      height: @size;
+    }
+
+    .spacer {
+      width: 100%;
+      border-bottom: 1px solid @overlay-border-color;
+    }
+  }
+
+  > div {
+    float: left;
+
+    &:hover {
+      color: @text-color-highlight;
+    }
   }
 }

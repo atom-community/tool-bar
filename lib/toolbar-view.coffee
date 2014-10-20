@@ -40,6 +40,10 @@ class ToolbarView extends View
       when 'Left' then atom.workspaceView.prependToLeft this
 
     @addClass position.toLowerCase()
+    if (position == 'Top') || (position == 'Bottom')
+      @addClass 'horizontal'
+    else
+      @addClass 'vertical'
 
   toggle: ->
     if @hasParent()
