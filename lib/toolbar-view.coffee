@@ -19,6 +19,9 @@ class ToolbarView extends View
       else
         @hide()
 
+    atom.config.observe 'toolbar.iconSize', (newValue) =>
+      @updateSize newValue
+
     if atom.config.get 'toolbar.visible'
       @show()
 
@@ -26,6 +29,12 @@ class ToolbarView extends View
 
   destroy: ->
     @detach()
+
+  updateSize: (size) ->
+    @removeClass 'icons16'
+
+    if size == '16px'
+      @addClass 'icons16'
 
   hide: ->
     @detach()
@@ -44,6 +53,8 @@ class ToolbarView extends View
       @addClass 'horizontal'
     else
       @addClass 'vertical'
+
+    @updateSize atom.config.get('toolbar.iconSize')
 
   toggle: ->
     if @hasParent()

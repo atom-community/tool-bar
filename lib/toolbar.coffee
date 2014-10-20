@@ -26,6 +26,11 @@ module.exports =
       type: 'boolean'
       default: true
 
+    iconSize:
+      type: 'string'
+      default: '24px'
+      enum: ['16px', '24px']
+
   prepareButton: (icon, callback, tooltip, iconset) ->
     iconClass = if !iconset then 'icon-' + icon else iconset + '-' + icon
 
