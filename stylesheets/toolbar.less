@@ -11,24 +11,24 @@
 
   &.top {
     width: 100%;
-    height: @size;
+    height: @size + 1;
     border-bottom: 1px solid @base-border-color;
   }
 
   &.right {
-    width: @size;
+    width: @size + 1;
     height: 100%;
     border-left: 1px solid @base-border-color;
   }
 
   &.bottom {
-    width: 100%;
+    width: 100% + 1;
     height: @size;
     border-top: 1px solid @base-border-color;
   }
 
   &.left {
-    width: @size;
+    width: @size + 1;
     height: 100%;
     border-right: 1px solid @base-border-color;
   }
@@ -68,6 +68,8 @@
 
     &:before {
       font-size: 16px;
+      margin-right: 0px;
+      line-height: @size;
     }
   }
 }
