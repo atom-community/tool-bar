@@ -7,5 +7,4 @@
 * Fixed icon positions
 * Fixed Ionicons warnings
 
-
 ## 0.0.1 - First Release
