@@ -34,20 +34,6 @@ module.exports =
       default: '24px'
       enum: ['16px', '24px']
 
-  prepareButton: (icon, callback, tooltip, iconset) ->
-    iconClass = if !iconset then 'icon-' + icon else iconset + '-' + icon
-
-    button = $$ ->
-      @div class: 'icon ' + iconClass, title: tooltip
-
-    button.on 'click', =>
-      if typeof(callback) == 'string'
-        atom.workspaceView.trigger callback
-      else
-        callback()
-
-    button
-
   prependButton: (icon, callback, tooltip=null, iconset=null) ->
     button = new ToolbarButtonView icon, callback, tooltip, iconset
     @toolbarView.prepend button
