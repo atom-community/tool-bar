@@ -9,6 +9,8 @@ class ToolbarButtonView extends View
     iconClass = if !iconset then 'icon-' + icon else iconset + '-' + icon
 
     @addClass 'icon ' + iconClass, title: tooltip
+    if iconset
+      @addClass iconset
 
     @on 'click', =>
       if !@hasClass('disabled')

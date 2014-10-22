@@ -40,8 +40,10 @@ atom.packages.activatePackage('toolbar')
     @toolbar.appendButton 'octoface', 'application:about', 'About Atom'
     # Adding spacer
     @toolbar.appendSpacer()
-    # Using custom icon set
+    # Using custom icon set (Ionicons)
     @toolbar.appendButton 'gear-a', 'application:show-settings', 'Show Settings', 'ion'
+    # Using custom icon set (FontAwesome)
+    @toolbar.appendButton 'pied-piper-alt', 'application:open-license', 'Open License', 'fa'
     # Function as a callback
     @toolbar.appendButton 'alert', ->
       alert 'foo'
@@ -61,3 +63,4 @@ button.setEnabled false
 
 * [Octicons](https://octicons.github.com/) (Atom's flavour)
 * [Ionicons](http://ionicons.com/)
+* [FontAwesome](http://fortawesome.github.io/Font-Awesome/)

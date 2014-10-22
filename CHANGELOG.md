@@ -1,3 +1,6 @@
+## 0.0.4
+* Added FontAwesome
+
 ## 0.0.3
 * Hiding first spacer
 * Added ability to enable/disable buttons
