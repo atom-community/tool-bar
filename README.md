@@ -26,6 +26,10 @@ This package provides extensible toolbar for Atom.
 
 # Plugins
 
+* [toolbar-main](https://atom.io/packages/toolbar-main)
+
+# Integrating toolbar with your package
+
 By itself this package just shows empty bar. To add toolbar to your package use this code:
 
 ```coffeescript
