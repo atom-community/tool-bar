@@ -8,4 +8,6 @@
       ]
     ]
   }
-]
+],
+'context-menu':
+  'atom-workspace': []
