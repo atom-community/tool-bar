@@ -43,10 +43,10 @@ class ToolbarView extends View
     @removeClass()
     position = atom.config.get 'toolbar.position'
     switch position
-      when 'Top' then atom.workspaceView.prependToTop this
-      when 'Right' then atom.workspaceView.appendToRight this
-      when 'Bottom' then atom.workspaceView.appendToBottom this
-      when 'Left' then atom.workspaceView.prependToLeft this
+      when 'Top' then atom.workspace.addTopPanel { item: @ }
+      when 'Right' then atom.workspace.addRightPanel { item: @ }
+      when 'Bottom' then atom.workspace.addBottomPanel { item: @ }
+      when 'Left' then atom.workspace.addLeftPanel { item: @ }
 
     @addClass position.toLowerCase()
     if (position == 'Top') || (position == 'Bottom')
