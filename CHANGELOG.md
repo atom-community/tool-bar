@@ -1,3 +1,18 @@
+## 0.0.9
+* Fixed setting button title
+
+## 0.0.8
+* Fixed deprecation warnings
+
+## 0.0.7
+* Fixed deprecation warnings
+
+## 0.0.6
+* Fixed missing imports
+
+## 0.0.5
+* Fixed missing imports
+
 ## 0.0.4
 * Added FontAwesome
 

@@ -8,7 +8,8 @@ class ToolbarButtonView extends View
   initialize: (icon, callback, tooltip=null, iconset=null) ->
     iconClass = if !iconset then 'icon-' + icon else iconset + '-' + icon
 
-    @addClass 'icon ' + iconClass, title: tooltip
+    @addClass 'icon ' + iconClass
+    @prop 'title', tooltip
     if iconset
       @addClass iconset
 
