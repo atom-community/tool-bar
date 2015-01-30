@@ -40,8 +40,9 @@ module.exports =
     button
 
   prependSpacer: (view) ->
-    @toolbarView.prepend $$ ->
-      @div class: 'spacer'
+    spacer = $$ -> @div class: 'spacer'
+    @toolbarView.prepend spacer
+    spacer
 
   appendButton: (icon, callback, tooltip=null, iconset=null) ->
     button = new ToolbarButtonView icon, callback, tooltip, iconset
@@ -49,5 +50,6 @@ module.exports =
     button
 
   appendSpacer: (view) ->
-    @toolbarView.append $$ ->
-      @div class: 'spacer'
+    spacer = $$ -> @div class: 'spacer'
+    @toolbarView.append spacer
+    spacer
