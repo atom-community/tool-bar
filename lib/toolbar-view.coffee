@@ -1,4 +1,5 @@
-{View} = require 'atom'
+{CompositeDisposable} = require 'atom'
+{View} = require 'atom-space-pen-views'
 
 module.exports =
 class ToolbarView extends View
@@ -6,7 +7,9 @@ class ToolbarView extends View
     @div id: 'toolbar'
 
   initialize: (serializeState) ->
-    atom.workspaceView.command 'toolbar:toggle', => @toggle()
+    @subscriptions = new CompositeDisposable
+
+    @subscriptions.add atom.commands.add 'atom-workspace', 'toolbar:toggle', => @toggle()
 
     atom.config.observe 'toolbar.position', =>
       @hide()
@@ -28,6 +31,7 @@ class ToolbarView extends View
   serialize: ->
 
   destroy: ->
+    @subscriptions.dispose()
     @detach()
 
   updateSize: (size) ->
