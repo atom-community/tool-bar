@@ -11,7 +11,7 @@ module.exports =
 
     ToolbarButtonView ?= require './toolbar-button-view'
 
-    {$$} = require 'atom'
+    {$$} = require 'atom-space-pen-views'
 
   deactivate: ->
     @toolbarView.destroy()
