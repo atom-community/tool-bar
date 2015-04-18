@@ -5,6 +5,9 @@
   "description": "Package providing customisable toolbar",
   "repository": "https://github.com/suda/toolbar",
   "license": "MIT",
+  "keywords": [
+    "toolbar"
+  ],
   "engines": {
     "atom": ">0.50.0"
   },
