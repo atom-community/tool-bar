@@ -32,7 +32,7 @@ module.exports =
     iconSize:
       type: 'string'
       default: '24px'
-      enum: ['16px', '24px']
+      enum: ['16px', '24px', '32px']
 
   prependButton: (icon, callback, tooltip=null, iconset=null) ->
     button = new ToolbarButtonView icon, callback, tooltip, iconset
