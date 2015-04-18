@@ -35,10 +35,8 @@ class ToolbarView extends View
     @detach()
 
   updateSize: (size) ->
-    @removeClass 'icons16'
-
-    if size == '16px'
-      @addClass 'icons16'
+    @removeClass 'icons16px icons24px icons32px'
+    @addClass 'icons' + size
 
   hide: ->
     @detach()
