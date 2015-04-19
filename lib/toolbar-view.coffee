@@ -48,7 +48,7 @@ class ToolbarView extends View
       when 'Top' then atom.workspace.addTopPanel { item: @ }
       when 'Right' then atom.workspace.addRightPanel { item: @ }
       when 'Bottom' then atom.workspace.addBottomPanel { item: @ }
-      when 'Left' then atom.workspace.addLeftPanel { item: @ }
+      when 'Left' then atom.workspace.addLeftPanel { item: @, priority: 50 }
 
     @addClass position.toLowerCase()
     if (position == 'Top') || (position == 'Bottom')
