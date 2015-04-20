@@ -1,5 +1,5 @@
 {CompositeDisposable} = require 'atom'
-{View, $} = require 'atom-space-pen-views'
+{View} = require 'atom-space-pen-views'
 
 module.exports =
 class ToolbarButtonView extends View
@@ -21,17 +21,9 @@ class ToolbarButtonView extends View
       @addClass iconset
 
     @on 'click', =>
-
-      @previouslyFocusedElement = $(document.activeElement);
-
-      if @previouslyFocusedElement[0] and @previouslyFocusedElement[0] isnt document.body
-        @eventElement = @previouslyFocusedElement[0]
-      else
-        @eventElement = atom.views.getView(atom.workspace)
-
       if !@hasClass('disabled')
         if typeof(callback) == 'string'
-          atom.commands.dispatch @eventElement, callback
+          atom.commands.dispatch document.activeElement, callback
         else
           callback()
 
