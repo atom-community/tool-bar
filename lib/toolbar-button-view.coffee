@@ -23,7 +23,7 @@ class ToolbarButtonView extends View
     @on 'click', =>
       if !@hasClass('disabled')
         if typeof(callback) == 'string'
-          atom.workspaceView.trigger callback
+          atom.commands.dispatch atom.views.getView(atom.workspace), callback
         else
           callback()
 
