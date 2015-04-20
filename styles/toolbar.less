@@ -39,10 +39,6 @@
     text-shadow: none;
     vertical-align: middle;
 
-    + .tool-bar-btn {
-      margin-left: 0;
-    }
-
     &:hover {
       background-color: @button-background-color-hover;
       background-image: linear-gradient(lighten(@button-background-color-hover, 2%), @button-background-color-hover);
@@ -56,6 +52,13 @@
     &.disabled {
       color: @text-color-subtle;
     }
+  }
+
+  &.tool-bar-horizontal .tool-bar-btn + .tool-bar-btn {
+    margin-left: 0;
+  }
+  &.tool-bar-vertical .tool-bar-btn + .tool-bar-btn {
+    margin-top: 0;
   }
 
   &.tool-bar-horizontal .tool-bar-spacer {
