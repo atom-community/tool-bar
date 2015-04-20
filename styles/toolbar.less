@@ -2,43 +2,51 @@
 @import "../iconsets/ionicons/ionicons";
 @import "../iconsets/font-awesome/font-awesome";
 
-#toolbar {
-  background-color: @app-background-color;
+.tool-bar {
+  @button-margin-size: 2px;
+  @button-border-size: 1px;
+  background-color: @base-background-color;
+  border: 1px solid @base-border-color;
   color: @text-color;
-  text-align: center;
 
-  &.top {
-
+  &.tool-bar-top {
+    border-top: 0 none;
   }
-  &.right {
-    border-right: 1px solid @base-border-color;
-    border-left: 1px solid @base-border-color;
+  &.tool-bar-right {
+    border-bottom: 0 none;
+    border-top: 0 none;
     margin-left: -1px;
   }
-  &.bottom {
-    
+  &.tool-bar-bottom {
+    margin-top: -1px;
   }
-  &.left {
-    border-right: 1px solid @base-border-color;
-  }
-
-  &.horizontal {
-    .spacer {
-      height: 100%;
-      border-right: 1px solid @overlay-border-color;
-    }
-  }
-  &.vertical {
-    .spacer {
-      width: 100%;
-      border-bottom: 1px solid @overlay-border-color;
-    }
+  &.tool-bar-left {
+    border-bottom: 0 none;
+    border-left: 0 none;
+    border-top: 0 none;
   }
 
-  .icon {
-    float: left;
+  .tool-bar-btn {
+    border: @button-border-size solid transparent;
+    border-radius: 3px;
+    color: @text-color;
     cursor: pointer;
+    display: block;
+    float: left;
+    line-height: 2em;
+    margin: @button-margin-size;
+    text-align: center;
+    text-shadow: none;
+    vertical-align: middle;
+
+    + .tool-bar-btn {
+      margin-left: 0;
+    }
+
     &:hover {
+      background-color: @button-background-color-hover;
+      background-image: linear-gradient(lighten(@button-background-color-hover, 2%), @button-background-color-hover);
+      border: @button-border-size solid @button-border-color;
       color: @text-color-highlight;
     }
     &:before {
@@ -50,61 +58,57 @@
     }
   }
 
-  .spacer {
+  &.tool-bar-horizontal .tool-bar-spacer {
+    border-left: @button-border-size solid @button-background-color;
+    border-right: @button-border-size solid @button-border-color;
+    display: block;
     float: left;
-    &:first-child {
-      display: none;
-    }
+    margin: @button-margin-size + 3 0;
+  }
+  &.tool-bar-vertical .tool-bar-spacer {
+    border-bottom: @button-border-size solid @button-background-color;
+    border-top: @button-border-size solid @button-border-color;
+    display: block;
+    float: left;
+    margin: 0 @button-margin-size + 3;
   }
 
-  &.icons16px {
-    .size(16px*2);
+  &.tool-bar-16px {
+    .tool-bar-size(16px * 2);
   }
-  &.icons24px {
-    .size(24px*2);
+  &.tool-bar-24px {
+    .tool-bar-size(24px * 2);
   }
-  &.icons32px {
-    .size(32px*2);
+  &.tool-bar-32px {
+    .tool-bar-size(32px * 2);
   }
 
-  .size(@size) {
+  .tool-bar-size(@size) {
     line-height: @size;
 
-    &.top {
+    &.tool-bar-horizontal {
+      height: @size + (@button-border-size * 3)+ (@button-margin-size * 2);
       width: 100%;
-      height: @size + 1;
     }
-    &.right {
-      width: @size + 1;
+    &.tool-bar-vertical {
       height: 100%;
-    }
-    &.bottom {
-      width: 100%;
-      height: @size + 1;
-    }
-    &.left {
-      width: @size + 1;
-      height: 100%;
+      width: @size + (@button-border-size * 3) + (@button-margin-size * 2);
     }
 
-    &.horizontal {
-      .icon {
-        width: @size;
-        height: 100%;
-      }
-    }
-    &.vertical {
-      .icon {
-        width: 100%;
-        height: @size;
-      }
-    }
-
-    .icon {
+    .tool-bar-btn {
+      height: @size + (@button-border-size * 2);
+      width: @size + (@button-border-size * 2);
       &:before {
         font-size: @size / 2;
         line-height: @size;
       }
+    }
+
+    &.tool-bar-horizontal .tool-bar-spacer {
+      height: @size - 4;
+    }
+    &.tool-bar-vertical .tool-bar-spacer {
+      width: @size - 4;
     }
   }
 }
