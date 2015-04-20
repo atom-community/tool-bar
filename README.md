@@ -23,10 +23,12 @@ This package provides extensible toolbar for Atom.
 
 * Small *(16px)*
 * Big *(24px)*
+* Large *(32px)*
 
 # Plugins
 
 * [toolbar-main](https://atom.io/packages/toolbar-main)
+* [flex-toolbar](https://atom.io/packages/flex-toolbar)
 
 # Integrating toolbar with your package
 
@@ -64,3 +66,12 @@ button.setEnabled false
 * [Octicons](https://octicons.github.com/) (Atom's flavour)
 * [Ionicons](http://ionicons.com/)
 * [FontAwesome](http://fortawesome.github.io/Font-Awesome/)
+
+# Contibutors
+
+Issues and pull requests are very welcome. Feel free to write your own packages using this one.
+For all contributions credits are due:
+
+* [Jeroen van Warmerdam](https://github.com/jerone)
+* [Pascal Bihler](https://github.com/pbihler)
+* Carlos Santos

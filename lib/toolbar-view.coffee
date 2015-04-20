@@ -11,19 +11,14 @@ class ToolbarView extends View
 
     @subscriptions.add atom.commands.add 'atom-workspace', 'toolbar:toggle', => @toggle()
 
-    atom.config.observe 'toolbar.position', =>
-      @hide()
-      @show()
-
-    atom.config.observe 'toolbar.visible', (newValue) =>
-      if newValue
-        @hide()
-        @show()
-      else
-        @hide()
-
     atom.config.observe 'toolbar.iconSize', (newValue) =>
       @updateSize newValue
+
+    atom.config.observe 'toolbar.position', =>
+      @show() if atom.config.get 'toolbar.visible'
+
+    atom.config.observe 'toolbar.visible', (newValue) =>
+      if newValue then @show() else @hide()
 
     if atom.config.get 'toolbar.visible'
       @show()
@@ -32,25 +27,26 @@ class ToolbarView extends View
 
   destroy: ->
     @subscriptions.dispose()
-    @detach()
+    @detach() if @panel?
+    @panel.destroy() if @panel?
 
   updateSize: (size) ->
-    @removeClass 'icons16'
-
-    if size == '16px'
-      @addClass 'icons16'
+    @removeClass 'icons16px icons24px icons32px'
+    @addClass 'icons' + size
 
   hide: ->
-    @detach()
+    @detach() if @panel?
+    @panel.destroy() if @panel?
 
   show: ->
     @removeClass()
+    @hide()
     position = atom.config.get 'toolbar.position'
     switch position
-      when 'Top' then atom.workspace.addTopPanel { item: @ }
-      when 'Right' then atom.workspace.addRightPanel { item: @ }
-      when 'Bottom' then atom.workspace.addBottomPanel { item: @ }
-      when 'Left' then atom.workspace.addLeftPanel { item: @ }
+      when 'Top' then @panel = atom.workspace.addTopPanel { item: @ }
+      when 'Right' then @panel = atom.workspace.addRightPanel { item: @ }
+      when 'Bottom' then @panel = atom.workspace.addBottomPanel { item: @ }
+      when 'Left' then @panel = atom.workspace.addLeftPanel { item: @, priority: 50 }
 
     @addClass position.toLowerCase()
     if (position == 'Top') || (position == 'Bottom')

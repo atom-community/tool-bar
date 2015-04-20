@@ -1,0 +1,110 @@
+@import "ui-variables";
+@import "../iconsets/ionicons/ionicons";
+@import "../iconsets/font-awesome/font-awesome";
+
+#toolbar {
+  background-color: @app-background-color;
+  color: @text-color;
+  text-align: center;
+
+  &.top {
+
+  }
+  &.right {
+    border-right: 1px solid @base-border-color;
+    border-left: 1px solid @base-border-color;
+    margin-left: -1px;
+  }
+  &.bottom {
+    
+  }
+  &.left {
+    border-right: 1px solid @base-border-color;
+  }
+
+  &.horizontal {
+    .spacer {
+      height: 100%;
+      border-right: 1px solid @overlay-border-color;
+    }
+  }
+  &.vertical {
+    .spacer {
+      width: 100%;
+      border-bottom: 1px solid @overlay-border-color;
+    }
+  }
+
+  .icon {
+    float: left;
+    cursor: pointer;
+    &:hover {
+      color: @text-color-highlight;
+    }
+    &:before {
+      margin-right: 0;
+      display: inline;
+    }
+    &.disabled {
+      color: @text-color-subtle;
+    }
+  }
+
+  .spacer {
+    float: left;
+    &:first-child {
+      display: none;
+    }
+  }
+
+  &.icons16px {
+    .size(16px*2);
+  }
+  &.icons24px {
+    .size(24px*2);
+  }
+  &.icons32px {
+    .size(32px*2);
+  }
+
+  .size(@size) {
+    line-height: @size;
+
+    &.top {
+      width: 100%;
+      height: @size + 1;
+    }
+    &.right {
+      width: @size + 1;
+      height: 100%;
+    }
+    &.bottom {
+      width: 100%;
+      height: @size + 1;
+    }
+    &.left {
+      width: @size + 1;
+      height: 100%;
+    }
+
+    &.horizontal {
+      .icon {
+        width: @size;
+        height: 100%;
+      }
+    }
+    &.vertical {
+      .icon {
+        width: 100%;
+        height: @size;
+      }
+    }
+
+    .icon {
+      &:before {
+        font-size: @size / 2;
+        line-height: @size;
+      }
+    }
+  }
+}

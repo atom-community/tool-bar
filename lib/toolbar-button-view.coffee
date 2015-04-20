@@ -1,3 +1,4 @@
+{CompositeDisposable} = require 'atom'
 {View, $} = require 'atom-space-pen-views'
 
 module.exports =
@@ -5,11 +6,17 @@ class ToolbarButtonView extends View
   @content: ->
     @div class: 'icon'
 
-  initialize: (icon, callback, tooltip=null, iconset=null) ->
+  initialize: (icon, callback, tooltip = null, iconset = null) ->
+    @subscriptions = new CompositeDisposable
+
     iconClass = if !iconset then 'icon-' + icon else iconset + '-' + icon
 
     @addClass 'icon ' + iconClass
-    @prop 'title', tooltip
+
+    if tooltip
+      @prop 'title', tooltip
+      @subscriptions.add atom.tooltips.add(@, title: tooltip)
+
     if iconset
       @addClass iconset
 
@@ -33,3 +40,6 @@ class ToolbarButtonView extends View
       @removeClass 'disabled'
     else
       @addClass 'disabled'
+
+  destroy: ->
+    @subscriptions.dispose()
