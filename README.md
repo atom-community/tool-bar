@@ -2,13 +2,13 @@
 
 This package provides extensible toolbar for Atom.
 
-![Horizontal](http://f.cl.ly/items/453U17471p0C2P2L0t0c/toolbar-horizontal.png)
+![Horizontal](http://cl.ly/image/2w0u3c1x1K3W/Screenshot-2015-04-21-16.46.49.png)
 
-![Vertical](http://f.cl.ly/items/3y041V2Y1l1x3B0G0g1u/toolbar-vertical.png)
+![Vertical](http://cl.ly/image/1t3U3F191p35/Screenshot-2015-04-21-16.45.46.png)
 
-![Big Icons](http://f.cl.ly/items/3M1x1A0J0r3m0q292728/toolbar-big.png)
+![Different Sizes](http://cl.ly/image/3v1N2F3e3I47/Screenshot-2015-04-21-16.45.46_2.png)
 
-![Light Theme](http://f.cl.ly/items/351g2D1f1o3f0O1H0N2b/toolbar-light.png)
+![Light Theme](http://cl.ly/image/0g043b1e0P1X/Screenshot-2015-04-21-16.46.02.png)
 
 # Configuration
 
@@ -74,4 +74,5 @@ For all contributions credits are due:
 
 * [Jeroen van Warmerdam](https://github.com/jerone)
 * [Pascal Bihler](https://github.com/pbihler)
+* [Ryo Narita](https://github.com/cakecatz)
 * Carlos Santos

@@ -1,3 +1,10 @@
+## 0.0.15
+* Toolbar theme (by Jeroen van Warmerdam)
+* Fixed #8 and #18 (by Jeroen van Warmerdam)
+* Fixed #22 (by Jeroen van Warmerdam)
+* Fixed #20 (by Jeroen van Warmerdam)
+* Fixed #11 (by Ryo Narita)
+
 ## 0.0.14
 * Added 32px icon size (by Jeroen van Warmerdam)
 * Added real tooltip (by Jeroen van Warmerdam)
