@@ -20,7 +20,7 @@ module.exports = class ToolbarButtonView extends View
     @on 'click', =>
       if !@hasClass('disabled')
         if typeof(callback) == 'string'
-          atom.commands.dispatch atom.views.getView(atom.workspace), callback
+          atom.commands.dispatch document.activeElement, callback
         else
           callback()
 
