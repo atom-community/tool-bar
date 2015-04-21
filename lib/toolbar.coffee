@@ -34,22 +34,22 @@ module.exports =
       default: '24px'
       enum: ['16px', '24px', '32px']
 
-  prependButton: (icon, callback, tooltip=null, iconset=null) ->
+  prependButton: (icon, callback, tooltip = null, iconset = null) ->
     button = new ToolbarButtonView icon, callback, tooltip, iconset
     @toolbarView.prepend button
     button
 
   prependSpacer: (view) ->
-    spacer = $$ -> @div class: 'spacer'
+    spacer = $$ -> @div class: 'tool-bar-spacer'
     @toolbarView.prepend spacer
     spacer
 
-  appendButton: (icon, callback, tooltip=null, iconset=null) ->
+  appendButton: (icon, callback, tooltip = null, iconset = null) ->
     button = new ToolbarButtonView icon, callback, tooltip, iconset
     @toolbarView.append button
     button
 
   appendSpacer: (view) ->
-    spacer = $$ -> @div class: 'spacer'
+    spacer = $$ -> @div class: 'tool-bar-spacer'
     @toolbarView.append spacer
     spacer
