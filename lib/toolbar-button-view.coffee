@@ -6,7 +6,7 @@ class ToolbarButtonView extends View
   @content: ->
     @div class: 'icon'
 
-  initialize: (icon, callback, tooltip = null, iconset = null) ->
+  initialize: (icon, callback, tooltip = null, iconset = null, data = null) ->
     @subscriptions = new CompositeDisposable
 
     iconClass = if !iconset then 'icon-' + icon else iconset + '-' + icon
@@ -25,7 +25,7 @@ class ToolbarButtonView extends View
         if typeof(callback) == 'string'
           atom.commands.dispatch document.activeElement, callback
         else
-          callback()
+          callback(data)
 
   setEnabled: (enabled) ->
     if enabled
