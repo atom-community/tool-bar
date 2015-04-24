@@ -40,7 +40,7 @@ module.exports =
     button
 
   prependSpacer: (view) ->
-    spacer = $$ -> @div class: 'spacer'
+    spacer = $$ -> @div class: 'tool-bar-spacer'
     @toolbarView.prepend spacer
     spacer
 
@@ -50,6 +50,6 @@ module.exports =
     button
 
   appendSpacer: (view) ->
-    spacer = $$ -> @div class: 'spacer'
+    spacer = $$ -> @div class: 'tool-bar-spacer'
     @toolbarView.append spacer
     spacer
