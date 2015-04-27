@@ -34,8 +34,8 @@ module.exports =
       default: '24px'
       enum: ['16px', '24px', '32px']
 
-  prependButton: (icon, callback, tooltip = null, iconset = null) ->
-    button = new ToolbarButtonView icon, callback, tooltip, iconset
+  prependButton: (icon, callback, tooltip = null, iconset = null, data = null) ->
+    button = new ToolbarButtonView icon, callback, tooltip, iconset, data
     @toolbarView.prepend button
     button
 
@@ -44,8 +44,8 @@ module.exports =
     @toolbarView.prepend spacer
     spacer
 
-  appendButton: (icon, callback, tooltip = null, iconset = null) ->
-    button = new ToolbarButtonView icon, callback, tooltip, iconset
+  appendButton: (icon, callback, tooltip = null, iconset = null, data = null) ->
+    button = new ToolbarButtonView icon, callback, tooltip, iconset, data
     @toolbarView.append button
     button
 
