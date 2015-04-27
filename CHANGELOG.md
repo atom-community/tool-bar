@@ -1,3 +1,7 @@
+## 0.0.16
+* Added toolbar position to Atom menu & toolbar context menu (by Jeroen van Warmerdam)
+* Added data attribute to button callback (by Ryo Narita)
+
 ## 0.0.15
 * Toolbar theme (by Jeroen van Warmerdam)
 * Fixed #8 and #18 (by Jeroen van Warmerdam)
