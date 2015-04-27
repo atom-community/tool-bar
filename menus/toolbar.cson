@@ -1,13 +1,36 @@
-'menu': [
+menu: [
   {
-    'label': 'Packages'
-    'submenu': [
-      'label': 'Toolbar'
-      'submenu': [
-        { 'label': 'Toggle', 'command': 'toolbar:toggle' }
-      ]
+    label: 'Packages'
+    submenu: [
+      {
+        label: '&Toolbar'
+        submenu: [
+          { label: '&Toggle', command: 'toolbar:toggle' }
+          {
+            label: '&Position',
+            submenu: [
+              { label: 'Top', command: 'toolbar:position:top', type: 'radio' }
+              { label: 'Right', command: 'toolbar:position:right', type: 'radio' }
+              { label: 'Bottom', command: 'toolbar:position:bottom', type: 'radio' }
+              { label: 'Left', command: 'toolbar:position:left', type: 'radio' }
+            ]
+          }
+        ]
+      }
     ]
   }
 ],
-'context-menu':
-  'atom-workspace': []
+'context-menu': {
+  '.tool-bar': [
+    { label: '&Hide Toolbar', command: 'toolbar:toggle' }
+    {
+      label: '&Position',
+      submenu: [
+        { label: 'Top', command: 'toolbar:position:top' }
+        { label: 'Right', command: 'toolbar:position:right' }
+        { label: 'Bottom', command: 'toolbar:position:bottom' }
+        { label: 'Left', command: 'toolbar:position:left' }
+      ]
+    }
+  ]
+}

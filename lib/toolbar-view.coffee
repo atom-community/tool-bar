@@ -1,5 +1,6 @@
 {CompositeDisposable} = require 'atom'
 {View} = require 'atom-space-pen-views'
+_ = require 'underscore-plus'
 
 module.exports = class ToolbarView extends View
   @content: ->
@@ -8,14 +9,26 @@ module.exports = class ToolbarView extends View
   initialize: (serializeState) ->
     @subscriptions = new CompositeDisposable
     @subscriptions.add atom.commands.add 'atom-workspace', 'toolbar:toggle', => @toggle()
+    @subscriptions.add atom.commands.add 'atom-workspace', 'toolbar:position:top', =>
+      @updatePosition 'Top'
+      atom.config.set 'toolbar.position', 'Top'
+    @subscriptions.add atom.commands.add 'atom-workspace', 'toolbar:position:right', =>
+      @updatePosition 'Right'
+      atom.config.set 'toolbar.position', 'Right'
+    @subscriptions.add atom.commands.add 'atom-workspace', 'toolbar:position:bottom', =>
+      @updatePosition 'Bottom'
+      atom.config.set 'toolbar.position', 'Bottom'
+    @subscriptions.add atom.commands.add 'atom-workspace', 'toolbar:position:left', =>
+      @updatePosition 'Left'
+      atom.config.set 'toolbar.position', 'Left'
 
     atom.config.observe 'toolbar.iconSize', (newValue) =>
       @updateSize newValue
 
-    atom.config.observe 'toolbar.position', =>
+    atom.config.onDidChange 'toolbar.position', ({newValue, oldValue}) =>
       @show() if atom.config.get 'toolbar.visible'
 
-    atom.config.observe 'toolbar.visible', (newValue) =>
+    atom.config.onDidChange 'toolbar.visible', ({newValue, oldValue}) =>
       if newValue then @show() else @hide()
 
     if atom.config.get 'toolbar.visible'
@@ -46,6 +59,15 @@ module.exports = class ToolbarView extends View
       @addClass 'tool-bar-horizontal'
     else
       @addClass 'tool-bar-vertical'
+
+    @updateMenu position
+
+  updateMenu: (position) ->
+    packagesMenu = _.find(atom.menu.template, ({label}) -> label is 'Packages' or label is '&Packages')
+    toolbarMenu = _.find(packagesMenu.submenu, ({label}) -> label is 'Toolbar' or label is '&Toolbar') if packagesMenu
+    positionsMenu = _.find(toolbarMenu.submenu, ({label}) -> label is 'Position' or label is '&Position') if toolbarMenu
+    positionMenu = _.find(positionsMenu.submenu, ({label}) -> label is position) if positionsMenu
+    positionMenu?.checked = true;
 
   hide: ->
     @detach() if @panel?
