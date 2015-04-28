@@ -1,6 +1,7 @@
 {CompositeDisposable} = require 'atom'
-{View} = require 'atom-space-pen-views'
+{View, $$} = require 'atom-space-pen-views'
 _ = require 'underscore-plus'
+ToolbarButtonView = require './toolbar-button-view'
 
 module.exports = class ToolbarView extends View
   @content: ->
@@ -68,6 +69,16 @@ module.exports = class ToolbarView extends View
     positionsMenu = _.find(toolbarMenu.submenu, ({label}) -> label is 'Position' or label is '&Position') if toolbarMenu
     positionMenu = _.find(positionsMenu.submenu, ({label}) -> label is position) if positionsMenu
     positionMenu?.checked = true;
+
+  addButton: (icon, callback, tooltip = null, iconset = null, data = null) ->
+    button = new ToolbarButtonView icon, callback, tooltip, iconset, data
+    @append button
+    button
+
+  addSpacer: () ->
+    spacer = $$ -> @div class: 'tool-bar-spacer'
+    @append spacer
+    spacer
 
   hide: ->
     @detach() if @panel?

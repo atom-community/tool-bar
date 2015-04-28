@@ -1,17 +1,11 @@
-ToolbarView = null
-ToolbarButtonView = null
-$$ = null
+Grim = null
 
 module.exports =
   toolbarView: null
 
   activate: (state) ->
-    ToolbarView ?= require './toolbar-view'
+    ToolbarView = require './toolbar-view'
     @toolbarView = new ToolbarView(state.toolbarViewState)
-
-    ToolbarButtonView ?= require './toolbar-button-view'
-
-    {$$} = require 'atom-space-pen-views'
 
   deactivate: ->
     @toolbarView.destroy()
@@ -24,32 +18,31 @@ module.exports =
       type: 'string'
       default: 'Top'
       enum: ['Top', 'Right', 'Bottom', 'Left']
-
     visible:
       type: 'boolean'
       default: true
-
     iconSize:
       type: 'string'
       default: '24px'
       enum: ['16px', '24px', '32px']
 
-  prependButton: (icon, callback, tooltip = null, iconset = null, data = null) ->
-    button = new ToolbarButtonView icon, callback, tooltip, iconset, data
-    @toolbarView.prepend button
-    button
+  provideStatusBar: ->
+    addButton: @toolbarView.addButton.bind(@toolbarView)
+    addSpacer: @toolbarView.addSpacer.bind(@toolbarView)
 
-  prependSpacer: (view) ->
-    spacer = $$ -> @hr class: 'tool-bar-spacer'
-    @toolbarView.prepend spacer
-    spacer
-
-  appendButton: (icon, callback, tooltip = null, iconset = null, data = null) ->
-    button = new ToolbarButtonView icon, callback, tooltip, iconset, data
-    @toolbarView.append button
-    button
-
-  appendSpacer: (view) ->
-    spacer = $$ -> @hr class: 'tool-bar-spacer'
-    @toolbarView.append spacer
-    spacer
+  prependButton: (args...) ->
+    Grim ?= require 'grim'
+    Grim.deprecate 'Use version ^0.1.0 of the tool-bar Service API.'
+    return @toolbarView.addButton(args...)
+  prependSpacer: (args...) ->
+    Grim ?= require 'grim'
+    Grim.deprecate 'Use version ^0.1.0 of the tool-bar Service API.'
+    return @toolbarView.addSpacer(args...)
+  appendButton: (args...) ->
+    Grim ?= require 'grim'
+    Grim.deprecate 'Use version ^0.1.0 of the tool-bar Service API.'
+    return @toolbarView.addButton(args...)
+  appendSpacer: (args...) ->
+    Grim ?= require 'grim'
+    Grim.deprecate 'Use version ^0.1.0 of the tool-bar Service API.'
+    return @toolbarView.addSpacer(args...)
