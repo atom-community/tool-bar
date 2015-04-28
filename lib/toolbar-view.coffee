@@ -9,7 +9,8 @@ module.exports = class ToolbarView extends View
 
   initialize: (serializeState) ->
     @subscriptions = new CompositeDisposable
-    @subscriptions.add atom.commands.add 'atom-workspace', 'toolbar:toggle', => @toggle()
+    @subscriptions.add atom.commands.add 'atom-workspace', 'toolbar:toggle', =>
+      @toggle()
     @subscriptions.add atom.commands.add 'atom-workspace', 'toolbar:position:top', =>
       @updatePosition 'Top'
       atom.config.set 'toolbar.position', 'Top'
@@ -44,7 +45,7 @@ module.exports = class ToolbarView extends View
 
   updateSize: (size) ->
     @removeClass 'tool-bar-16px tool-bar-24px tool-bar-32px'
-    @addClass 'tool-bar-' + size
+    @addClass "tool-bar-#{size}"
 
   updatePosition: (position) ->
     @removeClass 'tool-bar-top tool-bar-right tool-bar-bottom tool-bar-left tool-bar-horizontal tool-bar-vertical'
@@ -54,7 +55,7 @@ module.exports = class ToolbarView extends View
       when 'Right' then @panel = atom.workspace.addRightPanel { item: @ }
       when 'Bottom' then @panel = atom.workspace.addBottomPanel { item: @ }
       when 'Left' then @panel = atom.workspace.addLeftPanel { item: @, priority: 50 }
-    @addClass 'tool-bar-' + position.toLowerCase()
+    @addClass "tool-bar-#{position.toLowerCase()}"
 
     if position is 'Top' or position is 'Bottom'
       @addClass 'tool-bar-horizontal'

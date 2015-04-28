@@ -8,7 +8,7 @@ module.exports = class ToolbarButtonView extends View
   initialize: (icon, callback, tooltip = null, iconset = null, data = null) ->
     @subscriptions = new CompositeDisposable
 
-    @addClass if !iconset then 'icon-' + icon else iconset + '-' + icon
+    @addClass if !iconset then "icon-#{icon}" else iconset + '-' + icon
 
     if tooltip
       @prop 'title', tooltip
