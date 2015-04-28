@@ -13,8 +13,8 @@
     "atom": ">=0.188.0"
   },
   "dependencies": {
-    "atom-space-pen-views": "^2.0.3",
     "grim": "^1.2.2",
+    "space-pen": "^5.1.1",
     "underscore-plus": "^1.6.6"
   },
   "providedServices": {

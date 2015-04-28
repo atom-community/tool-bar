@@ -1,5 +1,5 @@
 {CompositeDisposable} = require 'atom'
-{View, $$} = require 'atom-space-pen-views'
+{View, $$} = require 'space-pen'
 _ = require 'underscore-plus'
 ToolbarButtonView = require './toolbar-button-view'
 
