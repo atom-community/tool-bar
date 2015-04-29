@@ -1,17 +1,21 @@
 Grim = null
+ToolbarGroupView = null
 
 module.exports =
-  toolbarView: null
+  toolbar: null
 
   activate: ->
     ToolbarView = require './toolbar-view'
-    @toolbarView = new ToolbarView()
+    @toolbar = new ToolbarView()
+
+    ToolbarGroupView = require './toolbar-group-view'
+    @toolbarGroupLegacy = new ToolbarGroupView 'legacy', @toolbar
 
   deactivate: ->
-    @toolbarView.destroy()
+    @toolbar.destroy()
 
   serialize: ->
-    toolbarViewState: @toolbarView.serialize()
+    toolbarState: @toolbar.serialize()
 
   config:
     position:
@@ -27,17 +31,12 @@ module.exports =
       enum: ['16px', '24px', '32px']
 
   provideStatusBar: ->
-    (group) =>
-      @toolbarView.group = group
-      addButton: @toolbarView.addButton.bind(@toolbarView)
-      addSpacer: @toolbarView.addSpacer.bind(@toolbarView)
-      removeToolbarItems: @toolbarView.removeToolbarItems.bind(@toolbarView)
+    (group) => new ToolbarGroupView group, @toolbar
 
   prependButton: (icon, callback, tooltip, iconset, data) ->
     Grim ?= require 'grim'
     Grim.deprecate 'Use version ^0.1.0 of the tool-bar Service API.'
-    @toolbarView.group = 'legacy'
-    @toolbarView.addButton
+    @toolbarGroupLegacy.addButton
       icon: icon
       callback: callback
       tooltip: tooltip
@@ -46,13 +45,11 @@ module.exports =
   prependSpacer: ->
     Grim ?= require 'grim'
     Grim.deprecate 'Use version ^0.1.0 of the tool-bar Service API.'
-    @toolbarView.group = 'legacy'
-    @toolbarView.addSpacer()
+    @toolbarGroupLegacy.addSpacer()
   appendButton: (icon, callback, tooltip, iconset, data) ->
     Grim ?= require 'grim'
     Grim.deprecate 'Use version ^0.1.0 of the tool-bar Service API.'
-    @toolbarView.group = 'legacy'
-    @toolbarView.addButton
+    @toolbarGroupLegacy.addButton
       icon: icon
       callback: callback
       tooltip: tooltip
@@ -61,5 +58,4 @@ module.exports =
   appendSpacer: ->
     Grim ?= require 'grim'
     Grim.deprecate 'Use version ^0.1.0 of the tool-bar Service API.'
-    @toolbarView.group = 'legacy'
-    @toolbarView.addSpacer()
+    @toolbarGroupLegacy.addSpacer()
