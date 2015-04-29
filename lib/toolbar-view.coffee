@@ -7,7 +7,7 @@ module.exports = class ToolbarView extends View
   @content: ->
     @div class: 'tool-bar'
 
-  initialize: (serializeState) ->
+  initialize: ->
     @subscriptions = new CompositeDisposable
     @subscriptions.add atom.commands.add 'atom-workspace', 'toolbar:toggle', =>
       @toggle()

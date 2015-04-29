@@ -3,9 +3,9 @@ Grim = null
 module.exports =
   toolbarView: null
 
-  activate: (state) ->
+  activate: ->
     ToolbarView = require './toolbar-view'
-    @toolbarView = new ToolbarView(state.toolbarViewState)
+    @toolbarView = new ToolbarView()
 
   deactivate: ->
     @toolbarView.destroy()
@@ -43,7 +43,7 @@ module.exports =
       tooltip: tooltip
       iconset: iconset
       data: data
-  prependSpacer: () ->
+  prependSpacer: ->
     Grim ?= require 'grim'
     Grim.deprecate 'Use version ^0.1.0 of the tool-bar Service API.'
     @toolbarView.group = 'legacy'
@@ -58,7 +58,7 @@ module.exports =
       tooltip: tooltip
       iconset: iconset
       data: data
-  appendSpacer: () ->
+  appendSpacer: ->
     Grim ?= require 'grim'
     Grim.deprecate 'Use version ^0.1.0 of the tool-bar Service API.'
     @toolbarView.group = 'legacy'
