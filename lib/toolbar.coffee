@@ -31,6 +31,7 @@ module.exports =
       @toolbarView.group = group
       addButton: @toolbarView.addButton.bind(@toolbarView)
       addSpacer: @toolbarView.addSpacer.bind(@toolbarView)
+      removeToolbarItems: @toolbarView.removeToolbarItems.bind(@toolbarView)
 
   prependButton: (icon, callback, tooltip, iconset, data) ->
     Grim ?= require 'grim'

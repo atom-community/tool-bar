@@ -82,6 +82,9 @@ module.exports = class ToolbarView extends View
     @append spacer
     spacer
 
+  removeToolbarItems: ->
+    @find("[data-group='#{@group}']").remove();
+
   hide: ->
     @detach() if @panel?
     @panel.destroy() if @panel?
