@@ -71,13 +71,14 @@ module.exports = class ToolbarView extends View
     positionMenu = _.find(positionsMenu.submenu, ({label}) -> label is position) if positionsMenu
     positionMenu?.checked = true;
 
-  addButton: (icon, callback, tooltip = null, iconset = null, data = null) ->
-    button = new ToolbarButtonView icon, callback, tooltip, iconset, data
+  addButton: (options) ->
+    button = new ToolbarButtonView @group, options
     @append button
     button
 
-  addSpacer: () ->
-    spacer = $$ -> @div class: 'tool-bar-spacer'
+  addSpacer: ->
+    spacer = $$ -> @hr class: 'tool-bar-spacer'
+    spacer.attr 'data-group', @group
     @append spacer
     spacer
 

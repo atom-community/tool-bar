@@ -27,8 +27,10 @@ module.exports =
       enum: ['16px', '24px', '32px']
 
   provideStatusBar: ->
-    addButton: @toolbarView.addButton.bind(@toolbarView)
-    addSpacer: @toolbarView.addSpacer.bind(@toolbarView)
+    (group) =>
+      @toolbarView.group = group
+      addButton: @toolbarView.addButton.bind(@toolbarView)
+      addSpacer: @toolbarView.addSpacer.bind(@toolbarView)
 
   prependButton: (args...) ->
     Grim ?= require 'grim'
