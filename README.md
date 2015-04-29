@@ -32,33 +32,55 @@ This package provides extensible toolbar for Atom.
 
 # Integrating toolbar with your package
 
-By itself this package just shows empty bar. To add toolbar to your package use this code:
+By itself this package just shows empty toolbar. To add buttons and spacers to the toolbar, use the following code.
 
-```coffeescript
-atom.packages.activatePackage('toolbar')
-  .then (pkg) =>
-    @toolbar = pkg.mainModule
+In `package.json`:
 
-    @toolbar.appendButton 'octoface', 'application:about', 'About Atom'
-    # Adding spacer
-    @toolbar.appendSpacer()
-    # Using custom icon set (Ionicons)
-    @toolbar.appendButton 'gear-a', 'application:show-settings', 'Show Settings', 'ion'
-    # Using custom icon set (FontAwesome)
-    @toolbar.appendButton 'pied-piper-alt', 'application:open-license', 'Open License', 'fa'
-    # Function as a callback
-    @toolbar.appendButton 'alert', ->
-      alert 'foo'
-    , 'Show Alert'
+```json
+"package-dependencies": {
+  "toolbar": "^0.1.0"
+},
+"consumedServices": {
+  "tool-bar": {
+    "versions": {
+      "^0.1.0": "consumeToolBar"
+    }
+  }
+}
 ```
 
-You can also prepend buttons/spacers using `prependButton()` and `prependSpacer()` methods.
-
-Both `prependButton()` and `appendButton` return `ToolbarButtonView` instance which has `setEnabled()` method:
+In your package main file, add the following method with the same name as in your `package.json`:
 
 ```coffeescript
-button = @toolbar.appendButton 'octoface', 'application:about', 'About Atom'
-button.setEnabled false
+consumeToolBar: (toolbar) ->
+  @toolbar = toolbar 'another-toolbar'
+
+  # Adding button
+  @toolbar.appendButton
+    icon: 'octoface'
+    callback: 'application:about'
+    tooltip: 'About Atom'
+
+  # Adding spacer
+  @toolbar.addSpacer()
+
+  # Using custom icon set (Ionicons)
+  button = @toolbar.addButton
+    icon: 'gear-a'
+    callback: 'application:show-settings'
+    tooltip: 'Show Settings'
+    iconset: 'ion'
+
+  # Disable button
+  button.setEnabled false
+
+  # Function with data as a callback
+  @toolbar.addButton
+    icon: 'alert',
+    callback: (data)->
+      alert data
+    tooltip: 'Show Alert'
+    data: 'foo'
 ```
 
 # Supported icon sets
