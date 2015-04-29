@@ -32,19 +32,33 @@ module.exports =
       addButton: @toolbarView.addButton.bind(@toolbarView)
       addSpacer: @toolbarView.addSpacer.bind(@toolbarView)
 
-  prependButton: (args...) ->
+  prependButton: (icon, callback, tooltip, iconset, data) ->
     Grim ?= require 'grim'
     Grim.deprecate 'Use version ^0.1.0 of the tool-bar Service API.'
-    return @toolbarView.addButton(args...)
-  prependSpacer: (args...) ->
+    @toolbarView.group = 'legacy'
+    @toolbarView.addButton
+      icon: icon
+      callback: callback
+      tooltip: tooltip
+      iconset: iconset
+      data: data
+  prependSpacer: () ->
     Grim ?= require 'grim'
     Grim.deprecate 'Use version ^0.1.0 of the tool-bar Service API.'
-    return @toolbarView.addSpacer(args...)
-  appendButton: (args...) ->
+    @toolbarView.group = 'legacy'
+    @toolbarView.addSpacer()
+  appendButton: (icon, callback, tooltip, iconset, data) ->
     Grim ?= require 'grim'
     Grim.deprecate 'Use version ^0.1.0 of the tool-bar Service API.'
-    return @toolbarView.addButton(args...)
-  appendSpacer: (args...) ->
+    @toolbarView.group = 'legacy'
+    @toolbarView.addButton
+      icon: icon
+      callback: callback
+      tooltip: tooltip
+      iconset: iconset
+      data: data
+  appendSpacer: () ->
     Grim ?= require 'grim'
     Grim.deprecate 'Use version ^0.1.0 of the tool-bar Service API.'
-    return @toolbarView.addSpacer(args...)
+    @toolbarView.group = 'legacy'
+    @toolbarView.addSpacer()
