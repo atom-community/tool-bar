@@ -90,7 +90,7 @@ consumeToolBar: (toolbar) ->
     priority: 10
 ```
 
-The method `appendButton` requires an object with at least the properties `icon` and `callback`.
+The method `addButton` requires an object with at least the properties `icon` and `callback`.
 The remaining properties `tooltip`, `iconset` (defaults `Octicons`), `data` and `priority` (defaults `50`) are optional.
 
 ## Supported icon sets
