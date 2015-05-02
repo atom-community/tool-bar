@@ -19,7 +19,7 @@
   },
   "providedServices": {
     "tool-bar": {
-      "description": "Does a useful thing",
+      "description": "A container for buttons at workspace edge",
       "versions": {
         "0.1.0": "provideStatusBar"
       }

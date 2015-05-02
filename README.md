@@ -56,7 +56,7 @@ consumeToolBar: (toolbar) ->
   @toolbar = toolbar 'another-toolbar'
 
   # Adding button
-  @toolbar.appendButton
+  @toolbar.addButton
     icon: 'octoface'
     callback: 'application:about'
     tooltip: 'About Atom'
