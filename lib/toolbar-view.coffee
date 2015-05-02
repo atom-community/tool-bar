@@ -9,10 +9,10 @@ module.exports = class ToolbarView extends View
   items: []
 
   addItem: (newItem) ->
-    newPriority = newItem.priority ? (@items[@items.length - 1]?.priority ? 49) + 1
+    newItem.priority ?= @items[@items.length - 1]?.priority ? 50
     nextItem = null
     for existingItem, index in @items
-      if existingItem.priority > newPriority
+      if existingItem.priority > newItem.priority
         nextItem = existingItem
         break
     @items.splice index, 0, newItem
