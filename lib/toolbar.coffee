@@ -1,55 +1,59 @@
-ToolbarView = null
-ToolbarButtonView = null
-$$ = null
+Grim = null
+ToolbarManager = null
 
 module.exports =
-  toolbarView: null
+  toolbar: null
 
-  activate: (state) ->
-    ToolbarView ?= require './toolbar-view'
-    @toolbarView = new ToolbarView(state.toolbarViewState)
-
-    ToolbarButtonView ?= require './toolbar-button-view'
-
-    {$$} = require 'atom-space-pen-views'
+  activate: ->
+    ToolbarView = require './toolbar-view'
+    @toolbar = new ToolbarView()
+    ToolbarManager = require './toolbar-manager'
+    @toolbarManagerLegacy = new ToolbarManager 'legacy', @toolbar
 
   deactivate: ->
-    @toolbarView.destroy()
+    @toolbar.destroy()
 
   serialize: ->
-    toolbarViewState: @toolbarView.serialize()
 
   config:
     position:
       type: 'string'
       default: 'Top'
       enum: ['Top', 'Right', 'Bottom', 'Left']
-
     visible:
       type: 'boolean'
       default: true
-
     iconSize:
       type: 'string'
       default: '24px'
       enum: ['16px', '24px', '32px']
 
-  prependButton: (icon, callback, tooltip = null, iconset = null, data = null) ->
-    button = new ToolbarButtonView icon, callback, tooltip, iconset, data
-    @toolbarView.prepend button
-    button
+  provideStatusBar: ->
+    (group) => new ToolbarManager group, @toolbar
 
-  prependSpacer: (view) ->
-    spacer = $$ -> @hr class: 'tool-bar-spacer'
-    @toolbarView.prepend spacer
-    spacer
-
-  appendButton: (icon, callback, tooltip = null, iconset = null, data = null) ->
-    button = new ToolbarButtonView icon, callback, tooltip, iconset, data
-    @toolbarView.append button
-    button
-
-  appendSpacer: (view) ->
-    spacer = $$ -> @hr class: 'tool-bar-spacer'
-    @toolbarView.append spacer
-    spacer
+  prependButton: (icon, callback, tooltip, iconset, data) ->
+    Grim ?= require 'grim'
+    Grim.deprecate 'Use version ^0.1.0 of the tool-bar Service API.'
+    @toolbarManagerLegacy.addButton
+      icon: icon
+      callback: callback
+      tooltip: tooltip
+      iconset: iconset
+      data: data
+  prependSpacer: ->
+    Grim ?= require 'grim'
+    Grim.deprecate 'Use version ^0.1.0 of the tool-bar Service API.'
+    @toolbarManagerLegacy.addSpacer()
+  appendButton: (icon, callback, tooltip, iconset, data) ->
+    Grim ?= require 'grim'
+    Grim.deprecate 'Use version ^0.1.0 of the tool-bar Service API.'
+    @toolbarManagerLegacy.addButton
+      icon: icon
+      callback: callback
+      tooltip: tooltip
+      iconset: iconset
+      data: data
+  appendSpacer: ->
+    Grim ?= require 'grim'
+    Grim.deprecate 'Use version ^0.1.0 of the tool-bar Service API.'
+    @toolbarManagerLegacy.addSpacer()

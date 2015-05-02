@@ -10,7 +10,7 @@ This package provides extensible toolbar for Atom.
 
 ![Light Theme](http://cl.ly/image/0g043b1e0P1X/Screenshot-2015-04-21-16.46.02.png)
 
-# Configuration
+## Configuration
 
 ### Orientation
 
@@ -25,49 +25,81 @@ This package provides extensible toolbar for Atom.
 * Big *(24px)*
 * Large *(32px)*
 
-# Plugins
+## Plugins
 
 * [toolbar-main](https://atom.io/packages/toolbar-main)
 * [flex-toolbar](https://atom.io/packages/flex-toolbar)
 
-# Integrating toolbar with your package
+## Integrating toolbar with your package
 
-By itself this package just shows empty bar. To add toolbar to your package use this code:
+By itself this package just shows empty toolbar. To add buttons and spacers to the toolbar, use the following code.
 
-```coffeescript
-atom.packages.activatePackage('toolbar')
-  .then (pkg) =>
-    @toolbar = pkg.mainModule
+In `package.json`:
 
-    @toolbar.appendButton 'octoface', 'application:about', 'About Atom'
-    # Adding spacer
-    @toolbar.appendSpacer()
-    # Using custom icon set (Ionicons)
-    @toolbar.appendButton 'gear-a', 'application:show-settings', 'Show Settings', 'ion'
-    # Using custom icon set (FontAwesome)
-    @toolbar.appendButton 'pied-piper-alt', 'application:open-license', 'Open License', 'fa'
-    # Function as a callback
-    @toolbar.appendButton 'alert', ->
-      alert 'foo'
-    , 'Show Alert'
+```json
+"package-dependencies": {
+  "toolbar": "^0.1.0"
+},
+"consumedServices": {
+  "tool-bar": {
+    "versions": {
+      "^0.1.0": "consumeToolBar"
+    }
+  }
+}
 ```
 
-You can also prepend buttons/spacers using `prependButton()` and `prependSpacer()` methods.
-
-Both `prependButton()` and `appendButton` return `ToolbarButtonView` instance which has `setEnabled()` method:
+In your package main file, add the following method with the same name as in your `package.json`:
 
 ```coffeescript
-button = @toolbar.appendButton 'octoface', 'application:about', 'About Atom'
-button.setEnabled false
+consumeToolBar: (toolbar) ->
+  @toolbar = toolbar 'another-toolbar'
+
+  # Adding button
+  @toolbar.addButton
+    icon: 'octoface'
+    callback: 'application:about'
+    tooltip: 'About Atom'
+
+  # Adding spacer
+  @toolbar.addSpacer()
+
+  # Using custom icon set (Ionicons)
+  button = @toolbar.addButton
+    icon: 'gear-a'
+    callback: 'application:show-settings'
+    tooltip: 'Show Settings'
+    iconset: 'ion'
+
+  # Disable button
+  button.setEnabled false
+
+  # Function with data as a callback
+  @toolbar.addButton
+    icon: 'alert',
+    callback: (data)->
+      alert data
+    tooltip: 'Show Alert'
+    data: 'foo'
+
+  # Adding spacer and button at the beginning of the toolbar
+  @toolbar.addSpacer priority: 10
+  @toolbar.addButton
+    icon: 'octoface'
+    callback: 'application:about'
+    priority: 10
 ```
 
-# Supported icon sets
+The method `appendButton` requires an object with at least the properties `icon` and `callback`.
+The remaining properties `tooltip`, `iconset` (defaults `Octicons`), `data` and `priority` (defaults `50`) are optional.
+
+## Supported icon sets
 
 * [Octicons](https://octicons.github.com/) (Atom's flavour)
 * [Ionicons](http://ionicons.com/)
 * [FontAwesome](http://fortawesome.github.io/Font-Awesome/)
 
-# Contibutors
+## Contributors
 
 Issues and pull requests are very welcome. Feel free to write your own packages using this one.
 For all contributions credits are due:

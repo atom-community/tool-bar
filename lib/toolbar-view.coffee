@@ -1,14 +1,36 @@
 {CompositeDisposable} = require 'atom'
-{View} = require 'atom-space-pen-views'
+{View} = require 'space-pen'
 _ = require 'underscore-plus'
 
 module.exports = class ToolbarView extends View
   @content: ->
     @div class: 'tool-bar'
 
-  initialize: (serializeState) ->
+  items: []
+
+  addItem: (newItem) ->
+    newItem.priority ?= @items[@items.length - 1]?.priority ? 50
+    nextItem = null
+    for existingItem, index in @items
+      if existingItem.priority > newItem.priority
+        nextItem = existingItem
+        break
+    @items.splice index, 0, newItem
+    newElement = atom.views.getView newItem
+    nextElement = atom.views.getView nextItem
+    @.element.insertBefore newElement, nextElement
+    nextItem
+
+  removeItem: (item) ->
+    index = @items.indexOf item
+    @items.splice index, 1
+    element = atom.views.getView item
+    @.element.removeChild element
+
+  initialize: ->
     @subscriptions = new CompositeDisposable
-    @subscriptions.add atom.commands.add 'atom-workspace', 'toolbar:toggle', => @toggle()
+    @subscriptions.add atom.commands.add 'atom-workspace', 'toolbar:toggle', =>
+      @toggle()
     @subscriptions.add atom.commands.add 'atom-workspace', 'toolbar:position:top', =>
       @updatePosition 'Top'
       atom.config.set 'toolbar.position', 'Top'
@@ -43,7 +65,7 @@ module.exports = class ToolbarView extends View
 
   updateSize: (size) ->
     @removeClass 'tool-bar-16px tool-bar-24px tool-bar-32px'
-    @addClass 'tool-bar-' + size
+    @addClass "tool-bar-#{size}"
 
   updatePosition: (position) ->
     @removeClass 'tool-bar-top tool-bar-right tool-bar-bottom tool-bar-left tool-bar-horizontal tool-bar-vertical'
@@ -53,7 +75,7 @@ module.exports = class ToolbarView extends View
       when 'Right' then @panel = atom.workspace.addRightPanel { item: @ }
       when 'Bottom' then @panel = atom.workspace.addBottomPanel { item: @ }
       when 'Left' then @panel = atom.workspace.addLeftPanel { item: @, priority: 50 }
-    @addClass 'tool-bar-' + position.toLowerCase()
+    @addClass "tool-bar-#{position.toLowerCase()}"
 
     if position is 'Top' or position is 'Bottom'
       @addClass 'tool-bar-horizontal'
