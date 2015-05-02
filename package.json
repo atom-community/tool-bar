@@ -1,5 +1,5 @@
 {
-  "name": "toolbar",
+  "name": "tool-bar",
   "main": "./lib/tool-bar",
   "version": "0.0.0",
   "description": "Package providing customisable tool bar",
