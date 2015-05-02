@@ -5,10 +5,10 @@ module.exports = class ToolbarButtonView extends View
   @content: ->
     @button class: 'btn btn-default tool-bar-btn'
 
-  initialize: (group, options) ->
+  initialize: (options) ->
     @subscriptions = new CompositeDisposable
 
-    @attr 'data-group', group
+    @priority = options.priority
 
     if options.tooltip
       @prop 'title', options.tooltip
@@ -20,8 +20,8 @@ module.exports = class ToolbarButtonView extends View
       @addClass "icon-#{options.icon}"
 
     @on 'click', =>
-      if !@hasClass 'disabled'
-        if typeof(options.callback) == 'string'
+      if not @hasClass 'disabled'
+        if typeof options.callback is 'string'
           atom.commands.dispatch document.activeElement, options.callback
         else
           options.callback(options.data)

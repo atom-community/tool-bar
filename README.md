@@ -10,7 +10,7 @@ This package provides extensible toolbar for Atom.
 
 ![Light Theme](http://cl.ly/image/0g043b1e0P1X/Screenshot-2015-04-21-16.46.02.png)
 
-# Configuration
+## Configuration
 
 ### Orientation
 
@@ -25,12 +25,12 @@ This package provides extensible toolbar for Atom.
 * Big *(24px)*
 * Large *(32px)*
 
-# Plugins
+## Plugins
 
 * [toolbar-main](https://atom.io/packages/toolbar-main)
 * [flex-toolbar](https://atom.io/packages/flex-toolbar)
 
-# Integrating toolbar with your package
+## Integrating toolbar with your package
 
 By itself this package just shows empty toolbar. To add buttons and spacers to the toolbar, use the following code.
 
@@ -81,15 +81,25 @@ consumeToolBar: (toolbar) ->
       alert data
     tooltip: 'Show Alert'
     data: 'foo'
+
+  # Adding spacer and button at the beginning of the toolbar
+  @toolbar.addSpacer priority: 10
+  @toolbar.addButton
+    icon: 'octoface'
+    callback: 'application:about'
+    priority: 10
 ```
 
-# Supported icon sets
+The method `appendButton` requires an object with at least the properties `icon` and `callback`.
+The remaining properties `tooltip`, `iconset` (defaults `Octicons`), `data` and `priority` (defaults `50`) are optional.
+
+## Supported icon sets
 
 * [Octicons](https://octicons.github.com/) (Atom's flavour)
 * [Ionicons](http://ionicons.com/)
 * [FontAwesome](http://fortawesome.github.io/Font-Awesome/)
 
-# Contibutors
+## Contributors
 
 Issues and pull requests are very welcome. Feel free to write your own packages using this one.
 For all contributions credits are due:

@@ -1,10 +1,31 @@
 {CompositeDisposable} = require 'atom'
-{View} = require 'space-pen'
+{View, $} = require 'space-pen'
 _ = require 'underscore-plus'
 
 module.exports = class ToolbarView extends View
   @content: ->
     @div class: 'tool-bar'
+
+  items: []
+
+  addItem: (newItem) ->
+    newPriority = newItem.priority ? (@items[@items.length - 1]?.priority ? 49) + 1
+    nextItem = null
+    for existingItem, index in @items
+      if existingItem.priority > newPriority
+        nextItem = existingItem
+        break
+    @items.splice index, 0, newItem
+    newElement = atom.views.getView newItem
+    nextElement = atom.views.getView nextItem
+    @.element.insertBefore newElement, nextElement
+    nextItem
+
+  removeItem: (item) ->
+    index = @items.indexOf item
+    @items.splice index, 1
+    element = atom.views.getView item
+    @.element.removeChild element
 
   initialize: ->
     @subscriptions = new CompositeDisposable
