@@ -1,6 +1,6 @@
-# Atom Toolbar
+# Atom Tool Bar
 
-This package provides extensible toolbar for Atom.
+This package provides extensible tool bar for Atom.
 
 ![Horizontal](http://cl.ly/image/2w0u3c1x1K3W/Screenshot-2015-04-21-16.46.49.png)
 
@@ -27,18 +27,18 @@ This package provides extensible toolbar for Atom.
 
 ## Plugins
 
-* [toolbar-main](https://atom.io/packages/toolbar-main)
+* [tool-bar-main](https://atom.io/packages/tool-bar-main)
 * [flex-toolbar](https://atom.io/packages/flex-toolbar)
 
-## Integrating toolbar with your package
+## Integrating tool bar with your package
 
-By itself this package just shows empty toolbar. To add buttons and spacers to the toolbar, use the following code.
+By itself this package just shows empty tool bar. To add buttons and spacers to the tool bar, use the following code.
 
 In `package.json`:
 
 ```json
 "package-dependencies": {
-  "toolbar": "^0.1.0"
+  "tool-bar": "^0.1.0"
 },
 "consumedServices": {
   "tool-bar": {
@@ -52,20 +52,20 @@ In `package.json`:
 In your package main file, add the following method with the same name as in your `package.json`:
 
 ```coffeescript
-consumeToolBar: (toolbar) ->
-  @toolbar = toolbar 'another-toolbar'
+consumeToolBar: (toolBar) ->
+  @toolBar = toolBar 'another-tool-bar'
 
   # Adding button
-  @toolbar.addButton
+  @toolBar.addButton
     icon: 'octoface'
     callback: 'application:about'
     tooltip: 'About Atom'
 
   # Adding spacer
-  @toolbar.addSpacer()
+  @toolBar.addSpacer()
 
   # Using custom icon set (Ionicons)
-  button = @toolbar.addButton
+  button = @toolBar.addButton
     icon: 'gear-a'
     callback: 'application:show-settings'
     tooltip: 'Show Settings'
@@ -75,16 +75,16 @@ consumeToolBar: (toolbar) ->
   button.setEnabled false
 
   # Function with data as a callback
-  @toolbar.addButton
+  @toolBar.addButton
     icon: 'alert',
     callback: (data)->
       alert data
     tooltip: 'Show Alert'
     data: 'foo'
 
-  # Adding spacer and button at the beginning of the toolbar
-  @toolbar.addSpacer priority: 10
-  @toolbar.addButton
+  # Adding spacer and button at the beginning of the tool bar
+  @toolBar.addSpacer priority: 10
+  @toolBar.addButton
     icon: 'octoface'
     callback: 'application:about'
     priority: 10

@@ -1,17 +1,17 @@
 Grim = null
-ToolbarManager = null
+ToolBarManager = null
 
 module.exports =
-  toolbar: null
+  toolBar: null
 
   activate: ->
-    ToolbarView = require './toolbar-view'
-    @toolbar = new ToolbarView()
-    ToolbarManager = require './toolbar-manager'
-    @toolbarManagerLegacy = new ToolbarManager 'legacy', @toolbar
+    ToolBarView = require './tool-bar-view'
+    @toolBar = new ToolBarView()
+    ToolBarManager = require './tool-bar-manager'
+    @toolBarManagerLegacy = new ToolBarManager 'legacy', @toolBar
 
   deactivate: ->
-    @toolbar.destroy()
+    @toolBar.destroy()
 
   serialize: ->
 
@@ -29,12 +29,12 @@ module.exports =
       enum: ['16px', '24px', '32px']
 
   provideStatusBar: ->
-    (group) => new ToolbarManager group, @toolbar
+    (group) => new ToolBarManager group, @toolBar
 
   prependButton: (icon, callback, tooltip, iconset, data) ->
     Grim ?= require 'grim'
     Grim.deprecate 'Use version ^0.1.0 of the tool-bar Service API.'
-    @toolbarManagerLegacy.addButton
+    @toolBarManagerLegacy.addButton
       icon: icon
       callback: callback
       tooltip: tooltip
@@ -43,11 +43,11 @@ module.exports =
   prependSpacer: ->
     Grim ?= require 'grim'
     Grim.deprecate 'Use version ^0.1.0 of the tool-bar Service API.'
-    @toolbarManagerLegacy.addSpacer()
+    @toolBarManagerLegacy.addSpacer()
   appendButton: (icon, callback, tooltip, iconset, data) ->
     Grim ?= require 'grim'
     Grim.deprecate 'Use version ^0.1.0 of the tool-bar Service API.'
-    @toolbarManagerLegacy.addButton
+    @toolBarManagerLegacy.addButton
       icon: icon
       callback: callback
       tooltip: tooltip
@@ -56,4 +56,4 @@ module.exports =
   appendSpacer: ->
     Grim ?= require 'grim'
     Grim.deprecate 'Use version ^0.1.0 of the tool-bar Service API.'
-    @toolbarManagerLegacy.addSpacer()
+    @toolBarManagerLegacy.addSpacer()

@@ -1,13 +1,14 @@
 {
   "name": "toolbar",
-  "main": "./lib/toolbar",
-  "version": "0.1.0",
-  "description": "Package providing customisable toolbar",
-  "repository": "https://github.com/suda/toolbar",
+  "main": "./lib/tool-bar",
+  "version": "0.0.0",
+  "description": "Package providing customisable tool bar",
+  "repository": "https://github.com/suda/tool-bar",
   "license": "MIT",
   "keywords": [
     "toolbar",
-    "tool-bar"
+    "tool-bar",
+    "service"
   ],
   "engines": {
     "atom": ">=0.188.0"

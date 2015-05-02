@@ -1,24 +1,24 @@
-ToolbarButtonView = require './toolbar-button-view'
+ToolBarButtonView = require './tool-bar-button-view'
 {$$} = require 'space-pen'
 
-module.exports = class ToolbarManager
-  constructor: (@group, @toolbar) ->
+module.exports = class ToolBarManager
+  constructor: (@group, @toolBar) ->
 
   addButton: (options) ->
-    button = new ToolbarButtonView options
+    button = new ToolBarButtonView options
     button.group = @group
-    @toolbar.addItem button
+    @toolBar.addItem button
     button
 
   addSpacer: (options) ->
     spacer = $$ -> @hr class: 'tool-bar-spacer'
     spacer.priority = options?.priority
     spacer.group = @group
-    @toolbar.addItem spacer
+    @toolBar.addItem spacer
     spacer
 
   removeItems: ->
-    items = @toolbar.items.filter (item) =>
+    items = @toolBar.items.filter (item) =>
       item.group is @group
     items.forEach (item) =>
-      @toolbar.removeItem item
+      @toolBar.removeItem item

@@ -2,7 +2,7 @@
 {View} = require 'space-pen'
 _ = require 'underscore-plus'
 
-module.exports = class ToolbarView extends View
+module.exports = class ToolBarView extends View
   @content: ->
     @div class: 'tool-bar'
 
@@ -29,31 +29,31 @@ module.exports = class ToolbarView extends View
 
   initialize: ->
     @subscriptions = new CompositeDisposable
-    @subscriptions.add atom.commands.add 'atom-workspace', 'toolbar:toggle', =>
+    @subscriptions.add atom.commands.add 'atom-workspace', 'tool-bar:toggle', =>
       @toggle()
-    @subscriptions.add atom.commands.add 'atom-workspace', 'toolbar:position:top', =>
+    @subscriptions.add atom.commands.add 'atom-workspace', 'tool-bar:position:top', =>
       @updatePosition 'Top'
-      atom.config.set 'toolbar.position', 'Top'
-    @subscriptions.add atom.commands.add 'atom-workspace', 'toolbar:position:right', =>
+      atom.config.set 'tool-bar.position', 'Top'
+    @subscriptions.add atom.commands.add 'atom-workspace', 'tool-bar:position:right', =>
       @updatePosition 'Right'
-      atom.config.set 'toolbar.position', 'Right'
-    @subscriptions.add atom.commands.add 'atom-workspace', 'toolbar:position:bottom', =>
+      atom.config.set 'tool-bar.position', 'Right'
+    @subscriptions.add atom.commands.add 'atom-workspace', 'tool-bar:position:bottom', =>
       @updatePosition 'Bottom'
-      atom.config.set 'toolbar.position', 'Bottom'
-    @subscriptions.add atom.commands.add 'atom-workspace', 'toolbar:position:left', =>
+      atom.config.set 'tool-bar.position', 'Bottom'
+    @subscriptions.add atom.commands.add 'atom-workspace', 'tool-bar:position:left', =>
       @updatePosition 'Left'
-      atom.config.set 'toolbar.position', 'Left'
+      atom.config.set 'tool-bar.position', 'Left'
 
-    atom.config.observe 'toolbar.iconSize', (newValue) =>
+    atom.config.observe 'tool-bar.iconSize', (newValue) =>
       @updateSize newValue
 
-    atom.config.onDidChange 'toolbar.position', ({newValue, oldValue}) =>
-      @show() if atom.config.get 'toolbar.visible'
+    atom.config.onDidChange 'tool-bar.position', ({newValue, oldValue}) =>
+      @show() if atom.config.get 'tool-bar.visible'
 
-    atom.config.onDidChange 'toolbar.visible', ({newValue, oldValue}) =>
+    atom.config.onDidChange 'tool-bar.visible', ({newValue, oldValue}) =>
       if newValue then @show() else @hide()
 
-    if atom.config.get 'toolbar.visible'
+    if atom.config.get 'tool-bar.visible'
       @show()
 
   serialize: ->
@@ -86,8 +86,8 @@ module.exports = class ToolbarView extends View
 
   updateMenu: (position) ->
     packagesMenu = _.find(atom.menu.template, ({label}) -> label is 'Packages' or label is '&Packages')
-    toolbarMenu = _.find(packagesMenu.submenu, ({label}) -> label is 'Toolbar' or label is '&Toolbar') if packagesMenu
-    positionsMenu = _.find(toolbarMenu.submenu, ({label}) -> label is 'Position' or label is '&Position') if toolbarMenu
+    toolBarMenu = _.find(packagesMenu.submenu, ({label}) -> label is 'Tool Bar' or label is '&Tool Bar') if packagesMenu
+    positionsMenu = _.find(toolBarMenu.submenu, ({label}) -> label is 'Position' or label is '&Position') if toolBarMenu
     positionMenu = _.find(positionsMenu.submenu, ({label}) -> label is position) if positionsMenu
     positionMenu?.checked = true;
 
@@ -97,13 +97,13 @@ module.exports = class ToolbarView extends View
 
   show: ->
     @hide()
-    @updatePosition atom.config.get 'toolbar.position'
-    @updateSize atom.config.get 'toolbar.iconSize'
+    @updatePosition atom.config.get 'tool-bar.position'
+    @updateSize atom.config.get 'tool-bar.iconSize'
 
   toggle: ->
     if @hasParent()
       @hide()
-      atom.config.set 'toolbar.visible', false
+      atom.config.set 'tool-bar.visible', false
     else
       @show()
-      atom.config.set 'toolbar.visible', true
+      atom.config.set 'tool-bar.visible', true

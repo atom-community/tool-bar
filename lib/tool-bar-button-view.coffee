@@ -1,7 +1,7 @@
 {CompositeDisposable} = require 'atom'
 {View} = require 'space-pen'
 
-module.exports = class ToolbarButtonView extends View
+module.exports = class ToolBarButtonView extends View
   @content: ->
     @button class: 'btn btn-default tool-bar-btn'
 
