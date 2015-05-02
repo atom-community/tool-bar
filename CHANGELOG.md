@@ -1,3 +1,6 @@
+## 0.1.0
+* Added support for [Services API](https://atom.io/docs/latest/behind-atom-interacting-with-packages-via-services) (by Jeroen van Warmerdam)
+
 ## 0.0.16
 * Added toolbar position to Atom menu & toolbar context menu (by Jeroen van Warmerdam)
 * Added data attribute to button callback (by Ryo Narita)
