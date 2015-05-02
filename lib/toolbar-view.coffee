@@ -1,5 +1,5 @@
 {CompositeDisposable} = require 'atom'
-{View, $} = require 'space-pen'
+{View} = require 'space-pen'
 _ = require 'underscore-plus'
 
 module.exports = class ToolbarView extends View
