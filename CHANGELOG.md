@@ -1,3 +1,6 @@
+## 0.1.1
+* Fixed margin in One themes (by simurai)
+
 ## 0.1.0
 * Added support for [Services API](https://atom.io/docs/latest/behind-atom-interacting-with-packages-via-services) (by Jeroen van Warmerdam)
 * Renamed to `tool-bar`
