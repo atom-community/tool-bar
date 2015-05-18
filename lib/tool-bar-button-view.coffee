@@ -1,5 +1,5 @@
 {CompositeDisposable} = require 'atom'
-{View} = require 'space-pen'
+{$, View} = require 'space-pen'
 
 module.exports = class ToolBarButtonView extends View
   @content: ->
@@ -22,9 +22,12 @@ module.exports = class ToolBarButtonView extends View
     @on 'click', =>
       if not @hasClass 'disabled'
         if typeof options.callback is 'string'
-          atom.commands.dispatch atom.views.getView(atom.workspace.getActiveTextEditor()), options.callback
+          atom.commands.dispatch @getPreviouslyFocusedElement(), options.callback
         else
           options.callback(options.data)
+
+    @on 'mouseover', =>
+      @storeFocusedElement()
 
   setEnabled: (enabled) ->
     if enabled
@@ -34,3 +37,12 @@ module.exports = class ToolBarButtonView extends View
 
   destroy: ->
     @subscriptions.dispose()
+
+  getPreviouslyFocusedElement: () ->
+    if @previouslyFocusedElement[0] and @previouslyFocusedElement[0] isnt document.body
+      @eventElement = @previouslyFocusedElement[0]
+    else
+      @eventElement = atom.views.getView(atom.workspace)
+
+  storeFocusedElement: ->
+    @previouslyFocusedElement = $(document.activeElement)
