@@ -24,7 +24,7 @@ module.exports = class ToolBarButtonView extends View
         if typeof options.callback is 'string'
           atom.commands.dispatch @getPreviouslyFocusedElement(), options.callback
         else
-          options.callback(options.data)
+          options.callback(options.data, @getPreviouslyFocusedElement())
 
     @on 'mouseover', =>
       @storeFocusedElement()
