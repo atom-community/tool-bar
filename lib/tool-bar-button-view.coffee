@@ -45,4 +45,6 @@ module.exports = class ToolBarButtonView extends View
       @eventElement = atom.views.getView(atom.workspace)
 
   storeFocusedElement: ->
-    @previouslyFocusedElement = $(document.activeElement)
+    activeElement = $(document.activeElement)
+    if !activeElement.hasClass 'tool-bar-btn'
+      @previouslyFocusedElement = activeElement
