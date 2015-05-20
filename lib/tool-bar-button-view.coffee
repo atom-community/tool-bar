@@ -1,5 +1,5 @@
 {CompositeDisposable} = require 'atom'
-{$, View} = require 'space-pen'
+{View} = require 'space-pen'
 
 module.exports = class ToolBarButtonView extends View
   @content: ->
@@ -39,12 +39,11 @@ module.exports = class ToolBarButtonView extends View
     @subscriptions.dispose()
 
   getPreviouslyFocusedElement: () ->
-    if @previouslyFocusedElement[0] and @previouslyFocusedElement[0] isnt document.body
-      @eventElement = @previouslyFocusedElement[0]
+    if @previouslyFocusedElement and @previouslyFocusedElement.nodeName isnt 'BODY'
+      @eventElement = @previouslyFocusedElement
     else
       @eventElement = atom.views.getView(atom.workspace)
 
   storeFocusedElement: ->
-    activeElement = $(document.activeElement)
-    if !activeElement.hasClass 'tool-bar-btn'
-      @previouslyFocusedElement = activeElement
+    if not document.activeElement.classList.contains 'tool-bar-btn'
+      @previouslyFocusedElement = document.activeElement
