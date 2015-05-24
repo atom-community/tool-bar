@@ -22,9 +22,12 @@ module.exports = class ToolBarButtonView extends View
     @on 'click', =>
       if not @hasClass 'disabled'
         if typeof options.callback is 'string'
-          atom.commands.dispatch document.activeElement, options.callback
+          atom.commands.dispatch @getPreviouslyFocusedElement(), options.callback
         else
-          options.callback(options.data)
+          options.callback(options.data, @getPreviouslyFocusedElement())
+
+    @on 'mouseover', =>
+      @storeFocusedElement()
 
   setEnabled: (enabled) ->
     if enabled
@@ -34,3 +37,13 @@ module.exports = class ToolBarButtonView extends View
 
   destroy: ->
     @subscriptions.dispose()
+
+  getPreviouslyFocusedElement: () ->
+    if @previouslyFocusedElement and @previouslyFocusedElement.nodeName isnt 'BODY'
+      @eventElement = @previouslyFocusedElement
+    else
+      @eventElement = atom.views.getView(atom.workspace)
+
+  storeFocusedElement: ->
+    if not document.activeElement.classList.contains 'tool-bar-btn'
+      @previouslyFocusedElement = document.activeElement
