@@ -1,3 +1,7 @@
+## 0.1.2
+* Fixed buttons outline on OS X (by Nikita Gusakov)
+* Fixed callback target (by Ryo Narita)
+
 ## 0.1.1
 * Fixed margin in One themes (by simurai)
 

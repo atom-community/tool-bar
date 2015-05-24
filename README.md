@@ -2,6 +2,8 @@
 
 This package provides extensible tool bar for Atom.
 
+**Note:** this package by itself adds an empty toolbar. To propagate it with icons you can [install plugins](#plugins).
+
 ![Horizontal](http://cl.ly/image/2w0u3c1x1K3W/Screenshot-2015-04-21-16.46.49.png)
 
 ![Vertical](http://cl.ly/image/1t3U3F191p35/Screenshot-2015-04-21-16.45.46.png)
@@ -99,12 +101,17 @@ The remaining properties `tooltip`, `iconset` (defaults `Octicons`), `data` and 
 * [Ionicons](http://ionicons.com/)
 * [FontAwesome](http://fortawesome.github.io/Font-Awesome/)
 
+## Authors
+
+* [Wojtek Siudzinski](http://suda.pl)
+* [Jeroen van Warmerdam](https://github.com/jerone)
+
 ## Contributors
 
 Issues and pull requests are very welcome. Feel free to write your own packages using this one.
 For all contributions credits are due:
 
-* [Jeroen van Warmerdam](https://github.com/jerone)
 * [Pascal Bihler](https://github.com/pbihler)
 * [Ryo Narita](https://github.com/cakecatz)
+* [Nikita Gusakov](https://github.com/nkt)
 * Carlos Santos
