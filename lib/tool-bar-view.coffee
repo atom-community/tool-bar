@@ -31,16 +31,16 @@ module.exports = class ToolBarView extends View
     @subscriptions = new CompositeDisposable
     @subscriptions.add atom.commands.add 'atom-workspace', 'tool-bar:toggle', =>
       @toggle()
-    @subscriptions.add atom.commands.add 'atom-workspace', 'tool-bar:position:top', =>
+    @subscriptions.add atom.commands.add 'atom-workspace', 'tool-bar:position-top', =>
       @updatePosition 'Top'
       atom.config.set 'tool-bar.position', 'Top'
-    @subscriptions.add atom.commands.add 'atom-workspace', 'tool-bar:position:right', =>
+    @subscriptions.add atom.commands.add 'atom-workspace', 'tool-bar:position-right', =>
       @updatePosition 'Right'
       atom.config.set 'tool-bar.position', 'Right'
-    @subscriptions.add atom.commands.add 'atom-workspace', 'tool-bar:position:bottom', =>
+    @subscriptions.add atom.commands.add 'atom-workspace', 'tool-bar:position-bottom', =>
       @updatePosition 'Bottom'
       atom.config.set 'tool-bar.position', 'Bottom'
-    @subscriptions.add atom.commands.add 'atom-workspace', 'tool-bar:position:left', =>
+    @subscriptions.add atom.commands.add 'atom-workspace', 'tool-bar:position-left', =>
       @updatePosition 'Left'
       atom.config.set 'tool-bar.position', 'Left'
 
