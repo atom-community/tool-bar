@@ -101,6 +101,7 @@ The remaining properties `tooltip`, `iconset` (defaults `Octicons`), `data` and 
 * [Ionicons](http://ionicons.com)
 * [FontAwesome](http://fortawesome.github.io/Font-Awesome)
 * [Foundation](http://zurb.com/playground/foundation-icon-fonts-3)
+* [IcoMoon](https://icomoon.io)
 
 ## Authors
 
