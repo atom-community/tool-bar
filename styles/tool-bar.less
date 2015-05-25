@@ -8,6 +8,9 @@
   background-color: @base-background-color;
   border: 1px solid @base-border-color;
   color: @text-color;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 
   button.tool-bar-btn {
     background-color: @base-background-color;
@@ -23,8 +26,8 @@
     }
     &:focus,
     &:hover {
-      outline: none;
       border-color: @button-border-color;
+      outline: none;
     }
   }
 
@@ -66,12 +69,12 @@
     line-height: @size;
 
     &.tool-bar-horizontal {
-      height: @size + (@button-border-size * 3)+ (@button-margin-size * 2);
+      flex-direction: row;
       width: 100%;
     }
     &.tool-bar-vertical {
+      flex-direction: column;
       height: 100%;
-      width: @size + (@button-border-size * 3) + (@button-margin-size * 2);
     }
 
     .tool-bar-btn {
