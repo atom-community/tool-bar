@@ -101,6 +101,14 @@ The remaining properties `tooltip`, `iconset` (defaults `Octicons`), `data` and 
 * [Ionicons](http://ionicons.com/)
 * [FontAwesome](http://fortawesome.github.io/Font-Awesome/)
 
+## Supported commands
+
+* `tool-bar:toggle`
+* `tool-bar:position-top`
+* `tool-bar:position-right`
+* `tool-bar:position-bottom`
+* `tool-bar:position-left`
+
 ## Authors
 
 * [Wojtek Siudzinski](http://suda.pl)

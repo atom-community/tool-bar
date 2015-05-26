@@ -9,10 +9,10 @@ menu: [
           {
             label: '&Position',
             submenu: [
-              { label: 'Top', command: 'tool-bar:position:top', type: 'radio' }
-              { label: 'Right', command: 'tool-bar:position:right', type: 'radio' }
-              { label: 'Bottom', command: 'tool-bar:position:bottom', type: 'radio' }
-              { label: 'Left', command: 'tool-bar:position:left', type: 'radio' }
+              { label: 'Top', command: 'tool-bar:position-top', type: 'radio' }
+              { label: 'Right', command: 'tool-bar:position-right', type: 'radio' }
+              { label: 'Bottom', command: 'tool-bar:position-bottom', type: 'radio' }
+              { label: 'Left', command: 'tool-bar:position-left', type: 'radio' }
             ]
           }
         ]
@@ -26,10 +26,10 @@ menu: [
     {
       label: '&Position',
       submenu: [
-        { label: 'Top', command: 'tool-bar:position:top' }
-        { label: 'Right', command: 'tool-bar:position:right' }
-        { label: 'Bottom', command: 'tool-bar:position:bottom' }
-        { label: 'Left', command: 'tool-bar:position:left' }
+        { label: 'Top', command: 'tool-bar:position-top' }
+        { label: 'Right', command: 'tool-bar:position-right' }
+        { label: 'Bottom', command: 'tool-bar:position-bottom' }
+        { label: 'Left', command: 'tool-bar:position-left' }
       ]
     }
   ]
