@@ -97,9 +97,11 @@ The remaining properties `tooltip`, `iconset` (defaults `Octicons`), `data` and 
 
 ## Supported icon sets
 
-* [Octicons](https://octicons.github.com/) (Atom's flavour)
-* [Ionicons](http://ionicons.com/)
-* [FontAwesome](http://fortawesome.github.io/Font-Awesome/)
+* [Octicons](https://octicons.github.com) (Atom's flavour)
+* [Ionicons](http://ionicons.com)
+* [FontAwesome](http://fortawesome.github.io/Font-Awesome)
+* [Foundation](http://zurb.com/playground/foundation-icon-fonts-3)
+* [IcoMoon](https://icomoon.io)
 
 ## Supported commands
 
