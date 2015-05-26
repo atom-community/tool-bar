@@ -14,7 +14,7 @@ This package provides extensible tool bar for Atom.
 
 ## Configuration
 
-### Orientation
+### Position
 
 * Top
 * Right
@@ -27,16 +27,23 @@ This package provides extensible tool bar for Atom.
 * Big *(24px)*
 * Large *(32px)*
 
+### Visiblity
+
+* Visible
+* Hidden
+
 ## Plugins
 
 * [tool-bar-main](https://atom.io/packages/tool-bar-main)
 * [flex-tool-bar](https://atom.io/packages/flex-tool-bar)
 
-## Integrating tool bar with your package
+## Integrating instructions
 
-By itself this package just shows empty tool bar. To add buttons and spacers to the tool bar, use the following code.
+By itself this package just shows an empty tool bar. To add buttons and spacers to the tool bar, follow the instructions below.
 
-In `package.json`:
+### Package.json
+
+Make sure the following properties are part of your `package.json`.
 
 ```json
 "package-dependencies": {
@@ -51,11 +58,22 @@ In `package.json`:
 }
 ```
 
-In your package main file, add the following method with the same name as in your `package.json`:
+### Main package file
+
+In your main package file, add the following method and replace `your-package-name` with your package name.
 
 ```coffeescript
 consumeToolBar: (toolBar) ->
-  @toolBar = toolBar 'another-tool-bar'
+  @toolBar = toolBar 'your-package-name'
+
+  # Add buttons and spacers here.
+```
+
+### Example
+
+```coffeescript
+consumeToolBar: (toolBar) ->
+  @toolBar = toolBar 'your-package-name'
 
   # Adding button
   @toolBar.addButton
@@ -76,7 +94,7 @@ consumeToolBar: (toolBar) ->
   # Disable button
   button.setEnabled false
 
-  # Function with data as a callback
+  # Function with data in callback
   @toolBar.addButton
     icon: 'alert',
     callback: (data)->
@@ -93,15 +111,18 @@ consumeToolBar: (toolBar) ->
 ```
 
 The method `addButton` requires an object with at least the properties `icon` and `callback`.
-The remaining properties `tooltip`, `iconset` (defaults `Octicons`), `data` and `priority` (defaults `50`) are optional.
+
+The remaining properties `tooltip` (default is no tooltip), `iconset` (defaults `Octicons`), `data` and `priority` (defaults `50`) are optional.
+
+The method 'addSpacer' has only one optional property `priority` (defaults `50`).
 
 ## Supported icon sets
 
 * [Octicons](https://octicons.github.com) (Atom's flavour)
-* [Ionicons](http://ionicons.com)
-* [FontAwesome](http://fortawesome.github.io/Font-Awesome)
-* [Foundation](http://zurb.com/playground/foundation-icon-fonts-3)
-* [IcoMoon](https://icomoon.io)
+* [Ionicons](http://ionicons.com) (`ion`)
+* [FontAwesome](http://fortawesome.github.io/Font-Awesome) (`fa`)
+* [Foundation](http://zurb.com/playground/foundation-icon-fonts-3) (`fi`)
+* [IcoMoon](https://icomoon.io) (`icomoon`)
 
 ## Supported commands
 
