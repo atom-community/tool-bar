@@ -1,3 +1,9 @@
+## vNext
+* Fixed toolbar wrap/overflow (by @jerone & @simurai) (#38)
+* Renamed commands (by @jerone) (#40)
+* Added new iconsets (by @jerone) (#39)
+* Updated Ionicons (by @jerone) (#50)
+
 ## 0.1.2
 * Fixed buttons outline on OS X (by Nikita Gusakov)
 * Fixed callback target (by Ryo Narita)
