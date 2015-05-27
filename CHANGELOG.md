@@ -1,4 +1,4 @@
-## vNext
+## 0.1.3
 * Fixed toolbar wrap/overflow (by @jerone & @simurai) (#38)
 * Renamed commands (by @jerone) (#40)
 * Added new iconsets (by @jerone) (#39)
