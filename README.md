@@ -60,13 +60,16 @@ Make sure the following properties are part of your `package.json`.
 
 ### Main package file
 
-In your main package file, add the following method and replace `your-package-name` with your package name.
+In your main package file, add the following methods and replace `your-package-name` with your package name.
 
 ```coffeescript
 consumeToolBar: (toolBar) ->
   @toolBar = toolBar 'your-package-name'
 
-  # Add buttons and spacers here.
+  # Add buttons and spacers here...
+
+deactivate: ->
+  @toolBar?.removeItems()
 ```
 
 ### Example
@@ -114,7 +117,9 @@ The method `addButton` requires an object with at least the properties `icon` an
 
 The remaining properties `tooltip` (default is no tooltip), `iconset` (defaults `Octicons`), `data` and `priority` (defaults `50`) are optional.
 
-The method 'addSpacer' has only one optional property `priority` (defaults `50`).
+The method `addSpacer` has only one optional property `priority` (defaults `50`).
+
+Use the method `removeItems` to remove the buttons added by your package. This is particulair useful in your package `deactivate` method, but can be used at any time.
 
 ## Supported icon sets
 
