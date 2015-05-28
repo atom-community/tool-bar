@@ -12,7 +12,7 @@ module.exports = class ToolBarButtonView extends View
 
     if options.tooltip
       @prop 'title', options.tooltip
-      @subscriptions.add atom.tooltips.add(@, title: options.tooltip)
+      @subscriptions.add atom.tooltips.add(this, title: options.tooltip)
 
     if options.iconset
       @addClass "#{options.iconset} #{options.iconset}-#{options.icon}"
@@ -38,7 +38,7 @@ module.exports = class ToolBarButtonView extends View
   destroy: ->
     @subscriptions.dispose()
 
-  getPreviouslyFocusedElement: () ->
+  getPreviouslyFocusedElement: ->
     if @previouslyFocusedElement and @previouslyFocusedElement.nodeName isnt 'BODY'
       @eventElement = @previouslyFocusedElement
     else

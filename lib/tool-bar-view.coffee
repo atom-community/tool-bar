@@ -71,10 +71,10 @@ module.exports = class ToolBarView extends View
     @removeClass 'tool-bar-top tool-bar-right tool-bar-bottom tool-bar-left tool-bar-horizontal tool-bar-vertical'
 
     switch position
-      when 'Top' then @panel = atom.workspace.addTopPanel { item: @ }
-      when 'Right' then @panel = atom.workspace.addRightPanel { item: @ }
-      when 'Bottom' then @panel = atom.workspace.addBottomPanel { item: @ }
-      when 'Left' then @panel = atom.workspace.addLeftPanel { item: @, priority: 50 }
+      when 'Top' then @panel = atom.workspace.addTopPanel item: this
+      when 'Right' then @panel = atom.workspace.addRightPanel item: this
+      when 'Bottom' then @panel = atom.workspace.addBottomPanel item: this
+      when 'Left' then @panel = atom.workspace.addLeftPanel item: this, priority: 50
     @addClass "tool-bar-#{position.toLowerCase()}"
 
     if position is 'Top' or position is 'Bottom'
@@ -89,7 +89,7 @@ module.exports = class ToolBarView extends View
     toolBarMenu = _.find(packagesMenu.submenu, ({label}) -> label is 'Tool Bar' or label is '&Tool Bar') if packagesMenu
     positionsMenu = _.find(toolBarMenu.submenu, ({label}) -> label is 'Position' or label is '&Position') if toolBarMenu
     positionMenu = _.find(positionsMenu.submenu, ({label}) -> label is position) if positionsMenu
-    positionMenu?.checked = true;
+    positionMenu?.checked = true
 
   hide: ->
     @detach() if @panel?
