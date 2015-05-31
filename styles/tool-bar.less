@@ -78,6 +78,28 @@
       &::-webkit-scrollbar {
         display: none;
       }
+      &.gutter-top::before {
+        box-shadow: inset 0px 10px 20px -10px rgba(50, 50, 50, 0.5);
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        pointer-events: none;
+      }
+      &.gutter-bottom::after {
+        box-shadow: inset 0px -10px 20px -10px rgba(50, 50, 50, 0.5);
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        pointer-events: none;
+      }
     }
 
     .tool-bar-btn {
