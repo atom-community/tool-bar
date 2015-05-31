@@ -1,6 +1,6 @@
 @font-face {
-	font-family: 'devicon';;
-	src: url('atom://tool-bar/iconsets/devicon/devicon.woff?-hdf3wh') format('woff');
+	font-family: 'devicon';
+	src: url('atom://tool-bar/iconsets/devicon/devicon.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -16,6 +16,188 @@
 
 	/* Better Font Rendering =========== */
 	-webkit-font-smoothing: antialiased;
+}
+
+.devicon-safari-line-wordmark:before {
+	content: "\e632";
+}
+.devicon-safari-line:before {
+	content: "\e63a";
+}
+.devicon-safari-plain-wordmark:before {
+	content: "\e63b";
+}
+.devicon-safari-plain:before {
+	content: "\e63c";
+}
+.devicon-jetbrains-plain:before,
+.devicon-jetbrains-line:before,
+.devicon-jetbrains-line-wordmark:before,
+.devicon-jetbrains-plain-wordmark:before {
+	content: "\e63d";
+}
+.devicon-django-line:before,
+.devicon-django-line-wordmark:before {
+	content: "\e63e";
+}
+.devicon-django-plain:before,
+.devicon-django-plain-wordmark:before {
+	content: "\e63f";
+}
+
+.devicon-gimp-plain:before {
+	content: "\e633";
+}
+
+.devicon-redhat-plain-wordmark:before {
+	content: "\e62a";
+}
+
+.devicon-redhat-plain:before {
+	content: "\e62b";
+}
+
+.devicon-cplusplus-line:before,
+.devicon-cplusplus-line-wordmark:before {
+	content: "\e634";
+}
+
+.devicon-cplusplus-plain:before,
+.devicon-cplusplus-plain-wordmark:before {
+	content: "\e635";
+}
+
+.devicon-csharp-line:before,
+.devicon-csharp-line-wordmark:before {
+	content: "\e636";
+}
+
+.devicon-csharp-plain:before,
+.devicon-csharp-plain-wordmark:before {
+	content: "\e637";
+}
+
+.devicon-c-line:before,
+.devicon-c-line-wordmark:before {
+	content: "\e638";
+}
+
+.devicon-c-plain:before,
+.devicon-c-plain-wordmark:before {
+	content: "\e639";
+}
+
+.devicon-nodewebkit-line-wordmark:before {
+	content: "\e611";
+}
+
+.devicon-nodewebkit-line:before {
+	content: "\e612";
+}
+
+.devicon-nodewebkit-plain-wordmark:before {
+	content: "\e613";
+}
+
+.devicon-nodewebkit-plain:before {
+	content: "\e614";
+}
+
+.devicon-nginx-original:before,
+.devicon-nginx-original-wordmark:before,
+.devicon-nginx-plain:before,
+.devicon-nginx-plain-wordmark:before {
+	content: "\e615";
+}
+
+.devicon-erlang-plain-wordmark:before {
+	content: "\e616";
+}
+
+.devicon-erlang-plain:before {
+	content: "\e617";
+}
+
+.devicon-doctrine-line-wordmark:before {
+	content: "\e618";
+}
+
+.devicon-doctrine-line:before {
+	content: "\e619";
+}
+
+.devicon-doctrine-plain-wordmark:before {
+	content: "\e61a";
+}
+
+.devicon-doctrine-plain:before {
+	content: "\e625";
+}
+
+.devicon-apache-line-wordmark:before {
+	content: "\e626";
+}
+
+.devicon-apache-line:before {
+	content: "\e627";
+}
+
+.devicon-apache-plain-wordmark:before {
+	content: "\e628";
+}
+
+.devicon-apache-plain:before {
+	content: "\e629";
+}
+
+.devicon-go-line:before {
+	content: "\e610";
+}
+
+.devicon-redis-plain-wordmark:before {
+	content: "\e606";
+}
+
+.devicon-redis-plain:before {
+	content: "\e607";
+}
+
+.devicon-meteor-plain-wordmark:before {
+	content: "\e608";
+}
+
+.devicon-meteor-plain:before {
+	content: "\e609";
+}
+
+.devicon-heroku-line-wordmark:before,
+.devicon-heroku-original-wordmark:before {
+	content: "\e60a";
+}
+
+.devicon-heroku-line:before,
+.devicon-heroku-original:before {
+	content: "\e60b";
+}
+
+.devicon-heroku-plain-wordmark:before {
+	content: "\e60c";
+}
+
+.devicon-heroku-plain:before {
+	content: "\e60f";
+}
+
+.devicon-go-plain:before {
+	content: "\e61b";
+}
+
+.devicon-docker-plain-wordmark:before {
+	content: "\e61e";
+}
+
+.devicon-docker-plain:before {
+	content: "\e61f";
 }
 
 .devicon-amazonwebservices-original:before,
