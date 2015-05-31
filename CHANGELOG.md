@@ -1,3 +1,6 @@
+## 0.1.4
+* Added Devicon set (by @lexcast) (#58)
+
 ## 0.1.3
 * Fixed toolbar wrap/overflow (by @jerone & @simurai) (#38)
 * Renamed commands (by @jerone) (#40)
