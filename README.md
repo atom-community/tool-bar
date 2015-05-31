@@ -128,6 +128,7 @@ Use the method `removeItems` to remove the buttons added by your package. This i
 * [FontAwesome](http://fortawesome.github.io/Font-Awesome) (`fa`)
 * [Foundation](http://zurb.com/playground/foundation-icon-fonts-3) (`fi`)
 * [IcoMoon](https://icomoon.io) (`icomoon`)
+* [Devicon](http://devicon.fr) (`devicon`)
 
 ## Supported commands
 
@@ -151,3 +152,4 @@ For all contributions credits are due:
 * [Ryo Narita](https://github.com/cakecatz)
 * [Nikita Gusakov](https://github.com/nkt)
 * Carlos Santos
+* [Daniel Alejandro Cast](https://github.com/lexcast)
