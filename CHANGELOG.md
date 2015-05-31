@@ -1,3 +1,6 @@
+## 0.1.5
+* Fixed Devicon path (by @lexcast) (#58)
+
 ## 0.1.4
 * Added Devicon set (by @lexcast) (#58)
 
