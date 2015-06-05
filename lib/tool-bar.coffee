@@ -28,7 +28,7 @@ module.exports =
       default: '24px'
       enum: ['16px', '24px', '32px']
 
-  provideStatusBar: ->
+  provideToolBar: ->
     (group) => new ToolBarManager group, @toolBar
 
   prependButton: (icon, callback, tooltip, iconset, data) ->
