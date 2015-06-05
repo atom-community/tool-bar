@@ -6,7 +6,7 @@ describe 'Tool Bar package', ->
 
     waitsForPromise ->
       atom.packages.activatePackage('tool-bar').then (pack) ->
-        toolBarService = pack.mainModule.provideStatusBar()
+        toolBarService = pack.mainModule.provideToolBar()
 
   describe '@activate', ->
     it 'appends only one tool bar', ->
