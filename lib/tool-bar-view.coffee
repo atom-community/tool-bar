@@ -1,5 +1,5 @@
 {CompositeDisposable} = require 'atom'
-{$, View} = require 'space-pen'
+{View} = require 'space-pen'
 _ = require 'underscore-plus'
 
 module.exports = class ToolBarView extends View
@@ -58,8 +58,8 @@ module.exports = class ToolBarView extends View
     if atom.config.get 'tool-bar.visible'
       @show()
 
-    @on 'scroll', @drawGutter
-    $(window).on 'resize', @drawGutter
+    @.element.addEventListener 'scroll', @drawGutter
+    window.addEventListener 'resize', @drawGutter
 
   serialize: ->
 
@@ -67,7 +67,7 @@ module.exports = class ToolBarView extends View
     @subscriptions.dispose()
     @detach() if @panel?
     @panel.destroy() if @panel?
-    $(window).off 'resize', @drawGutter
+    window.removeEventListener 'resize', @drawGutter
 
   updateSize: (size) ->
     @removeClass 'tool-bar-16px tool-bar-24px tool-bar-32px'
