@@ -1,44 +1,50 @@
+# Changelog
+
+## vNext
+* Added specs (by [@jerone](https://github.com/jerone)) ([#63](https://github.com/suda/tool-bar/pull/63))
+* Change tooltip placement based on toolbar position (by [@kankaristo](https://github.com/kankaristo)) ([#68](https://github.com/suda/tool-bar/issues/68))
+
 ## 0.1.5
-* Fixed Devicon path (by @lexcast) (#58)
+* Fixed Devicon path (by [@lexcast](https://github.com/lexcast)) ([#58](https://github.com/suda/tool-bar/issues/58))
 
 ## 0.1.4
-* Added Devicon set (by @lexcast) (#58)
+* Added Devicon set (by [@lexcast](https://github.com/lexcast)) ([#58](https://github.com/suda/tool-bar/issues/58))
 
 ## 0.1.3
-* Fixed toolbar wrap/overflow (by @jerone & @simurai) (#38)
-* Renamed commands (by @jerone) (#40)
-* Added new iconsets (by @jerone) (#39)
-* Updated Ionicons (by @jerone) (#50)
+* Fixed toolbar wrap/overflow (by [@jerone](https://github.com/jerone) & [@simurai](https://github.com/simurai)) ([#38](https://github.com/suda/tool-bar/issues/38))
+* Renamed commands (by [@jerone](https://github.com/jerone)) ([#40](https://github.com/suda/tool-bar/issues/40))
+* Added new iconsets (by [@jerone](https://github.com/jerone)) ([#39](https://github.com/suda/tool-bar/issues/39))
+* Updated Ionicons (by [@jerone](https://github.com/jerone)) ([#50](https://github.com/suda/tool-bar/issues/50))
 
 ## 0.1.2
 * Fixed buttons outline on OS X (by Nikita Gusakov)
-* Fixed callback target (by Ryo Narita)
+* Fixed callback target (by [@cakecatz](https://github.com/cakecatz))
 
 ## 0.1.1
-* Fixed margin in One themes (by simurai)
+* Fixed margin in One themes (by [@simurai](https://github.com/simurai))
 
 ## 0.1.0
-* Added support for [Services API](https://atom.io/docs/latest/behind-atom-interacting-with-packages-via-services) (by Jeroen van Warmerdam)
+* Added support for [Services API](https://atom.io/docs/latest/behind-atom-interacting-with-packages-via-services) (by [@jerone](https://github.com/jerone))
 * Renamed to `tool-bar`
 
 ## 0.0.16
-* Added toolbar position to Atom menu & toolbar context menu (by Jeroen van Warmerdam)
-* Added data attribute to button callback (by Ryo Narita)
+* Added toolbar position to Atom menu & toolbar context menu (by [@jerone](https://github.com/jerone))
+* Added data attribute to button callback (by [@cakecatz](https://github.com/cakecatz))
 
 ## 0.0.15
-* Toolbar theme (by Jeroen van Warmerdam)
-* Fixed #8 and #18 (by Jeroen van Warmerdam)
-* Fixed #22 (by Jeroen van Warmerdam)
-* Fixed #20 (by Jeroen van Warmerdam)
-* Fixed #11 (by Ryo Narita)
+* Toolbar theme (by [@jerone](https://github.com/jerone))
+* Fixed [#8](https://github.com/suda/tool-bar/issues/8) and [#18](https://github.com/suda/tool-bar/issues/18) (by [@jerone](https://github.com/jerone))
+* Fixed [#22](https://github.com/suda/tool-bar/issues/22) (by [@jerone](https://github.com/jerone))
+* Fixed [#20](https://github.com/suda/tool-bar/issues/20) (by [@jerone](https://github.com/jerone))
+* Fixed [#11](https://github.com/suda/tool-bar/issues/11) (by [@cakecatz](https://github.com/cakecatz))
 
 ## 0.0.14
-* Added 32px icon size (by Jeroen van Warmerdam)
-* Added real tooltip (by Jeroen van Warmerdam)
+* Added 32px icon size (by [@jerone](https://github.com/jerone))
+* Added real tooltip (by [@jerone](https://github.com/jerone))
 
 ## 0.0.13
-* Rename stylesheets to styles (by Jeroen van Warmerdam)
-* Show pointer cursor on buttons (by Jeroen van Warmerdam)
+* Rename stylesheets to styles (by [@jerone](https://github.com/jerone))
+* Show pointer cursor on buttons (by [@jerone](https://github.com/jerone))
 
 ## 0.0.12
 * Atom 1.0 compatibility
