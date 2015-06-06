@@ -12,7 +12,18 @@ module.exports = class ToolBarButtonView extends View
 
     if options.tooltip
       @prop 'title', options.tooltip
-      @subscriptions.add atom.tooltips.add(this, title: options.tooltip)
+      toolbarPosition = atom.config.get('tool-bar.position')
+      tooltipPlacement = (toolbarPosition is "Top")    and "bottom" or
+                         (toolbarPosition is "Right")  and "left"   or
+                         (toolbarPosition is "Bottom") and "top"    or
+                         (toolbarPosition is "Left")   and "right"
+      @subscriptions.add atom.tooltips.add(
+        this,
+        {
+          title: options.tooltip
+          placement: tooltipPlacement
+        }
+      )
 
     if options.iconset
       @addClass "#{options.iconset} #{options.iconset}-#{options.icon}"
