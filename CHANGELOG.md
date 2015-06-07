@@ -3,6 +3,7 @@
 ## vNext
 * Added specs (by [@jerone](https://github.com/jerone)) ([#63](https://github.com/suda/tool-bar/pull/63))
 * Change tooltip placement based on toolbar position (by [@kankaristo](https://github.com/kankaristo)) ([#68](https://github.com/suda/tool-bar/issues/68))
+* Remove deprecated API (by [@jerone](https://github.com/jerone)) ([#64](https://github.com/suda/tool-bar/pull/64))
 
 ## 0.1.5
 * Fixed Devicon path (by [@lexcast](https://github.com/lexcast)) ([#58](https://github.com/suda/tool-bar/issues/58))
