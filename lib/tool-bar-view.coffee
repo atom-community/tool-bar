@@ -19,6 +19,7 @@ module.exports = class ToolBarView extends View
     newElement = atom.views.getView newItem
     nextElement = atom.views.getView nextItem
     @.element.insertBefore newElement, nextElement
+    @drawGutter()
     nextItem
 
   removeItem: (item) ->
@@ -26,6 +27,7 @@ module.exports = class ToolBarView extends View
     @items.splice index, 1
     element = atom.views.getView item
     @.element.removeChild element
+    @drawGutter()
 
   initialize: ->
     @subscriptions = new CompositeDisposable
@@ -56,12 +58,16 @@ module.exports = class ToolBarView extends View
     if atom.config.get 'tool-bar.visible'
       @show()
 
+    @.element.addEventListener 'scroll', @drawGutter
+    window.addEventListener 'resize', @drawGutter
+
   serialize: ->
 
   destroy: ->
     @subscriptions.dispose()
     @detach() if @panel?
     @panel.destroy() if @panel?
+    window.removeEventListener 'resize', @drawGutter
 
   updateSize: (size) ->
     @removeClass 'tool-bar-16px tool-bar-24px tool-bar-32px'
@@ -84,12 +90,25 @@ module.exports = class ToolBarView extends View
 
     @updateMenu position
 
+    @drawGutter()
+
   updateMenu: (position) ->
     packagesMenu = _.find(atom.menu.template, ({label}) -> label is 'Packages' or label is '&Packages')
     toolBarMenu = _.find(packagesMenu.submenu, ({label}) -> label is 'Tool Bar' or label is '&Tool Bar') if packagesMenu
     positionsMenu = _.find(toolBarMenu.submenu, ({label}) -> label is 'Position' or label is '&Position') if toolBarMenu
     positionMenu = _.find(positionsMenu.submenu, ({label}) -> label is position) if positionsMenu
     positionMenu?.checked = true
+
+  drawGutter: =>
+    @removeClass 'gutter-top gutter-bottom'
+    visibleHeight = @height()
+    scrollHeight = @.element.scrollHeight
+    hiddenHeight = scrollHeight - visibleHeight
+    if visibleHeight < scrollHeight
+      if @scrollTop() > 0
+        @addClass 'gutter-top'
+      if @scrollTop() < hiddenHeight
+        @addClass 'gutter-bottom'
 
   hide: ->
     @detach() if @panel?
