@@ -1,5 +1,7 @@
 # Atom Tool Bar
 
+![](https://travis-ci.org/suda/tool-bar.svg)
+
 This package provides extensible tool bar for Atom.
 
 **Note:** this package by itself adds an empty toolbar. To propagate it with icons you can [install plugins](#plugins).
