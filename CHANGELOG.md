@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.1.7
+* Fixed LESS warnings
+
 ## 0.1.6
 * Added specs (by [@jerone](https://github.com/jerone)) ([#63](https://github.com/suda/tool-bar/pull/63))
 * Change tooltip placement based on toolbar position (by [@kankaristo](https://github.com/kankaristo)) ([#68](https://github.com/suda/tool-bar/issues/68))
