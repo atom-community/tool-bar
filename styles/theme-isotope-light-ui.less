@@ -1,0 +1,16 @@
+.theme-isotope-light-ui {
+  .tool-bar {
+    border: none;
+    background: fadeout(@base-background-color, 100%);
+
+    button.tool-bar-btn {
+      background: inherit;
+      border-color: fadeout(@base-background-color, 100%);
+      &:focus,
+      &:hover {
+        border-color: fadeout(@base-background-color, 100%);
+        background: darken(fadeout(@base-background-color, 80%), 75%);
+      }
+    }
+  }
+}
