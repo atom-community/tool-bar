@@ -1,5 +1,7 @@
 # Atom Tool Bar
 
+[![Join the chat at https://gitter.im/suda/tool-bar](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/suda/tool-bar?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ![](https://travis-ci.org/suda/tool-bar.svg)
 
 This package provides extensible tool bar for Atom.
