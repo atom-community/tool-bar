@@ -1,5 +1,8 @@
 # Changelog
 
+## vNext
+* Better support for Isotope UI theme  (by [@jerone](https://github.com/jerone) and [@k2b6s9j](https://github.com/k2b6s9j) ([#75](https://github.com/suda/tool-bar/issues/75))
+
 ## 0.1.7
 * Fixed LESS warnings
 
