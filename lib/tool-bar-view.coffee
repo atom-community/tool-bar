@@ -61,6 +61,9 @@ module.exports = class ToolBarView extends View
     @.element.addEventListener 'scroll', @drawGutter
     window.addEventListener 'resize', @drawGutter
 
+    if atom.config.get 'tool-bar.automaticallyResizeIcons'
+      window.addEventListener 'resize', @updateAutoSize
+
   serialize: ->
 
   destroy: ->
@@ -68,6 +71,15 @@ module.exports = class ToolBarView extends View
     @detach() if @panel?
     @panel.destroy() if @panel?
     window.removeEventListener 'resize', @drawGutter
+
+  updateAutoSize: =>
+    idealSize = @height() / @items.length / 1.5
+    autoSize = 16
+    if idealSize >= 32
+      autoSize = 32
+    else if idealSize >= 24
+      autoSize = 24
+    @updateSize "#{autoSize}px"
 
   updateSize: (size) ->
     @removeClass 'tool-bar-16px tool-bar-24px tool-bar-32px'

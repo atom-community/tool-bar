@@ -31,6 +31,10 @@ This package provides extensible tool bar for Atom.
 * Big *(24px)*
 * Large *(32px)*
 
+### Automatic Icon Resizing
+ * Enabled *(Icons resize with the window to keep all icons visible, when possible)*
+ * Disabled *(Icons always remain at the set size)*
+
 ### Visiblity
 
 * Visible
