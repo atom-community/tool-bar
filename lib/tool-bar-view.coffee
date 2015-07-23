@@ -71,6 +71,7 @@ module.exports = class ToolBarView extends View
     @detach() if @panel?
     @panel.destroy() if @panel?
     window.removeEventListener 'resize', @drawGutter
+    window.removeEventListener 'resize', @updateAutoSize
 
   updateAutoSize: =>
     idealSize = @height() / @items.length / 1.5
