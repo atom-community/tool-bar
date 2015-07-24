@@ -64,6 +64,14 @@ module.exports = class ToolBarView extends View
     if atom.config.get 'tool-bar.automaticallyResizeIcons'
       window.addEventListener 'resize', @updateAutoSize
 
+    atom.config.observe 'tool-bar.automaticallyResizeIcons', (nowSet) =>
+      if nowSet
+        @updateAutoSize
+        window.addEventListener 'resize', @updateAutoSize
+      else
+        @updateSize atom.config.get 'tool-bar.iconSize'
+        window.removeEventListener 'resize', @updateAutoSize
+
   serialize: ->
 
   destroy: ->
