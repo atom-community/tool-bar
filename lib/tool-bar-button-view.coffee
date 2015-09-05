@@ -1,5 +1,5 @@
 {CompositeDisposable} = require 'atom'
-{View} = require 'space-pen'
+{$, View} = require 'space-pen'
 
 module.exports = class ToolBarButtonView extends View
   @content: ->
@@ -29,6 +29,8 @@ module.exports = class ToolBarButtonView extends View
         else
           options.callback(options.data, @getPreviouslyFocusedElement())
 
+        @restoreFocus()
+
     @on 'mouseover', =>
       @storeFocusedElement()
 
@@ -46,6 +48,13 @@ module.exports = class ToolBarButtonView extends View
       @eventElement = @previouslyFocusedElement
     else
       @eventElement = atom.views.getView(atom.workspace)
+
+  restoreFocus: ->
+    previouslyFocusedElement = $(@previouslyFocusedElement)
+    if previouslyFocusedElement?.isOnDom()?
+      previouslyFocusedElement.focus()
+    else
+      atom.workspace.focus()
 
   storeFocusedElement: ->
     if not document.activeElement.classList.contains 'tool-bar-btn'
