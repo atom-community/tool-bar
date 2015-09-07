@@ -1,7 +1,10 @@
 # Changelog
 
 ## vNext
-* 
+*
+
+## v0.1.9
+* Updated FontAwesome to 4.4.0
 
 ## v0.1.8
 * Better support for Isotope UI theme  (by [@k2b6s9j](https://github.com/k2b6s9j) and [@jerone](https://github.com/jerone)) ([#75](https://github.com/suda/tool-bar/issues/75))
