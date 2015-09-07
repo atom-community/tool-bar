@@ -1,7 +1,7 @@
 {
   "name": "tool-bar",
   "main": "./lib/tool-bar",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Package providing customisable tool bar",
   "repository": "https://github.com/suda/tool-bar",
   "license": "MIT",
