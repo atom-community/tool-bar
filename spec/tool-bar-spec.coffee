@@ -58,6 +58,17 @@ describe 'Tool Bar package', ->
         button.setEnabled(false)
         expect(toolBar.children.length).toBe(1)
         expect(toolBar.firstChild.classList.contains('disabled')).toBe(true)
+      it 'clicking button', ->
+        toolBarAPI.addButton
+          icon: 'octoface'
+          callback: 'editor:select-line'
+          tooltip: 'Select line'
+        jasmine.attachToDOM(toolBar)
+        previouslyFocusedElement = document.activeElement
+        toolBar.children[0].dispatchEvent(new Event('mouseover'))
+        toolBar.children[0].focus()
+        toolBar.children[0].click()
+        expect(document.activeElement).toBe(previouslyFocusedElement)
 
     describe 'which can add a spacer', ->
       [toolBar] = []
