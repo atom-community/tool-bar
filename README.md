@@ -41,6 +41,7 @@ This package provides extensible tool bar for Atom.
 * [tool-bar-main](https://atom.io/packages/tool-bar-main)
 * [flex-tool-bar](https://atom.io/packages/flex-tool-bar)
 * [tool-bar-almighty](https://atom.io/packages/tool-bar-almighty)
+* And [more](https://atom.io/packages/search?utf8=%E2%9C%93&q=keyword%3Atool-bar)...
 
 ## Integrating instructions
 
