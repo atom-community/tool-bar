@@ -3,6 +3,10 @@
 ## vNext
 *
 
+## v0.1.10
+* Updated Devicon to 2.0 (by [@afterdesign](https://github.com/afterdesign))
+
+
 ## v0.1.9
 * Updated FontAwesome to 4.4.0
 
