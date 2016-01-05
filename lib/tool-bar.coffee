@@ -24,7 +24,7 @@ module.exports =
     iconSize:
       type: 'string'
       default: '24px'
-      enum: ['16px', '24px', '32px']
+      enum: ['14px', '16px', '24px', '32px']
 
   provideToolBar: ->
     (group) => new ToolBarManager group, @toolBar
