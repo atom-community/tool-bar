@@ -3,9 +3,12 @@
 ## vNext
 *
 
+## v0.1.11
+* Added 12px icon size (dedicated to [@pongstr](https://github.com/pongstr))
+* Fixed #87 (by [@cakecatz](https://github.com/cakecatz))
+
 ## v0.1.10
 * Updated Devicon to 2.0 (by [@afterdesign](https://github.com/afterdesign))
-
 
 ## v0.1.9
 * Updated FontAwesome to 4.4.0
