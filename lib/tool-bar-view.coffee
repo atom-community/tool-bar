@@ -70,7 +70,7 @@ module.exports = class ToolBarView extends View
     window.removeEventListener 'resize', @drawGutter
 
   updateSize: (size) ->
-    @removeClass 'tool-bar-16px tool-bar-24px tool-bar-32px'
+    @removeClass 'tool-bar-12px tool-bar-16px tool-bar-24px tool-bar-32px'
     @addClass "tool-bar-#{size}"
 
   updatePosition: (position) ->
