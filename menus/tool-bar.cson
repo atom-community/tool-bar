@@ -3,7 +3,7 @@ menu: [
     label: 'Packages'
     submenu: [
       {
-        label: '&Tool Bar'
+        label: 'Tool Bar'
         submenu: [
           { label: '&Toggle', command: 'tool-bar:toggle' }
           {
