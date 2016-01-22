@@ -67,6 +67,7 @@ module.exports = class ToolBarView extends View
     @subscriptions.dispose()
     @detach() if @panel?
     @panel.destroy() if @panel?
+    @items.length = 0
     window.removeEventListener 'resize', @drawGutter
 
   updateSize: (size) ->
