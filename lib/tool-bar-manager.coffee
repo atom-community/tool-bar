@@ -14,11 +14,12 @@ module.exports = class ToolBarManager
     spacer = $$ -> @hr class: 'tool-bar-spacer'
     spacer.priority = options?.priority
     spacer.group = @group
+    spacer.destroy = -> spacer.remove()
     @toolBar.addItem spacer
     spacer
 
   removeItems: ->
-    items = @toolBar.items.filter (item) =>
+    @toolBar.items?.filter (item) =>
       item.group is @group
-    items.forEach (item) =>
+    .forEach (item) =>
       @toolBar.removeItem item
