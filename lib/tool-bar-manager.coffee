@@ -9,6 +9,11 @@ module.exports = class ToolBarManager
     button.group = @group
     @toolBar.addItem button
     button
+    
+  addCustomButton: (buttonView) ->
+    buttonView.group = @group
+    @toolBar.addItem buttonView
+    buttonView
 
   addSpacer: (options) ->
     spacer = $$ -> @hr class: 'tool-bar-spacer'
