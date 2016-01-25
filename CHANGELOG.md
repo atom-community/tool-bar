@@ -1,7 +1,8 @@
 # Changelog
 
 ## vNext
-*
+* Fix memory leaks and add `onDidDestroy`. Fixes #96 (by [@zertosh](https://github.com/zertosh))
+* Added support for Material Design Icons. Closes #92 (by [@JamesCoyle](https://github.com/JamesCoyle))
 
 ## v0.1.11
 * Added 12px icon size (dedicated to [@pongstr](https://github.com/pongstr))
@@ -14,7 +15,7 @@
 * Updated FontAwesome to 4.4.0
 
 ## v0.1.8
-* Better support for Isotope UI theme  (by [@k2b6s9j](https://github.com/k2b6s9j) and [@jerone](https://github.com/jerone)) ([#75](https://github.com/suda/tool-bar/issues/75))
+* Better support for Isotope UI theme (by [@k2b6s9j](https://github.com/k2b6s9j) and [@jerone](https://github.com/jerone)) ([#75](https://github.com/suda/tool-bar/issues/75))
 
 ## v0.1.7
 * Fixed LESS warnings
