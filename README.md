@@ -1,8 +1,7 @@
 # Atom Tool Bar
 
-[![Join the chat at https://gitter.im/suda/tool-bar](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/suda/tool-bar?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-![](https://travis-ci.org/suda/tool-bar.svg)
+[![Build Status](https://travis-ci.org/suda/tool-bar.svg?branch=master)](https://travis-ci.org/suda/tool-bar)
+[![Chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/suda/tool-bar?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 This package provides extensible tool bar for Atom.
 
@@ -162,6 +161,7 @@ The `onDidDestroy` method takes a function that will be called when the `tool-ba
 
 * [Wojtek Siudzinski](http://suda.pl)
 * [Jeroen van Warmerdam](https://github.com/jerone)
+* [Ryo Narita](https://github.com/cakecatz)
 
 ## Contributors
 
@@ -169,7 +169,6 @@ Issues and pull requests are very welcome. Feel free to write your own packages 
 For all contributions credits are due:
 
 * [Pascal Bihler](https://github.com/pbihler)
-* [Ryo Narita](https://github.com/cakecatz)
 * [Nikita Gusakov](https://github.com/nkt)
 * Carlos Santos
 * [Daniel Alejandro Cast](https://github.com/lexcast)
