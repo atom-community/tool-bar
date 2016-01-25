@@ -148,6 +148,7 @@ The `onDidDestroy` method takes a function that will be called when the `tool-ba
 * [Foundation](http://zurb.com/playground/foundation-icon-fonts-3) (`fi`)
 * [IcoMoon](https://icomoon.io) (`icomoon`)
 * [Devicon](http://devicon.fr) (`devicon`)
+* [MaterialDesignIcons v1.4.57](https://materialdesignicons.com/) (`mdi`)
 
 ## Supported commands
 
@@ -172,3 +173,4 @@ For all contributions credits are due:
 * [Nikita Gusakov](https://github.com/nkt)
 * Carlos Santos
 * [Daniel Alejandro Cast](https://github.com/lexcast)
+* [James Coyle](https://github.com/JamesCoyle)
