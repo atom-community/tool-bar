@@ -123,6 +123,11 @@ consumeToolBar: (toolBar) ->
     icon: 'octoface'
     callback: 'application:about'
     priority: 10
+
+  # Cleaning up when tool bar is deactivated
+  @toolBar.onDidDestroy ->
+    @toolBar = null
+    # Teardown any stateful code that depends on tool bar ...
 ```
 
 The method `addButton` requires an object with at least the properties `icon` and `callback`.
@@ -132,6 +137,8 @@ The remaining properties `tooltip` (default is no tooltip), `iconset` (defaults 
 The method `addSpacer` has only one optional property `priority` (defaults `50`).
 
 Use the method `removeItems` to remove the buttons added by your package. This is particulair useful in your package `deactivate` method, but can be used at any time.
+
+The `onDidDestroy` method takes a function that will be called when the `tool-bar` package is destroyed. This is useful if your package needs to do some cleanup when the `tool-bar` is deactivated but your package continues running.
 
 ## Supported icon sets
 

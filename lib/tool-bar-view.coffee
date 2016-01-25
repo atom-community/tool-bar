@@ -1,4 +1,4 @@
-{CompositeDisposable} = require 'atom'
+{CompositeDisposable, Emitter} = require 'atom'
 {View} = require 'space-pen'
 _ = require 'underscore-plus'
 
@@ -27,6 +27,7 @@ module.exports = class ToolBarView extends View
 
   initialize: ->
     @items = []
+    @emitter = new Emitter
     @subscriptions = new CompositeDisposable
     @subscriptions.add atom.commands.add 'atom-workspace', 'tool-bar:toggle', =>
       @toggle()
@@ -70,6 +71,10 @@ module.exports = class ToolBarView extends View
     @hide()
     @remove()
     window.removeEventListener 'resize', @drawGutter
+
+    @emitter.emit 'did-destroy'
+    @emitter.dispose()
+    @emitter = null
 
   updateSize: (size) ->
     @removeClass 'tool-bar-12px tool-bar-16px tool-bar-24px tool-bar-32px'

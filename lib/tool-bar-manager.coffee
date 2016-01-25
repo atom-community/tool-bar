@@ -23,3 +23,6 @@ module.exports = class ToolBarManager
       item.group is @group
     .forEach (item) =>
       @toolBar.removeItem item
+
+  onDidDestroy: (callback) ->
+    @toolBar.emitter.on 'did-destroy', callback
