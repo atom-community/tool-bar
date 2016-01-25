@@ -1,12 +1,10 @@
-{CompositeDisposable} = require 'atom'
+{CompositeDisposable, Emitter} = require 'atom'
 {View} = require 'space-pen'
 _ = require 'underscore-plus'
 
 module.exports = class ToolBarView extends View
   @content: ->
     @div class: 'tool-bar'
-
-  items: []
 
   addItem: (newItem) ->
     newItem.priority ?= @items[@items.length - 1]?.priority ? 50
@@ -23,13 +21,13 @@ module.exports = class ToolBarView extends View
     nextItem
 
   removeItem: (item) ->
-    index = @items.indexOf item
-    @items.splice index, 1
-    element = atom.views.getView item
-    @.element.removeChild element
+    item.destroy()
+    @items.splice (@items.indexOf item), 1
     @drawGutter()
 
   initialize: ->
+    @items = []
+    @emitter = new Emitter
     @subscriptions = new CompositeDisposable
     @subscriptions.add atom.commands.add 'atom-workspace', 'tool-bar:toggle', =>
       @toggle()
@@ -46,28 +44,37 @@ module.exports = class ToolBarView extends View
       @updatePosition 'Left'
       atom.config.set 'tool-bar.position', 'Left'
 
-    atom.config.observe 'tool-bar.iconSize', (newValue) =>
+    @subscriptions.add atom.config.observe 'tool-bar.iconSize', (newValue) =>
       @updateSize newValue
 
-    atom.config.onDidChange 'tool-bar.position', ({newValue, oldValue}) =>
+    @subscriptions.add atom.config.onDidChange 'tool-bar.position', ({newValue, oldValue}) =>
       @show() if atom.config.get 'tool-bar.visible'
 
-    atom.config.onDidChange 'tool-bar.visible', ({newValue, oldValue}) =>
+    @subscriptions.add atom.config.onDidChange 'tool-bar.visible', ({newValue, oldValue}) =>
       if newValue then @show() else @hide()
 
     if atom.config.get 'tool-bar.visible'
       @show()
 
-    @.element.addEventListener 'scroll', @drawGutter
+    @on 'scroll', @drawGutter
     window.addEventListener 'resize', @drawGutter
 
   serialize: ->
 
   destroy: ->
+    item.destroy() for item in @items
+    @items = null
+
     @subscriptions.dispose()
-    @detach() if @panel?
-    @panel.destroy() if @panel?
+    @subscriptions = null
+
+    @hide()
+    @remove()
     window.removeEventListener 'resize', @drawGutter
+
+    @emitter.emit 'did-destroy'
+    @emitter.dispose()
+    @emitter = null
 
   updateSize: (size) ->
     @removeClass 'tool-bar-12px tool-bar-16px tool-bar-24px tool-bar-32px'
@@ -113,6 +120,7 @@ module.exports = class ToolBarView extends View
   hide: ->
     @detach() if @panel?
     @panel.destroy() if @panel?
+    @panel = null
 
   show: ->
     @hide()

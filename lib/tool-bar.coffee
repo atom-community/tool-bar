@@ -10,6 +10,7 @@ module.exports =
 
   deactivate: ->
     @toolBar.destroy()
+    @toolBar = null
 
   serialize: ->
 

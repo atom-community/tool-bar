@@ -18,6 +18,11 @@ describe 'Tool Bar package', ->
     it 'removes the tool bar view', ->
       atom.packages.deactivatePackage('tool-bar')
       expect(workspaceElement.querySelector('.tool-bar')).toBeNull()
+    it 'notifies on destroy', ->
+      toolBarAPI = toolBarService('specs-tool-bar')
+      toolBarAPI.onDidDestroy spy = jasmine.createSpy()
+      atom.packages.deactivatePackage('tool-bar')
+      expect(spy).toHaveBeenCalled()
 
   describe 'provides a service API', ->
     it 'for others to use', ->

@@ -42,6 +42,8 @@ module.exports = class ToolBarButtonView extends View
 
   destroy: ->
     @subscriptions.dispose()
+    @subscriptions = null
+    @remove()
 
   getPreviouslyFocusedElement: ->
     if @previouslyFocusedElement and @previouslyFocusedElement.nodeName isnt 'BODY'
