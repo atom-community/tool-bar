@@ -82,7 +82,7 @@ describe 'Tool Bar package', ->
         # jasmine.attachToDOM(toolBar)
         toolBar.firstChild.click()
         expect(spy).toHaveBeenCalled()
-        expect(spy.mostRecentCall.args[0]).toEqual('foo');
+        expect(spy.mostRecentCall.args[0]).toEqual('foo')
       it 'and restores focus after click', ->
         toolBarAPI.addButton
           icon: 'octoface'
