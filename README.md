@@ -116,6 +116,18 @@ consumeToolBar: (toolBar) ->
     tooltip: 'Show Alert'
     data: 'foo'
 
+  # Callback with modifiers
+  @toolBar.addButton
+    icon: 'octoface',
+    callback:
+      '': 'application:cmd-1'  # Without modifiers is default action
+      'alt': 'application:cmd-2'
+      'ctrl': 'application:cmd-3'
+      'shift': (data) -> console.log data  # With function callback
+      'alt+shift': 'application:cmd-5'  # Multiple modifiers
+      'alt+ctrl+shift': 'application:cmd-6'  # All modifiers      
+    data: 'foo'
+
   # Adding spacer and button at the beginning of the tool bar
   @toolBar.addSpacer priority: 10
   @toolBar.addButton
@@ -129,13 +141,13 @@ consumeToolBar: (toolBar) ->
     # Teardown any stateful code that depends on tool bar ...
 ```
 
-The method `addButton` requires an object with at least the properties `icon` and `callback`.
+The method `addButton` requires an object with at least the properties `icon` and `callback`. The `icon` can be any icon from the `iconset`. The `callback` must be an Atom command string, an custom callback function or an object where the keys are key modifiers (`alt`, `ctrl` or `shift`) and the values are commands or custom function.
 
 The remaining properties `tooltip` (default is no tooltip), `iconset` (defaults `Octicons`), `data` and `priority` (defaults `50`) are optional.
 
 The method `addSpacer` has only one optional property `priority` (defaults `50`).
 
-Use the method `removeItems` to remove the buttons added by your package. This is particulair useful in your package `deactivate` method, but can be used at any time.
+Use the method `removeItems` to remove the buttons added by your package. This is particular useful in your package `deactivate` method, but can be used at any time.
 
 The `onDidDestroy` method takes a function that will be called when the `tool-bar` package is destroyed. This is useful if your package needs to do some cleanup when the `tool-bar` is deactivated but your package continues running.
 
