@@ -41,6 +41,12 @@ describe 'Tool Bar package', ->
         toolBarAPI.addButton
           icon: 'octoface'
           callback: 'application:about'
+        expect(toolBar.children.length).toBe(1)
+        expect(toolBar.firstChild.classList.contains('icon-octoface')).toBe(true)
+      it 'with tooltip', ->
+        toolBarAPI.addButton
+          icon: 'octoface'
+          callback: 'application:about'
           tooltip: 'About Atom'
         expect(toolBar.children.length).toBe(1)
         expect(toolBar.firstChild.classList.contains('icon-octoface')).toBe(true)
@@ -49,30 +55,44 @@ describe 'Tool Bar package', ->
         toolBarAPI.addButton
           icon: 'gear-a'
           callback: 'application:show-settings'
-          tooltip: 'Show Settings'
           iconset: 'ion'
         expect(toolBar.children.length).toBe(1)
         expect(toolBar.firstChild.classList.contains('ion')).toBe(true)
         expect(toolBar.firstChild.classList.contains('ion-gear-a')).toBe(true)
-        expect(toolBar.firstChild.dataset.originalTitle).toBe('Show Settings')
       it 'and disabling it', ->
         button = toolBarAPI.addButton
           icon: 'octoface'
           callback: 'application:about'
-          tooltip: 'About Atom'
         button.setEnabled(false)
         expect(toolBar.children.length).toBe(1)
         expect(toolBar.firstChild.classList.contains('disabled')).toBe(true)
-      it 'clicking button', ->
+      it 'clicking button with callback function', ->
+        spy = undefined
+        button = toolBarAPI.addButton
+          icon: 'octoface'
+          callback: spy = jasmine.createSpy()
+        jasmine.attachToDOM(toolBar)
+        toolBar.children[0].click()
+        expect(spy).toHaveBeenCalled()
+      it 'clicking button with callback function containing data', ->
+        button = toolBarAPI.addButton
+          icon: 'octoface'
+          callback: spy = jasmine.createSpy()
+          data: 'foo'
+        # jasmine.attachToDOM(toolBar)
+        toolBar.firstChild.click()
+        expect(spy).toHaveBeenCalled()
+        expect(spy.mostRecentCall.args[0]).toEqual('foo');
+      it 'and restores focus after click', ->
         toolBarAPI.addButton
           icon: 'octoface'
           callback: 'editor:select-line'
           tooltip: 'Select line'
-        jasmine.attachToDOM(toolBar)
+        # jasmine.attachToDOM(toolBar)
         previouslyFocusedElement = document.activeElement
-        toolBar.children[0].dispatchEvent(new Event('mouseover'))
-        toolBar.children[0].focus()
-        toolBar.children[0].click()
+        toolBar.firstChild.dispatchEvent(new Event('mouseover'))
+        toolBar.firstChild.focus()
+        toolBar.firstChild.click()
         expect(document.activeElement).toBe(previouslyFocusedElement)
 
     describe 'which can add a spacer', ->
