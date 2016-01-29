@@ -1,5 +1,11 @@
 describe 'Tool Bar package', ->
   [workspaceElement, toolBarService, toolBarAPI] = []
+  getGlyph = (elm) ->
+    window.getComputedStyle(elm, ':before')
+      .getPropertyValue('content')
+      .charCodeAt(1)
+      .toString(16)
+      .toLowerCase()
 
   beforeEach ->
     workspaceElement = atom.views.getView(atom.workspace)
@@ -49,16 +55,70 @@ describe 'Tool Bar package', ->
           callback: 'application:about'
           tooltip: 'About Atom'
         expect(toolBar.children.length).toBe(1)
-        expect(toolBar.firstChild.classList.contains('icon-octoface')).toBe(true)
         expect(toolBar.firstChild.dataset.originalTitle).toBe('About Atom')
-      it 'using custom icon set (Ionicons)', ->
+
+      it 'using default iconset', ->
+        jasmine.attachToDOM(toolBar)
         toolBarAPI.addButton
-          icon: 'gear-a'
-          callback: 'application:show-settings'
+          icon: 'octoface'
+          callback: 'application:about'
+        expect(toolBar.firstChild.classList.contains('icon-octoface')).toBe(true)
+        expect(getGlyph(toolBar.firstChild)).toBe('f008')
+      it 'using Ionicons iconset', ->
+        jasmine.attachToDOM(toolBar)
+        toolBarAPI.addButton
+          icon: 'ionic'
+          callback: 'application:about'
           iconset: 'ion'
-        expect(toolBar.children.length).toBe(1)
         expect(toolBar.firstChild.classList.contains('ion')).toBe(true)
-        expect(toolBar.firstChild.classList.contains('ion-gear-a')).toBe(true)
+        expect(toolBar.firstChild.classList.contains('ion-ionic')).toBe(true)
+        expect(getGlyph(toolBar.firstChild)).toBe('f14b')
+      it 'using Font Awesome iconset', ->
+        jasmine.attachToDOM(toolBar)
+        toolBarAPI.addButton
+          icon: 'fort-awesome'
+          callback: 'application:about'
+          iconset: 'fa'
+        expect(toolBar.firstChild.classList.contains('fa')).toBe(true)
+        expect(toolBar.firstChild.classList.contains('fa-fort-awesome')).toBe(true)
+        expect(getGlyph(toolBar.firstChild)).toBe('f286')
+      it 'using Foundation iconset', ->
+        jasmine.attachToDOM(toolBar)
+        toolBarAPI.addButton
+          icon: 'foundation'
+          callback: 'application:about'
+          iconset: 'fi'
+        expect(toolBar.firstChild.classList.contains('fi')).toBe(true)
+        expect(toolBar.firstChild.classList.contains('fi-foundation')).toBe(true)
+        expect(getGlyph(toolBar.firstChild)).toBe('f152')
+      it 'using Icomoon iconset', ->
+        jasmine.attachToDOM(toolBar)
+        toolBarAPI.addButton
+          icon: 'IcoMoon'
+          callback: 'application:about'
+          iconset: 'icomoon'
+        expect(toolBar.firstChild.classList.contains('icomoon')).toBe(true)
+        expect(toolBar.firstChild.classList.contains('icomoon-IcoMoon')).toBe(true)
+        expect(getGlyph(toolBar.firstChild)).toBe('eaea')
+      it 'using Devicon iconset', ->
+        jasmine.attachToDOM(toolBar)
+        toolBarAPI.addButton
+          icon: 'atom-original'
+          callback: 'application:about'
+          iconset: 'devicon'
+        expect(toolBar.firstChild.classList.contains('devicon')).toBe(true)
+        expect(toolBar.firstChild.classList.contains('devicon-atom-original')).toBe(true)
+        expect(getGlyph(toolBar.firstChild)).toBe('e624')
+      it 'using Material Design Icons iconset', ->
+        jasmine.attachToDOM(toolBar)
+        toolBarAPI.addButton
+          icon: 'material-ui'
+          callback: 'application:about'
+          iconset: 'mdi'
+        expect(toolBar.firstChild.classList.contains('mdi')).toBe(true)
+        expect(toolBar.firstChild.classList.contains('mdi-material-ui')).toBe(true)
+        expect(getGlyph(toolBar.firstChild)).toBe('f449')
+
       it 'and disabling it', ->
         button = toolBarAPI.addButton
           icon: 'octoface'
