@@ -134,7 +134,7 @@ describe 'Tool Bar package', ->
           callback: 'application:about'
         jasmine.attachToDOM(toolBar)
         atom.commands.onWillDispatch spy = jasmine.createSpy()
-        toolBar.children[0].click()
+        toolBar.firstChild.click()
         expect(spy).toHaveBeenCalled()
         expect(spy.mostRecentCall.args[0].type).toEqual('application:about')
       it 'clicking button with callback function', ->
@@ -143,14 +143,13 @@ describe 'Tool Bar package', ->
           icon: 'octoface'
           callback: spy = jasmine.createSpy()
         jasmine.attachToDOM(toolBar)
-        toolBar.children[0].click()
+        toolBar.firstChild.click()
         expect(spy).toHaveBeenCalled()
       it 'clicking button with callback function containing data', ->
         button = toolBarAPI.addButton
           icon: 'octoface'
           callback: spy = jasmine.createSpy()
           data: 'foo'
-        # jasmine.attachToDOM(toolBar)
         toolBar.firstChild.click()
         expect(spy).toHaveBeenCalled()
         expect(spy.mostRecentCall.args[0]).toEqual('foo')
@@ -159,7 +158,6 @@ describe 'Tool Bar package', ->
           icon: 'octoface'
           callback: 'editor:select-line'
           tooltip: 'Select line'
-        # jasmine.attachToDOM(toolBar)
         previouslyFocusedElement = document.activeElement
         toolBar.firstChild.dispatchEvent(new Event('mouseover'))
         toolBar.firstChild.focus()
