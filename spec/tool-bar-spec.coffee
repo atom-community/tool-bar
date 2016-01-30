@@ -126,6 +126,17 @@ describe 'Tool Bar package', ->
         button.setEnabled(false)
         expect(toolBar.children.length).toBe(1)
         expect(toolBar.firstChild.classList.contains('disabled')).toBe(true)
+
+      it 'clicking button with command callback', ->
+        spy = undefined
+        button = toolBarAPI.addButton
+          icon: 'octoface'
+          callback: 'application:about'
+        jasmine.attachToDOM(toolBar)
+        atom.commands.onWillDispatch spy = jasmine.createSpy()
+        toolBar.children[0].click()
+        expect(spy).toHaveBeenCalled()
+        expect(spy.mostRecentCall.args[0].type).toEqual('application:about')
       it 'clicking button with callback function', ->
         spy = undefined
         button = toolBarAPI.addButton
