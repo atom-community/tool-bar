@@ -1,6 +1,8 @@
 {CompositeDisposable} = require 'atom'
 {$, View} = require 'space-pen'
 
+isObject = (obj) -> Object::toString.call(obj) is '[object Object]'
+
 module.exports = class ToolBarButtonView extends View
   @content: ->
     @button class: 'btn btn-default tool-bar-btn'
@@ -14,7 +16,7 @@ module.exports = class ToolBarButtonView extends View
       @prop 'title', options.tooltip
       @subscriptions.add atom.tooltips.add(this,
         title: options.tooltip
-        placement: @getTooltipPlacement
+        placement: _getTooltipPlacement
       )
 
     if options.iconset
@@ -23,20 +25,10 @@ module.exports = class ToolBarButtonView extends View
       @addClass "icon-#{options.icon}"
 
     @on 'click', (e) =>
-      if not @hasClass 'disabled'
-        cb = options.callback
-        if Object::toString.call(cb) is '[object Object]'
-          modifier = @getCallbackModifier(options, e) if e.ctrlKey or e.altKey or e.shiftKey
-          cb = options.callback[modifier] or options.callback['']
-        switch typeof cb
-          when 'string'
-            atom.commands.dispatch @getPreviouslyFocusedElement(), cb
-          when 'function'
-            cb options.data, @getPreviouslyFocusedElement()
-        @restoreFocus()
+      _restoreFocus()
+      _executeCallback(options, e) unless @hasClass 'disabled'
 
-    @on 'mouseover', =>
-      @storeFocusedElement()
+    @on 'mouseover', -> _storeFocusedElement()
 
   setEnabled: (enabled) ->
     if enabled
@@ -49,31 +41,39 @@ module.exports = class ToolBarButtonView extends View
     @subscriptions = null
     @remove()
 
-  getPreviouslyFocusedElement: ->
-    if @previouslyFocusedElement and @previouslyFocusedElement.nodeName isnt 'BODY'
-      @eventElement = @previouslyFocusedElement
-    else
-      @eventElement = atom.views.getView(atom.workspace)
+  _prevFocusedElm = null
 
-  restoreFocus: ->
-    previouslyFocusedElement = $(@previouslyFocusedElement)
-    if previouslyFocusedElement?.isOnDom()?
-      previouslyFocusedElement.focus()
-    else
-      atom.workspace.focus()
+  _getPrevFocusedElm = ->
+    prevFocusedElm = atom.views.getView(atom.workspace)
+    prevFocusedElm = _prevFocusedElm if prevFocusedElm.contains(_prevFocusedElm)
+    prevFocusedElm
 
-  storeFocusedElement: ->
-    if not document.activeElement.classList.contains 'tool-bar-btn'
-      @previouslyFocusedElement = document.activeElement
+  _restoreFocus = ->
+    _getPrevFocusedElm().focus()
 
-  getTooltipPlacement: ->
+  _storeFocusedElement = ->
+    unless document.activeElement.classList.contains 'tool-bar-btn'
+      _prevFocusedElm = document.activeElement
+
+  _getTooltipPlacement = ->
     toolbarPosition = atom.config.get 'tool-bar.position'
     return toolbarPosition is 'Top'    and 'bottom' or
            toolbarPosition is 'Right'  and 'left'   or
            toolbarPosition is 'Bottom' and 'top'    or
            toolbarPosition is 'Left'   and 'right'
 
-  getCallbackModifier: ({callback}, {altKey, ctrlKey, shiftKey}) ->
+  _executeCallback = ({callback, data}, e) ->
+    if isObject(callback)
+      modifier = _getCallbackModifier(callback, e) if e.ctrlKey or e.altKey or e.shiftKey
+      callback = callback[modifier] or callback['']
+
+    switch typeof callback
+      when 'string'
+        atom.commands.dispatch _getPrevFocusedElm(), callback
+      when 'function'
+        callback data, _getPrevFocusedElm()
+
+  _getCallbackModifier = (callback, {altKey, ctrlKey, shiftKey}) ->
     Object.keys callback
       .filter Boolean
       .map (modifier) -> modifier.toLowerCase()
