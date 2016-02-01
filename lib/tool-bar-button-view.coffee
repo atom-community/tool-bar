@@ -1,5 +1,5 @@
 {CompositeDisposable} = require 'atom'
-{$, View} = require 'space-pen'
+{View} = require 'space-pen'
 
 isObject = (obj) -> Object::toString.call(obj) is '[object Object]'
 
