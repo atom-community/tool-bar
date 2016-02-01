@@ -2,10 +2,12 @@
 
 ## vNext
 * Fix memory leaks and add `onDidDestroy`. Fixes #96 (by [@zertosh](https://github.com/zertosh))
+* Fixed `command-palette:toggle` not working. Fixes #105
 * Added support for Material Design Icons. Closes #92 (by [@JamesCoyle](https://github.com/JamesCoyle))
 * Added support for callback modifiers. Closes #44
 * Updated Font Awesome 4.5.0
 * Updated IcoMoon
+* Refactored some code
 
 ## v0.1.11
 * Added 12px icon size (dedicated to [@pongstr](https://github.com/pongstr))
