@@ -22,13 +22,17 @@ module.exports = class ToolBarButtonView extends View
     else
       @addClass "icon-#{options.icon}"
 
-    @on 'click', =>
+    @on 'click', (e) =>
       if not @hasClass 'disabled'
-        if typeof options.callback is 'string'
-          atom.commands.dispatch @getPreviouslyFocusedElement(), options.callback
-        else
-          options.callback(options.data, @getPreviouslyFocusedElement())
-
+        cb = options.callback
+        if Object::toString.call(cb) is '[object Object]'
+          modifier = @getCallbackModifier(options, e) if e.ctrlKey or e.altKey or e.shiftKey
+          cb = options.callback[modifier] or options.callback['']
+        switch typeof cb
+          when 'string'
+            atom.commands.dispatch @getPreviouslyFocusedElement(), cb
+          when 'function'
+            cb options.data, @getPreviouslyFocusedElement()
         @restoreFocus()
 
     @on 'mouseover', =>
@@ -64,8 +68,18 @@ module.exports = class ToolBarButtonView extends View
 
   getTooltipPlacement: ->
     toolbarPosition = atom.config.get 'tool-bar.position'
-    return toolbarPosition is "Top"    and "bottom" or
-           toolbarPosition is "Right"  and "left"   or
-           toolbarPosition is "Bottom" and "top"    or
-           toolbarPosition is "Left"   and "right"
+    return toolbarPosition is 'Top'    and 'bottom' or
+           toolbarPosition is 'Right'  and 'left'   or
+           toolbarPosition is 'Bottom' and 'top'    or
+           toolbarPosition is 'Left'   and 'right'
 
+  getCallbackModifier: ({callback}, {altKey, ctrlKey, shiftKey}) ->
+    Object.keys callback
+      .filter Boolean
+      .map (modifier) -> modifier.toLowerCase()
+      .reverse()
+      .find (item) ->
+        return false if (~item.indexOf('alt')   and not altKey  ) or (altKey   and not ~item.indexOf('alt'))
+        return false if (~item.indexOf('ctrl')  and not ctrlKey ) or (ctrlKey  and not ~item.indexOf('ctrl'))
+        return false if (~item.indexOf('shift') and not shiftKey) or (shiftKey and not ~item.indexOf('shift'))
+        return true
