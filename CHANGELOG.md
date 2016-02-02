@@ -1,6 +1,8 @@
 # Changelog
 
 ## vNext
+
+## v0.2.0
 * Fix memory leaks and add `onDidDestroy`. Fixes #96 (by [@zertosh](https://github.com/zertosh))
 * Fixed `command-palette:toggle` not working. Fixes #105
 * Added support for Material Design Icons. Closes #92 (by [@JamesCoyle](https://github.com/JamesCoyle))
