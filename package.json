@@ -24,7 +24,8 @@
     "tool-bar": {
       "description": "A container for buttons at workspace edge",
       "versions": {
-        "0.1.0": "provideToolBar"
+        "0.1.0": "provideToolBar",
+        "0.2.0": "provideToolBar"
       }
     }
   }
