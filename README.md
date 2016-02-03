@@ -58,12 +58,12 @@ Make sure the following properties are part of your `package.json`.
 
 ```json
 "package-dependencies": {
-  "tool-bar": "^0.1.0"
+  "tool-bar": "^0.2.0"
 },
 "consumedServices": {
   "tool-bar": {
     "versions": {
-      "^0.1.0": "consumeToolBar"
+      "^0.2.0": "consumeToolBar"
     }
   }
 }
