@@ -38,9 +38,9 @@ This package provides extensible tool bar for Atom.
 
 ## Plugins
 
-* [tool-bar-main](https://atom.io/packages/tool-bar-main)
-* [flex-tool-bar](https://atom.io/packages/flex-tool-bar)
-* [tool-bar-almighty](https://atom.io/packages/tool-bar-almighty)
+* [Flex Tool Bar](https://atom.io/packages/flex-tool-bar)
+* [Tool Bar Main](https://atom.io/packages/tool-bar-main)
+* [Toolbar Almighty](https://atom.io/packages/tool-bar-almighty)
 * And [more](https://atom.io/packages/search?utf8=%E2%9C%93&q=keyword%3Atool-bar)...
 
 ## Packages using tool-bar
@@ -58,7 +58,7 @@ Make sure the following properties are part of your `package.json`.
 
 ```json
 "package-dependencies": {
-  "tool-bar": "^0.1.0"
+  "tool-bar": "^0.2.0"
 },
 "consumedServices": {
   "tool-bar": {
@@ -159,7 +159,7 @@ The `onDidDestroy` method takes a function that will be called when the `tool-ba
 * [Foundation](http://zurb.com/playground/foundation-icon-fonts-3) (`fi`)
 * [IcoMoon](https://icomoon.io) (`icomoon`)
 * [Devicon](http://devicon.fr) (`devicon`)
-* [MaterialDesignIcons v1.4.57](https://materialdesignicons.com/) (`mdi`)
+* [MaterialDesignIcons](https://materialdesignicons.com/) (`mdi`)
 
 ## Supported commands
 
@@ -171,7 +171,7 @@ The `onDidDestroy` method takes a function that will be called when the `tool-ba
 
 ## Authors
 
-* [Wojtek Siudzinski](http://suda.pl)
+* [Wojtek Siudzinski](http://suda.pl) <sup>(owner)</sup>
 * [Jeroen van Warmerdam](https://github.com/jerone)
 * [Ryo Narita](https://github.com/cakecatz)
 
