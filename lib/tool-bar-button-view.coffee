@@ -11,6 +11,7 @@ module.exports = class ToolBarButtonView extends View
     @subscriptions = new CompositeDisposable
 
     @priority = options.priority
+    @addClass 'tool-bar-item-align-end' if @priority < 0
 
     if options.tooltip
       @prop 'title', options.tooltip

@@ -54,6 +54,18 @@
     margin: 0 @button-margin-size + 3;
   }
 
+  &.tool-bar-horizontal {
+    .tool-bar-btn,
+    .tool-bar-spacer {
+      &.tool-bar-item-align-end {
+        order: 2;
+        &:first-child {
+          margin-left: auto;
+        }
+      }
+    }
+  }
+
   &.tool-bar-12px {
     .tool-bar-size(12px * 2);
   }
