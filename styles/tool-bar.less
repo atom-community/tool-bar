@@ -77,7 +77,6 @@
     }
     &.tool-bar-vertical {
       flex-direction: column;
-      height: 100%;
       overflow-x: auto;
       &::-webkit-scrollbar {
         display: none;
@@ -118,4 +117,9 @@
       width: @size - 4;
     }
   }
+}
+
+// Deprecated. Can be removed after Atom 1.6 is released
+.tool-bar-vertical {
+  height: 100%;
 }
