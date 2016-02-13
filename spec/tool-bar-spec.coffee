@@ -172,8 +172,7 @@ describe 'Tool Bar package', ->
         it 'stops event bubbling', ->
           clickSpy = jasmine.createSpy()
           toolBar.onclick = clickSpy
-          button = toolBarAPI.addButton
-            callback: 'application:about'
+          button = toolBarAPI.addButton {}
           button.click()
           expect(clickSpy).not.toHaveBeenCalled()
 
