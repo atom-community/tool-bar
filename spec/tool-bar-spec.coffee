@@ -169,6 +169,13 @@ describe 'Tool Bar package', ->
         expect(document.activeElement).toBe(previouslyFocusedElement)
 
       describe 'by clicking', ->
+        it 'stops event bubbling', ->
+          clickSpy = jasmine.createSpy()
+          toolBar.onclick = clickSpy
+          button = toolBarAPI.addButton {}
+          button.click()
+          expect(clickSpy).not.toHaveBeenCalled()
+
         describe 'with modifiers', ->
           describe 'and command callback', ->
             spy = null

@@ -27,6 +27,7 @@ module.exports = class ToolBarButtonView extends View
     @on 'click', (e) =>
       _restoreFocus()
       _executeCallback(options, e) unless @hasClass 'disabled'
+      return false
 
     @on 'mouseover', -> _storeFocusedElement()
 
