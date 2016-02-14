@@ -1,6 +1,8 @@
 # Changelog
 
 ## vNext
+* Fix scrolling for new Atom top/bottom bars (by [@simurai](https://github.com/simurai))
+* Stop event bubbling when click tool-bar button. Fixes #112
 
 ## v0.2.0
 * Fix memory leaks and add `onDidDestroy`. Fixes #96 (by [@zertosh](https://github.com/zertosh))
