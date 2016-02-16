@@ -1,0 +1,8 @@
+{
+  "plugins": {
+    "lint": {
+      "no-html": false,
+      "list-item-spacing": false
+    }
+  }
+}

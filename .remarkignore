@@ -1,0 +1,8 @@
+# Ignore third-party packages
+node_modules
+
+# Ignore third-party icon sets
+iconsets
+
+# Ignore Atom folder when running Travis
+atom
