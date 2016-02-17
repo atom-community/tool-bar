@@ -1,33 +1,35 @@
 {
-  "name": "tool-bar",
-  "main": "./lib/tool-bar",
-  "version": "0.2.0",
-  "description": "Package providing customisable tool bar",
-  "repository": "https://github.com/suda/tool-bar",
-  "license": "MIT",
-  "keywords": [
-    "toolbar",
-    "tool-bar",
-    "service"
-  ],
-  "engines": {
-    "atom": ">=0.188.0"
-  },
-  "dependencies": {
-    "space-pen": "^5.1.1",
-    "underscore-plus": "^1.6.6"
-  },
-  "devDependencies": {
-    "coffeelint": "^1.9.7",
-    "remark": "^4.0.0",
-    "remark-lint": "^2.3.1"
-  },
-  "providedServices": {
-    "tool-bar": {
-      "description": "A container for buttons at workspace edge",
-      "versions": {
-        "0.1.0": "provideToolBar"
-      }
-    }
-  }
+	"name": "tool-bar",
+	"version": "0.2.1",
+	"description": "Package providing customisable tool bar",
+	"keywords": [
+		"toolbar",
+		"tool-bar",
+		"service"
+	],
+	"license": "MIT",
+	"main": "./lib/tool-bar",
+	"repository": {
+		"url": "https://github.com/suda/tool-bar"
+	},
+	"dependencies": {
+		"space-pen": "^5.1.1",
+		"underscore-plus": "^1.6.6"
+	},
+	"devDependencies": {
+		"coffeelint": "^1.9.7",
+		"remark": "^4.0.0",
+		"remark-lint": "^2.3.1"
+	},
+	"engines": {
+		"atom": ">=0.188.0"
+	},
+	"providedServices": {
+		"tool-bar": {
+			"description": "A container for buttons at workspace edge",
+			"versions": {
+				"0.1.0": "provideToolBar"
+			}
+		}
+	}
 }

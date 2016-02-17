@@ -2,6 +2,10 @@
 
 ## vNext
 
+*   ...
+
+## v0.2.1
+
 *   Fix scrolling for new Atom top/bottom bars (by [@simurai](https://github.com/simurai))
 *   Stop event bubbling when click tool-bar button. Fixes #112
 *   Added MarkDown linter
