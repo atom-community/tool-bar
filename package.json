@@ -12,6 +12,9 @@
 	"repository": {
 		"url": "https://github.com/suda/tool-bar"
 	},
+	"scripts": {
+		"lint": "node_modules\\.bin\\coffeelint . && node_modules\\.bin\\remark ."
+	},
 	"dependencies": {
 		"space-pen": "^5.1.1",
 		"underscore-plus": "^1.6.6"
