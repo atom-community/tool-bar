@@ -13,6 +13,7 @@ module.exports = class ToolBarManager
   addSpacer: (options) ->
     spacer = $$ -> @hr class: 'tool-bar-spacer'
     spacer.priority = options?.priority
+    spacer.addClass 'tool-bar-item-align-end' if spacer.priority < 0
     spacer.group = @group
     spacer.destroy = -> spacer.remove()
     @toolBar.addItem spacer
