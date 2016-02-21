@@ -7,7 +7,10 @@ module.exports = class ToolBarView extends View
     @div class: 'tool-bar'
 
   addItem: (newItem) ->
-    newItem.priority ?= @items[@items.length - 1]?.priority ? 50
+    lastItem = @items.filter((item) -> item.group isnt newItem.group)?.pop()
+    newItem.priority ?= lastItem?.priority + 1 ? 50
+    newItem.get(0).dataset.group = newItem.group if atom.devMode
+    newItem.get(0).dataset.priority = newItem.priority if atom.devMode
     nextItem = null
     for existingItem, index in @items
       if existingItem.priority > newItem.priority
