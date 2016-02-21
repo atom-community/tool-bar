@@ -32,7 +32,7 @@ icons you can [install plugins](#plugins).
 *   Big *(24px)*
 *   Large *(32px)*
 
-### Visiblity
+### Visibility
 
 *   Visible
 *   Hidden
