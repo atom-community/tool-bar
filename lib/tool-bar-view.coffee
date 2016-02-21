@@ -2,6 +2,8 @@
 {View} = require 'space-pen'
 _ = require 'underscore-plus'
 
+supportFullWidth = typeof atom.workspace.addHeaderPanel is 'function'
+
 module.exports = class ToolBarView extends View
   @content: ->
     @div class: 'tool-bar'
@@ -53,6 +55,10 @@ module.exports = class ToolBarView extends View
     @subscriptions.add atom.config.onDidChange 'tool-bar.position', ({newValue, oldValue}) =>
       @show() if atom.config.get 'tool-bar.visible'
 
+    if supportFullWidth
+      @subscriptions.add atom.config.onDidChange 'tool-bar.fullWidth', ({newValue, oldValue}) =>
+        @show() if atom.config.get 'tool-bar.visible'
+
     @subscriptions.add atom.config.onDidChange 'tool-bar.visible', ({newValue, oldValue}) =>
       if newValue then @show() else @hide()
 
@@ -85,11 +91,16 @@ module.exports = class ToolBarView extends View
 
   updatePosition: (position) ->
     @removeClass 'tool-bar-top tool-bar-right tool-bar-bottom tool-bar-left tool-bar-horizontal tool-bar-vertical'
+    fullWidth = supportFullWidth and atom.config.get 'tool-bar.fullWidth'
 
     switch position
-      when 'Top' then @panel = atom.workspace.addTopPanel item: this
+      when 'Top'
+        if fullWidth then @panel = atom.workspace.addHeaderPanel item: this
+        else @panel = atom.workspace.addTopPanel item: this
       when 'Right' then @panel = atom.workspace.addRightPanel item: this
-      when 'Bottom' then @panel = atom.workspace.addBottomPanel item: this
+      when 'Bottom'
+        if fullWidth then @panel = atom.workspace.addFooterPanel item: this
+        else @panel = atom.workspace.addBottomPanel item: this
       when 'Left' then @panel = atom.workspace.addLeftPanel item: this, priority: 50
     @addClass "tool-bar-#{position.toLowerCase()}"
 

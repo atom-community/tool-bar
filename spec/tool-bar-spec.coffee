@@ -12,6 +12,7 @@ describe 'Tool Bar package', ->
     Object.defineProperty(event, 'ctrlKey', get: -> ctrlKey) if ctrlKey?
     Object.defineProperty(event, 'shiftKey', get: -> shiftKey) if shiftKey?
     event
+  supportFullWidth = typeof atom.workspace.addHeaderPanel is 'function'
 
   beforeEach ->
     workspaceElement = atom.views.getView(atom.workspace)
@@ -273,42 +274,81 @@ describe 'Tool Bar package', ->
       expect(workspaceElement.querySelectorAll('.tool-bar').length).toBe(1)
 
   describe 'when tool-bar position is changed', ->
-    [topPanelElement, rightPanelElement, bottomPanelElement, leftPanelElement] = []
+    [headerPanelElement, topPanelElement, rightPanelElement,
+     footerPanelElement, bottomPanelElement, leftPanelElement] = []
 
     beforeEach ->
+      headerPanelElement = atom.views.getView(atom.workspace.panelContainers.header)
       topPanelElement = atom.views.getView(atom.workspace.panelContainers.top)
       rightPanelElement = atom.views.getView(atom.workspace.panelContainers.right)
+      footerPanelElement = atom.views.getView(atom.workspace.panelContainers.footer)
       bottomPanelElement = atom.views.getView(atom.workspace.panelContainers.bottom)
       leftPanelElement = atom.views.getView(atom.workspace.panelContainers.left)
 
-    describe 'by triggering tool-bar:position-top', ->
-      it 'the tool bar view is added to top pane', ->
+    if supportFullWidth
+      describe 'by triggering tool-bar:position-top', ->
+        it 'adds the tool bar view to header pane', ->
+          atom.commands.dispatch(workspaceElement, 'tool-bar:position-top')
+          atom.config.set('tool-bar.fullWidth', true)
+          expect(headerPanelElement.querySelectorAll('.tool-bar').length).toBe(1)
+          expect(topPanelElement.querySelector('.tool-bar')).toBeNull()
+          expect(rightPanelElement.querySelector('.tool-bar')).toBeNull()
+          expect(footerPanelElement.querySelector('.tool-bar')).toBeNull()
+          expect(bottomPanelElement.querySelector('.tool-bar')).toBeNull()
+          expect(leftPanelElement.querySelector('.tool-bar')).toBeNull()
+
+    describe 'by triggering tool-bar:position-top with full width disabled', ->
+      it 'adds the tool bar view to top pane', ->
         atom.commands.dispatch(workspaceElement, 'tool-bar:position-top')
+        atom.config.set('tool-bar.fullWidth', false)
+        expect(headerPanelElement.querySelector('.tool-bar')).toBeNull()
         expect(topPanelElement.querySelectorAll('.tool-bar').length).toBe(1)
         expect(rightPanelElement.querySelector('.tool-bar')).toBeNull()
+        expect(footerPanelElement.querySelector('.tool-bar')).toBeNull()
         expect(bottomPanelElement.querySelector('.tool-bar')).toBeNull()
         expect(leftPanelElement.querySelector('.tool-bar')).toBeNull()
 
     describe 'by triggering tool-bar:position-right', ->
-      it 'the tool bar view is added to right pane', ->
+      it 'adds the tool bar view to right pane', ->
         atom.commands.dispatch(workspaceElement, 'tool-bar:position-right')
+        atom.config.set('tool-bar.fullWidth', true)
+        expect(headerPanelElement.querySelector('.tool-bar')).toBeNull()
         expect(topPanelElement.querySelector('.tool-bar')).toBeNull()
         expect(rightPanelElement.querySelectorAll('.tool-bar').length).toBe(1)
+        expect(footerPanelElement.querySelector('.tool-bar')).toBeNull()
         expect(bottomPanelElement.querySelector('.tool-bar')).toBeNull()
         expect(leftPanelElement.querySelector('.tool-bar')).toBeNull()
 
-    describe 'by triggering tool-bar:position-bottom', ->
-      it 'the tool bar view is added to bottom pane', ->
+    if supportFullWidth
+      describe 'by triggering tool-bar:position-bottom', ->
+        it 'adds the tool bar view to footer pane', ->
+          atom.commands.dispatch(workspaceElement, 'tool-bar:position-bottom')
+          atom.config.set('tool-bar.fullWidth', true)
+          expect(headerPanelElement.querySelector('.tool-bar')).toBeNull()
+          expect(topPanelElement.querySelector('.tool-bar')).toBeNull()
+          expect(rightPanelElement.querySelector('.tool-bar')).toBeNull()
+          expect(footerPanelElement.querySelectorAll('.tool-bar').length).toBe(1)
+          expect(bottomPanelElement.querySelector('.tool-bar')).toBeNull()
+          expect(leftPanelElement.querySelector('.tool-bar')).toBeNull()
+
+    describe 'by triggering tool-bar:position-bottom with full width disabled', ->
+      it 'adds the tool bar view to bottom pane', ->
         atom.commands.dispatch(workspaceElement, 'tool-bar:position-bottom')
+        atom.config.set('tool-bar.fullWidth', false)
+        expect(headerPanelElement.querySelector('.tool-bar')).toBeNull()
         expect(topPanelElement.querySelector('.tool-bar')).toBeNull()
         expect(rightPanelElement.querySelector('.tool-bar')).toBeNull()
+        expect(footerPanelElement.querySelector('.tool-bar')).toBeNull()
         expect(bottomPanelElement.querySelectorAll('.tool-bar').length).toBe(1)
         expect(leftPanelElement.querySelector('.tool-bar')).toBeNull()
 
     describe 'by triggering tool-bar:position-left', ->
-      it 'the tool bar view is added to left pane', ->
+      it 'adds the tool bar view to left pane', ->
         atom.commands.dispatch(workspaceElement, 'tool-bar:position-left')
+        atom.config.set('tool-bar.fullWidth', true)
+        expect(headerPanelElement.querySelector('.tool-bar')).toBeNull()
         expect(topPanelElement.querySelector('.tool-bar')).toBeNull()
         expect(rightPanelElement.querySelector('.tool-bar')).toBeNull()
+        expect(footerPanelElement.querySelector('.tool-bar')).toBeNull()
         expect(bottomPanelElement.querySelector('.tool-bar')).toBeNull()
         expect(leftPanelElement.querySelectorAll('.tool-bar').length).toBe(1)
