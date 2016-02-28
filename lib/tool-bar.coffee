@@ -2,13 +2,19 @@ ToolBarManager = null
 
 module.exports =
   toolBar: null
+  plugins: null
 
   activate: ->
     ToolBarView = require './tool-bar-view'
     @toolBar = new ToolBarView()
-    ToolBarManager = require './tool-bar-manager'
+    #ToolBarManager = require './tool-bar-manager'
+    PluginManager = require './tool-bar-plugin-manager'
+    @plugins = new PluginManager()
 
   deactivate: ->
+    @plugins.destroy()
+    @plugins = null
+    
     @toolBar.destroy()
     @toolBar = null
 
@@ -42,4 +48,4 @@ module.exports =
     )()
 
   provideToolBar: ->
-    (group) => new ToolBarManager group, @toolBar
+    (group) => @plugins.register group, @toolBar

@@ -25,5 +25,17 @@ module.exports = class ToolBarManager
     .forEach (item) =>
       @toolBar.removeItem item
 
+  hideItems: ->
+    @toolBar.items?.filter (item) =>
+      item.group is @group
+    .forEach (item) =>
+      @toolBar.hideItem item
+
+  restoreItems: ->
+    @toolBar.items?.filter (item) =>
+      item.group is @group
+    .forEach (item) =>
+      @toolBar.restoreItem item
+
   onDidDestroy: (callback) ->
     @toolBar.emitter.on 'did-destroy', callback
