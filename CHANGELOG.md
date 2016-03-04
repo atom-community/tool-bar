@@ -8,9 +8,12 @@ tries to follow the [Keep a CHANGELOG](http://keepachangelog.com) convention.
 
 *   :shirt: Added lint script to package.json
 *   :package: Update dependencies
-*   :green_heart: Run beta specs on Travis
+*   :green_heart: Run beta specs on [Travis](https://travis-ci.org/suda/tool-bar)
+*   :green_heart: Run specs also on [AppVeyor](https://ci.appveyor.com/project/suda/tool-bar)
+*   :green_heart: Run specs also on [CircleCI](https://circleci.com/gh/suda/tool-bar)
 *   :sparkles: Align items to the end. Closes [#93](https://github.com/suda/tool-bar/issues/93)
-*   Increment priority by group
+*   :bug: Increment priority by group
+*   :memo: Follow the [Keep a CHANGELOG](http://keepachangelog.com) convention
 
 ## [v0.2.1](https://github.com/suda/tool-bar/compare/v0.2.0...v0.2.1) - 2016-02-17
 

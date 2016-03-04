@@ -1,6 +1,8 @@
 # Atom Tool Bar
 
-[![Build Status](https://travis-ci.org/suda/tool-bar.svg?branch=master)](https://travis-ci.org/suda/tool-bar)
+[![Travis CI](https://travis-ci.org/suda/tool-bar.svg?branch=master)](https://travis-ci.org/suda/tool-bar)
+[![Circle CI](https://circleci.com/gh/suda/tool-bar/tree/master.svg?style=svg)](https://circleci.com/gh/suda/tool-bar/tree/master)
+[![AppVeyor](https://ci.appveyor.com/api/projects/status/v11my5av06gjmwia/branch/master?svg=true)](https://ci.appveyor.com/project/jerone/tool-bar-viq9c/branch/master)
 [![Chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/suda/tool-bar?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 This package provides extensible tool bar for Atom.
