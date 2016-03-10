@@ -2,6 +2,8 @@ version: "{build}"
 
 platform: x64
 
+clone_depth: 10
+
 skip_tags: true
 
 environment:
