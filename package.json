@@ -13,7 +13,7 @@
 		"url": "https://github.com/suda/tool-bar"
 	},
 	"scripts": {
-		"lint": "node_modules\\.bin\\coffeelint . && node_modules\\.bin\\remark ."
+		"lint": "coffeelint . && remark ."
 	},
 	"dependencies": {
 		"space-pen": "^5.1.2",

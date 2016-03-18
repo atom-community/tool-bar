@@ -22,6 +22,8 @@ icons you can [install plugins](#plugins).
 
 ### Position
 
+On which edge of the editor should the tool bar appear. Possible options:
+
 *   Top
 *   Right
 *   Bottom
@@ -39,17 +41,24 @@ icons you can [install plugins](#plugins).
 *   Visible
 *   Hidden
 
+### Full Width (available in Atom >= 1.7)
+
+When on top/bottom, expand to full window width.
+
 ## Plugins
 
 *   [Flex Tool Bar](https://atom.io/packages/flex-tool-bar)
 *   [Tool Bar Main](https://atom.io/packages/tool-bar-main)
 *   [Toolbar Almighty](https://atom.io/packages/tool-bar-almighty)
+*   [Toolbar for Atom](https://atom.io/packages/tool-bar-atom)
+*   [Toolbar Shortcuts](https://atom.io/packages/tool-bar-shortcuts)
 *   And [more](https://atom.io/packages/search?utf8=%E2%9C%93&q=keyword%3Atool-bar)...
 
 ## Packages using tool-bar
 
 *   [Particle Dev](https://atom.io/packages/spark-dev)
 *   [Facebook Nuclide](https://atom.io/packages/nuclide)
+*   [PlatformIO IDE](https://atom.io/packages/platformio-ide)
 
 ## Integrating instructions
 
@@ -146,21 +155,32 @@ consumeToolBar: (toolBar) ->
     # Teardown any stateful code that depends on tool bar ...
 ```
 
+## Methods
+
+### `.addButton({icon, callback, priority, tooltip, data})`
+
 The method `addButton` requires an object with at least the properties `icon`
 and `callback`. The `icon` can be any icon from the `iconset`. The `callback`
 must be an Atom command string, an custom callback function or an object where
 the keys are key modifiers (`alt`, `ctrl` or `shift`) and the values are
-commands or custom function.
+commands or custom function (see [example](#example)).
 
-The remaining properties `tooltip` (default is no tooltip), `iconset` (defaults
- `Octicons`), `data` and `priority` (defaults `50`) are optional.
+The remaining properties `tooltip` (default there is no tooltip),
+`iconset` (defaults to `Octicons`), `data` and `priority` (defaults `50`)
+are optional.
+
+### `.addSpacer({priority})`
 
 The method `addSpacer` has only one optional property `priority` (defaults
 `50`).
 
+### `.removeItems()`
+
 Use the method `removeItems` to remove the buttons added by your package. This
 is particular useful in your package `deactivate` method, but can be used at
 any time.
+
+### `.onDidDestroy(callback)`
 
 The `onDidDestroy` method takes a function that will be called when the
 `tool-bar` package is destroyed. This is useful if your package needs to do
