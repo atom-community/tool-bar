@@ -4,9 +4,13 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and
 tries to follow the [Keep a CHANGELOG](http://keepachangelog.com) convention.
 
-## [vNext](https://github.com/suda/tool-bar/compare/v0.3.0...master) - Unreleased
+## [vNext](https://github.com/suda/tool-bar/compare/v0.4.0...master) - Unreleased
 
 *   ...
+
+## [v0.4.0](https://github.com/suda/tool-bar/compare/v0.3.0...v0.4.0) - 2016-03-18
+
+*   :sparkles: Full width header & footer tool bar. Closes [#91](https://github.com/suda/tool-bar/issues/91)
 
 ## [v0.3.0](https://github.com/suda/tool-bar/compare/v0.2.1...v0.3.0) - 2016-03-05
 
