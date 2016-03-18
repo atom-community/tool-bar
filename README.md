@@ -21,7 +21,7 @@ icons you can [install plugins](#plugins).
 ## Configuration
 
 ### Position
-
+On which edge of the editor should the tool bar appear. Possible options:
 *   Top
 *   Right
 *   Bottom
@@ -38,6 +38,9 @@ icons you can [install plugins](#plugins).
 
 *   Visible
 *   Hidden
+
+### Full Width (available in Atom >= 1.7)
+When on top/bottom, expand to full window width.
 
 ## Plugins
 
