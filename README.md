@@ -21,7 +21,9 @@ icons you can [install plugins](#plugins).
 ## Configuration
 
 ### Position
+
 On which edge of the editor should the tool bar appear. Possible options:
+
 *   Top
 *   Right
 *   Bottom
@@ -40,6 +42,7 @@ On which edge of the editor should the tool bar appear. Possible options:
 *   Hidden
 
 ### Full Width (available in Atom >= 1.7)
+
 When on top/bottom, expand to full window width.
 
 ## Plugins
@@ -155,25 +158,30 @@ consumeToolBar: (toolBar) ->
 ## Methods
 
 ### `.addButton({icon, callback, priority, tooltip, data})`
+
 The method `addButton` requires an object with at least the properties `icon`
 and `callback`. The `icon` can be any icon from the `iconset`. The `callback`
 must be an Atom command string, an custom callback function or an object where
 the keys are key modifiers (`alt`, `ctrl` or `shift`) and the values are
 commands or custom function (see [example](#example)).
 
-The remaining properties `tooltip` (default there is no tooltip), `iconset` (defaults to
- `Octicons`), `data` and `priority` (defaults `50`) are optional.
+The remaining properties `tooltip` (default there is no tooltip),
+`iconset` (defaults to `Octicons`), `data` and `priority` (defaults `50`)
+are optional.
 
 ### `.addSpacer({priority})`
+
 The method `addSpacer` has only one optional property `priority` (defaults
 `50`).
 
 ### `.removeItems()`
+
 Use the method `removeItems` to remove the buttons added by your package. This
 is particular useful in your package `deactivate` method, but can be used at
 any time.
 
 ### `.onDidDestroy(callback)`
+
 The `onDidDestroy` method takes a function that will be called when the
 `tool-bar` package is destroyed. This is useful if your package needs to do
 cleanup when the `tool-bar` is deactivated but your package continues running.
