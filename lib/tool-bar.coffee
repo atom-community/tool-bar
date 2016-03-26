@@ -1,4 +1,5 @@
-ToolBarManager = null
+ToolBarView = null
+PluginManager = null
 
 module.exports =
   toolBar: null
@@ -7,7 +8,7 @@ module.exports =
   activate: ->
     ToolBarView ?= require './tool-bar-view'
     @toolBar = new ToolBarView()
-    #ToolBarManager = require './tool-bar-manager'
+
     PluginManager ?= require './tool-bar-plugin-manager'
     @plugins = new PluginManager(@config)
 
