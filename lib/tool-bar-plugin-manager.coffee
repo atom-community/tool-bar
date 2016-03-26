@@ -18,7 +18,7 @@ module.exports = class ToolBarPluginManager
     @config.plugins.properties[name] =
       type: 'boolean'
       title: name
-      description: "Whether the #{name} plugin is activated and displayed on the Tool Bar."
+      description: "Whether the #{name} plugin is allowed to add items to the Tool Bar."
       default: true
 
     atom.config.set(settingsKey, true) unless atom.config.get(settingsKey)?
