@@ -23,9 +23,9 @@ module.exports = class ToolBarPluginManager
 
     atom.config.set(settingsKey, true) unless atom.config.get(settingsKey)?
 
-    @subscriptions[name].add atom.config.onDidChange settingsKey, ({newValue, oldValue}) =>
-      console.debug "ToolBarPluginManager:#{settingsKey}:onDidChange", arguments
-      if newValue
+    @subscriptions[name].add atom.config.observe settingsKey, (value) =>
+      console.debug "ToolBarPluginManager:#{settingsKey}:observe", arguments
+      if value
         @plugins[name]?.restoreItems()
       else
         @plugins[name]?.hideItems()
