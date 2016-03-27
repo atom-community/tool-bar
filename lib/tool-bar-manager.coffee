@@ -3,11 +3,13 @@ ToolBarButtonView = require './tool-bar-button-view'
 
 module.exports = class ToolBarManager
   constructor: (@group, @toolBar) ->
+    @visible = true
 
   addButton: (options) ->
     button = new ToolBarButtonView options
     button.group = @group
     @toolBar.addItem button
+    @toolBar.hideItem(button) unless @visible
     button
 
   addSpacer: (options) ->
@@ -17,6 +19,7 @@ module.exports = class ToolBarManager
     spacer.group = @group
     spacer.destroy = -> spacer.remove()
     @toolBar.addItem spacer
+    @toolBar.hideItem(spacer) unless @visible
     spacer
 
   removeItems: ->
@@ -26,12 +29,14 @@ module.exports = class ToolBarManager
       @toolBar.removeItem item
 
   hideItems: ->
+    @visible = false
     @toolBar.items?.filter (item) =>
       item.group is @group
     .forEach (item) =>
       @toolBar.hideItem item
 
   restoreItems: ->
+    @visible = true
     @toolBar.items?.filter (item) =>
       item.group is @group
     .forEach (item) =>
