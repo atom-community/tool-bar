@@ -9,8 +9,7 @@ module.exports = class ToolBarView extends View
     @div class: 'tool-bar'
 
   addItem: (newItem) ->
-    lastItem = @items.filter((item) -> item.group isnt newItem.group)?.pop()
-    newItem.priority ?= lastItem?.priority + 1 ? 50
+    newItem.priority = @calculatePriority newItem
     newItem.get(0).dataset.group = newItem.group if atom.devMode
     newItem.get(0).dataset.priority = newItem.priority if atom.devMode
     nextItem = null
@@ -84,6 +83,12 @@ module.exports = class ToolBarView extends View
     @emitter.emit 'did-destroy'
     @emitter.dispose()
     @emitter = null
+
+  calculatePriority: (item) ->
+    return item.priority unless isNaN item.priority
+    lastItem = @items.filter((i) -> i.group isnt item.group)?.pop()
+    return lastItem.priority + 1 if lastItem and not isNaN lastItem.priority
+    50
 
   updateSize: (size) ->
     @removeClass 'tool-bar-12px tool-bar-16px tool-bar-24px tool-bar-32px'

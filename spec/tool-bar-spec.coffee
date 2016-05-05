@@ -169,6 +169,75 @@ describe 'Tool Bar package', ->
         toolBar.firstChild.click()
         expect(document.activeElement).toBe(previouslyFocusedElement)
 
+      describe 'using priority setting', ->
+        it 'works with default values', ->
+          toolBarAPI.addButton
+            icon: 'octoface'
+            callback: 'application:about'
+          toolBarAPI.addButton
+            icon: 'file'
+            callback: 'application:about'
+          toolBarAPI.addButton
+            icon: 'folder'
+            callback: 'application:about'
+          expect(toolBar.children.length).toBe 3
+          expect(toolBar.children[0].classList.contains('icon-octoface')).toBe true
+          expect(toolBar.children[1].classList.contains('icon-file')).toBe true
+          expect(toolBar.children[2].classList.contains('icon-folder')).toBe true
+        it 'works with custom values', ->
+          toolBarAPI.addButton
+            icon: 'octoface'
+            callback: 'application:about'
+          toolBarAPI.addButton
+            icon: 'file'
+            callback: 'application:about'
+            priority: 10
+          toolBarAPI.addButton
+            icon: 'folder'
+            callback: 'application:about'
+            priority: 20
+          expect(toolBar.children.length).toBe 3
+          expect(toolBar.children[0].classList.contains('icon-file')).toBe true
+          expect(toolBar.children[1].classList.contains('icon-folder')).toBe true
+          expect(toolBar.children[2].classList.contains('icon-octoface')).toBe true
+        it 'works with unordered values', ->
+          toolBarAPI.addButton
+            icon: 'octoface'
+            callback: 'application:about'
+          toolBarAPI.addButton
+            icon: 'file'
+            callback: 'application:about'
+            priority: 20
+          toolBarAPI.addButton
+            icon: 'folder'
+            callback: 'application:about'
+            priority: 10
+          expect(toolBar.children.length).toBe 3
+          expect(toolBar.children[0].classList.contains('icon-folder')).toBe true
+          expect(toolBar.children[1].classList.contains('icon-file')).toBe true
+          expect(toolBar.children[2].classList.contains('icon-octoface')).toBe true
+        it 'works with negative values', ->
+          toolBarAPI.addButton
+            icon: 'octoface'
+            callback: 'application:about'
+          toolBarAPI.addButton
+            icon: 'file'
+            callback: 'application:about'
+            priority: 10
+          toolBarAPI.addButton
+            icon: 'folder'
+            callback: 'application:about'
+            priority: -50
+          toolBarAPI.addButton
+            icon: 'gear'
+            callback: 'application:about'
+            priority: -60
+          expect(toolBar.children.length).toBe 4
+          expect(toolBar.children[0].classList.contains('icon-gear')).toBe true
+          expect(toolBar.children[1].classList.contains('icon-folder')).toBe true
+          expect(toolBar.children[2].classList.contains('icon-file')).toBe true
+          expect(toolBar.children[3].classList.contains('icon-octoface')).toBe true
+
       describe 'by clicking', ->
         it 'stops event bubbling', ->
           clickSpy = jasmine.createSpy()
