@@ -1,14 +1,21 @@
-ToolBarManager = null
+ToolBarView = null
+PluginManager = null
 
 module.exports =
   toolBar: null
+  plugins: null
 
   activate: ->
-    ToolBarView = require './tool-bar-view'
+    ToolBarView ?= require './tool-bar-view'
     @toolBar = new ToolBarView()
-    ToolBarManager = require './tool-bar-manager'
+
+    PluginManager ?= require './tool-bar-plugin-manager'
+    @plugins = new PluginManager(@config)
 
   deactivate: ->
+    @plugins.destroy()
+    @plugins = null
+
     @toolBar.destroy()
     @toolBar = null
 
@@ -31,6 +38,10 @@ module.exports =
           default: 'Top'
           enum: ['Top', 'Right', 'Bottom', 'Left']
           order: 3
+        plugins:
+          type: 'object'
+          properties: {}
+          order: 5
 
       if typeof atom.workspace.addHeaderPanel is 'function'
         config.fullWidth =
@@ -42,4 +53,4 @@ module.exports =
     )()
 
   provideToolBar: ->
-    (group) => new ToolBarManager group, @toolBar
+    (group) => @plugins.register group, @toolBar

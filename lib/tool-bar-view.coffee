@@ -29,6 +29,12 @@ module.exports = class ToolBarView extends View
     @items.splice (@items.indexOf item), 1
     @drawGutter()
 
+  hideItem: (item) ->
+    item.hide()
+
+  restoreItem: (item) ->
+    item.show()
+
   initialize: ->
     @items = []
     @emitter = new Emitter
