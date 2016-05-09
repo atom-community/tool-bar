@@ -88,72 +88,91 @@ Make sure the following properties are part of your `package.json`.
 In your main package file, add the following methods and replace
 `your-package-name` with your package name.
 
-```coffeescript
-consumeToolBar: (toolBar) ->
-  @toolBar = toolBar 'your-package-name'
+```js
+let toolBar;
 
-  # Add buttons and spacers here...
+export function consumeToolBar(getToolBar) {
+  toolBar = getToolBar('your-package-name');
+  // Add buttons and spacers here...
+}
 
-deactivate: ->
-  @toolBar?.removeItems()
+export function deactivate() {
+  if (toolBar) {
+    toolBar.removeItems();
+    toolBar = null;
+  }
+}
 ```
 
 ### Example
 
-```coffeescript
-consumeToolBar: (toolBar) ->
-  @toolBar = toolBar 'your-package-name'
+```js
+let toolBar;
 
-  # Adding button
-  @toolBar.addButton
-    icon: 'octoface'
-    callback: 'application:about'
-    tooltip: 'About Atom'
+export function consumeToolBar(getToolBar) {
+  toolBar = getToolBar('your-package-name');
 
-  # Adding spacer
-  @toolBar.addSpacer()
-
-  # Using custom icon set (Ionicons)
-  button = @toolBar.addButton
-    icon: 'gear-a'
-    callback: 'application:show-settings'
-    tooltip: 'Show Settings'
-    iconset: 'ion'
-
-  # Disable button
-  button.setEnabled false
-
-  # Function with data in callback
-  @toolBar.addButton
-    icon: 'alert',
-    callback: (data)->
-      alert data
-    tooltip: 'Show Alert'
-    data: 'foo'
-
-  # Callback with modifiers
-  @toolBar.addButton
+  // Adding button
+  toolBar.addButton({
     icon: 'octoface',
-    callback:
-      '': 'application:cmd-1'  # Without modifiers is default action
-      'alt': 'application:cmd-2'
-      'ctrl': 'application:cmd-3'
-      'shift': (data) -> console.log data  # With function callback
-      'alt+shift': 'application:cmd-5'  # Multiple modifiers
-      'alt+ctrl+shift': 'application:cmd-6'  # All modifiers      
+    callback: 'application:about',
+    tooltip: 'About Atom'
+  });
+
+  // Adding spacer
+  toolBar.addSpacer();
+
+  // Using custom icon set (Ionicons)
+  const button = toolBar.addButton({
+    icon: 'gear-a',
+    callback: 'application:show-settings',
+    tooltip: 'Show Settings',
+    iconset: 'ion'
+  });
+
+  // Disable button
+  button.setEnabled(false);
+
+  // Function with data in callback
+  toolBar.addButton({
+    icon: 'alert',
+    callback(data) {
+      alert(data);
+    },
+    tooltip: 'Show Alert',
     data: 'foo'
+  });
 
-  # Adding spacer and button at the beginning of the tool bar
-  @toolBar.addSpacer priority: 10
-  @toolBar.addButton
-    icon: 'octoface'
-    callback: 'application:about'
+  // Callback with modifiers
+  toolBar.addButton({
+    icon: 'octoface',
+    callback: {
+      '': 'application:cmd-1',      // Without modifiers is default action
+      'alt': 'application:cmd-2',
+      'ctrl': 'application:cmd-3',  // With function callback
+      'shift'(data) {
+        console.log(data);
+      },
+      'alt+shift': 'application:cmd-5',       // Multiple modifiers
+      'alt+ctrl+shift': 'application:cmd-6'   // All modifiers 
+    },
+    data: 'foo'
+  });
+
+  // Adding spacer and button at the beginning of the tool bar
+  toolBar.addSpacer({priority: 10});
+  toolBar.addButton({
+    icon: 'octoface',
+    callback: 'application:about',
     priority: 10
+  });
 
-  # Cleaning up when tool bar is deactivated
-  @toolBar.onDidDestroy ->
-    @toolBar = null
-    # Teardown any stateful code that depends on tool bar ...
+  // Cleaning up when tool bar is deactivated
+  toolBar.onDidDestroy(() => {
+    this.toolBar = null;
+    // Teardown any stateful code that depends on tool bar ...
+  });
+}
 ```
 
 ## Methods
