@@ -26,7 +26,7 @@ function buildClickEvent ({altKey, ctrlKey, shiftKey} = {}) {
   return event;
 }
 
-describe('Tool Bar package', () => {
+describe('Tool Bar package (legacy)', () => {
   let workspaceElement;
   let toolBarService;
   let toolBarAPI;
@@ -35,8 +35,13 @@ describe('Tool Bar package', () => {
     workspaceElement = atom.views.getView(atom.workspace);
     waitsForPromise(async () => {
       const pack = await atom.packages.activatePackage('tool-bar');
-      toolBarService = pack.mainModule.provideToolBar();
+      toolBarService = pack.mainModule.provideToolBarLegacy();
     });
+  });
+
+  afterEach(() => {
+    const Grim = require('grim');
+    Grim.clearDeprecations();
   });
 
   describe('@activate', () => {
@@ -335,7 +340,7 @@ describe('Tool Bar package', () => {
           const clickSpy = jasmine.createSpy();
           toolBar.addEventListener('click', clickSpy);
           const button = toolBarAPI.addButton({});
-          button.element.click();
+          button.click();
           expect(clickSpy).not.toHaveBeenCalled();
         });
 
