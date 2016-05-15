@@ -16,6 +16,7 @@
 		"lint": "eslint --format tap . && remark ."
 	},
 	"dependencies": {
+		"grim": "^2.0.0",
 		"jquery": "2.1.4"
 	},
 	"devDependencies": {
