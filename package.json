@@ -15,7 +15,9 @@
 	"scripts": {
 		"lint": "eslint --format tap . && remark ."
 	},
-	"dependencies": {},
+	"dependencies": {
+		"jquery": "2.1.4"
+	},
 	"devDependencies": {
 		"babel-eslint": "^6.0.4",
 		"eslint": "^2.9.0",
@@ -32,7 +34,8 @@
 		"tool-bar": {
 			"description": "A container for buttons at workspace edge",
 			"versions": {
-				"0.1.0": "provideToolBar"
+				"0.1.0": "provideToolBarLegacy",
+				"1.0.0": "provideToolBar"
 			}
 		}
 	}
