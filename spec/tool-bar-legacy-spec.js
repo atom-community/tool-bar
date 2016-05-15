@@ -333,7 +333,7 @@ describe('Tool Bar package (legacy)', () => {
       describe('by clicking', () => {
         it('stops event bubbling', () => {
           const clickSpy = jasmine.createSpy();
-          toolBar.onclick = clickSpy;
+          toolBar.addEventListener('click', clickSpy);
           const button = toolBarAPI.addButton({});
           button.click();
           expect(clickSpy).not.toHaveBeenCalled();
