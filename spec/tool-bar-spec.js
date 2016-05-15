@@ -335,7 +335,7 @@ describe('Tool Bar package', () => {
           const clickSpy = jasmine.createSpy();
           toolBar.onclick = clickSpy;
           const button = toolBarAPI.addButton({});
-          button.click();
+          button.element.click();
           expect(clickSpy).not.toHaveBeenCalled();
         });
 

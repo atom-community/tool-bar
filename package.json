@@ -15,9 +15,7 @@
 	"scripts": {
 		"lint": "eslint --format tap . && remark ."
 	},
-	"dependencies": {
-		"space-pen": "^5.1.2"
-	},
+	"dependencies": {},
 	"devDependencies": {
 		"babel-eslint": "^6.0.4",
 		"eslint": "^2.9.0",
