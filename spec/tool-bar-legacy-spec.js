@@ -39,6 +39,11 @@ describe('Tool Bar package (legacy)', () => {
     });
   });
 
+  afterEach(() => {
+    const Grim = require('grim');
+    Grim.clearDeprecations();
+  });
+
   describe('@activate', () => {
     it('appends only one tool bar', () => {
       expect(workspaceElement.querySelectorAll('.tool-bar').length).toBe(1);
