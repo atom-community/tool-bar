@@ -71,17 +71,17 @@ the tool bar, follow the instructions below.
 Make sure the following properties are part of your `package.json`.
 
 ```json
-"package-dependencies": {
-  "tool-bar": "^0.2.0"
-},
 "consumedServices": {
   "tool-bar": {
     "versions": {
-      "^0.1.0": "consumeToolBar"
+      "^0 || ^1": "consumeToolBar"
     }
   }
 }
 ```
+
+We recommend using [Atom-Package-Deps](https://github.com/steelbrain/package-deps) 
+in your package for installing dependency packages like this package.
 
 ### Main package file
 
