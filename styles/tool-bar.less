@@ -11,14 +11,25 @@
   @button-border-size: 1px;
   background-color: @base-background-color;
   border: 1px solid @base-border-color;
-  color: @text-color;
   display: flex;
   justify-content: flex-start;
 
-  button.tool-bar-btn {
+  // Specificity must not be too high, or default :hover behaviour will
+  // be overridden.
+  .btn-default:not(.selected) {
     background-color: @base-background-color;
     background-image: inherit;
     border-color: @base-background-color;
+    color: @text-color;
+  }
+
+  button.tool-bar-btn {
+    &.btn-default.selected {
+      background-color: @button-background-color;
+    }
+    &:not(.btn-default) {
+      opacity: 0.75;
+    }
     cursor: pointer;
     flex: 0 0 auto;
     margin: @button-margin-size;
