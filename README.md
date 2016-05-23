@@ -240,3 +240,4 @@ using this one. For all contributions credits are due:
 *   Carlos Santos
 *   [Daniel Alejandro Cast](https://github.com/lexcast)
 *   [James Coyle](https://github.com/JamesCoyle)
+*   [Andres Suarez](https://github.com/zertosh)
