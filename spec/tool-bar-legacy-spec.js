@@ -184,7 +184,7 @@ describe('Tool Bar package (legacy)', () => {
         });
         expect(toolBar.firstChild.classList.contains('mdi')).toBe(true);
         expect(toolBar.firstChild.classList.contains('mdi-material-ui')).toBe(true);
-        expect(getGlyph(toolBar.firstChild)).toBe('f449');
+        expect(getGlyph(toolBar.firstChild)).toBe('f357');
       });
 
       it('and disabling it', () => {
