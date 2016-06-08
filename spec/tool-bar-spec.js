@@ -244,7 +244,7 @@ describe('Tool Bar package', () => {
         const classNames = ['sample-classname', 'test-button'];
         toolBarAPI.addButton({
           icon: 'octoface',
-          classNames,
+          classNames
         });
         expect(toolBar.firstChild.classList.contains(classNames[0])).toBeTruthy();
         expect(toolBar.firstChild.classList.contains(classNames[1])).toBeTruthy();
@@ -508,15 +508,15 @@ describe('Tool Bar package', () => {
         expect(toolBar.firstChild.nodeName).toBe('HR');
       });
 
-      it ('with custom classes', () => {
+      it('with custom classes', () => {
         const classNames = ['sample-classname', 'test-spacer'];
         const options = {
-          classNames,
+          classNames
         };
         toolBarAPI.addSpacer(options);
         expect(toolBar.firstChild.classList.contains(classNames[0])).toBeTruthy();
         expect(toolBar.firstChild.classList.contains(classNames[1])).toBeTruthy();
-      })
+      });
     });
   });
 
