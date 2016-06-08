@@ -509,7 +509,7 @@ describe('Tool Bar package', () => {
       });
 
       it ('with custom classes', () => {
-        const classNames = ['sample-classname', 'test-button'];
+        const classNames = ['sample-classname', 'test-spacer'];
         const options = {
           classNames,
         };
