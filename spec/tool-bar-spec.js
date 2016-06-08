@@ -240,6 +240,16 @@ describe('Tool Bar package', () => {
         expect(document.activeElement).toBe(previouslyFocusedElement);
       });
 
+      it('with custom classes', () => {
+        const classNames = ['sample-classname', 'test-button'];
+        toolBarAPI.addButton({
+          icon: 'octoface',
+          classNames,
+        });
+        expect(toolBar.firstChild.classList.contains(classNames[0])).toBeTruthy();
+        expect(toolBar.firstChild.classList.contains(classNames[1])).toBeTruthy();
+      });
+
       describe('using priority setting', () => {
         it('works with default values', () => {
           toolBarAPI.addButton({
@@ -497,6 +507,16 @@ describe('Tool Bar package', () => {
         expect(toolBar.children.length).toBe(1);
         expect(toolBar.firstChild.nodeName).toBe('HR');
       });
+
+      it ('with custom classes', () => {
+        const classNames = ['sample-classname', 'test-button'];
+        const options = {
+          classNames,
+        };
+        toolBarAPI.addSpacer(options);
+        expect(toolBar.firstChild.classList.contains(classNames[0])).toBeTruthy();
+        expect(toolBar.firstChild.classList.contains(classNames[1])).toBeTruthy();
+      })
     });
   });
 
