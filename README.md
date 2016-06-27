@@ -79,7 +79,7 @@ Make sure the following properties are part of your `package.json`.
 }
 ```
 
-We recommend using [Atom-Package-Deps](https://github.com/steelbrain/package-deps) 
+We recommend using [Atom-Package-Deps](https://github.com/steelbrain/package-deps)
 in your package for installing dependency packages like this package.
 
 ### Main package file
@@ -115,7 +115,8 @@ export function consumeToolBar(getToolBar) {
   toolBar.addButton({
     icon: 'octoface',
     callback: 'application:about',
-    tooltip: 'About Atom'
+    tooltip: 'About Atom',
+    classNames: ['custom-class-name']  // Optional parameter
   });
 
   // Adding spacer
@@ -153,7 +154,7 @@ export function consumeToolBar(getToolBar) {
         console.log(data);
       },
       'alt+shift': 'application:cmd-5',       // Multiple modifiers
-      'alt+ctrl+shift': 'application:cmd-6'   // All modifiers 
+      'alt+ctrl+shift': 'application:cmd-6'   // All modifiers
     },
     data: 'foo'
   });
@@ -176,7 +177,7 @@ export function consumeToolBar(getToolBar) {
 
 ## Methods
 
-### `.addButton({icon, callback, priority, tooltip, data})`
+### `.addButton({icon, callback, priority, tooltip, data, classNames})`
 
 The method `addButton` requires an object with at least the properties `icon`
 and `callback`. The `icon` can be any icon from the `iconset`. The `callback`
@@ -188,7 +189,7 @@ The remaining properties `tooltip` (default there is no tooltip),
 `iconset` (defaults to `Octicons`), `data` and `priority` (defaults `50`)
 are optional.
 
-### `.addSpacer({priority})`
+### `.addSpacer({priority, classNames})`
 
 The method `addSpacer` has only one optional property `priority` (defaults
 `50`).
