@@ -59,7 +59,6 @@ When on top/bottom, expand to full window width.
 *   [Particle Dev](https://atom.io/packages/spark-dev)
 *   [Facebook Nuclide](https://atom.io/packages/nuclide)
 *   [PlatformIO IDE](https://atom.io/packages/platformio-ide)
-*   [atom-macros](https://atom.io/packages/atom-macros)
 
 ## Integrating instructions
 
