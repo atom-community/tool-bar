@@ -188,6 +188,9 @@ The remaining properties `tooltip` (default there is no tooltip),
 `iconset` (defaults to `Octicons`), `data` and `priority` (defaults `50`)
 are optional.
 
+The return value of this method shares another method called 
+`setEnabled(enabled)` to enable or disable the button.
+
 ### `.addSpacer({priority})`
 
 The method `addSpacer` has only one optional property `priority` (defaults
