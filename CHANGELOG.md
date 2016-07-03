@@ -4,9 +4,19 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and
 tries to follow the [Keep a CHANGELOG](http://keepachangelog.com) convention.
 
-## [vNext](https://github.com/suda/tool-bar/compare/v0.4.0...master) - Unreleased
+## [vNext](https://github.com/suda/tool-bar/compare/v1.0.0...master) - Unreleased
 
 *   ...
+
+## [v1.0.0](https://github.com/suda/tool-bar/compare/v0.4.0...v1.0.0) - 2016-07-03
+
+*   Convert to ES6 (by [@zertosh](https://github.com/zertosh))
+*   :fire: Removed space-pen dependency. Closes [#135](https://github.com/suda/tool-bar/issues/135) (by [@zertosh](https://github.com/zertosh))
+*   :bug:  Fixed priority calculation
+*   :art: Add transparency fadeout to spacers (by [@phoenixenero](https://github.com/phoenixenero))
+*   Update Material Design Icons (by [@unluisco](https://github.com/unluisco))
+*   :art: Some theme fixes.
+*   :fire: Removed deprecated code. Fixes [#133](https://github.com/suda/tool-bar/issues/133)
 
 ## [v0.4.0](https://github.com/suda/tool-bar/compare/v0.3.0...v0.4.0) - 2016-03-18
 
