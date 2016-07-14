@@ -79,7 +79,7 @@ Make sure the following properties are part of your `package.json`.
 }
 ```
 
-We recommend using [Atom-Package-Deps](https://github.com/steelbrain/package-deps) 
+We recommend using [Atom-Package-Deps](https://github.com/steelbrain/package-deps)
 in your package for installing dependency packages like this package.
 
 ### Main package file
@@ -153,7 +153,7 @@ export function consumeToolBar(getToolBar) {
         console.log(data);
       },
       'alt+shift': 'application:cmd-5',       // Multiple modifiers
-      'alt+ctrl+shift': 'application:cmd-6'   // All modifiers 
+      'alt+ctrl+shift': 'application:cmd-6'   // All modifiers
     },
     data: 'foo'
   });
@@ -188,7 +188,10 @@ The remaining properties `tooltip` (default there is no tooltip),
 `iconset` (defaults to `Octicons`), `data` and `priority` (defaults `50`)
 are optional.
 
-The return value of this method shares another method called 
+Additionally, you can add other classes to apply to the button by adding them to
+the property `classes` (which is also optional).
+
+The return value of this method shares another method called
 `setEnabled(enabled)` to enable or disable the button.
 
 ### `.addSpacer({priority})`
