@@ -187,6 +187,31 @@ describe('Tool Bar package (legacy)', () => {
         expect(getGlyph(toolBar.firstChild)).toBe('f357');
       });
 
+      it('adding extra class', () => {
+        jasmine.attachToDOM(toolBar);
+        toolBarAPI.addButton({
+          icon: 'octoface',
+          callback: 'application:about',
+          classes: 'hello'
+        });
+        expect(toolBar.firstChild.classList.contains('icon-octoface')).toBe(true);
+        expect(toolBar.firstChild.classList.contains('hello')).toBe(true);
+        expect(getGlyph(toolBar.firstChild)).toBe('f008');
+      });
+
+      it('adding extra classes', () => {
+        jasmine.attachToDOM(toolBar);
+        toolBarAPI.addButton({
+          icon: 'octoface',
+          callback: 'application:about',
+          classes: 'hello world'
+        });
+        expect(toolBar.firstChild.classList.contains('icon-octoface')).toBe(true);
+        expect(toolBar.firstChild.classList.contains('hello')).toBe(true);
+        expect(toolBar.firstChild.classList.contains('world')).toBe(true);
+        expect(getGlyph(toolBar.firstChild)).toBe('f008');
+      });
+
       it('and disabling it', () => {
         const button = toolBarAPI.addButton({
           icon: 'octoface',
