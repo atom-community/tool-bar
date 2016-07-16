@@ -2,6 +2,11 @@
 
 /* eslint-env browser */
 
+const buttonOptions = {
+  icon: 'octoface',
+  callback: 'application:about'
+};
+
 function getGlyph (elm) {
   return window.getComputedStyle(elm, ':before')
     .getPropertyValue('content')
@@ -28,6 +33,7 @@ describe('Tool Bar package', () => {
   let workspaceElement;
   let toolBarService;
   let toolBarAPI;
+  let toolBar;
 
   beforeEach(() => {
     workspaceElement = atom.views.getView(atom.workspace);
@@ -66,17 +72,54 @@ describe('Tool Bar package', () => {
       expect(typeof toolBarService).toBe('function');
     });
 
-    describe('which can add a button', () => {
-      let toolBar;
+    describe('consumed by third-party packages', () => {
+      it('can be registered', () => {
+        const settingsKey = 'tool-bar.plugins.specs-tool-bar';
+        toolBarAPI = toolBarService('specs-tool-bar');
+        expect(toolBarAPI).toBeDefined();
+        expect(toolBarAPI.group).toBe('specs-tool-bar');
+        expect(atom.config.get(settingsKey)).toBe(true);
+        toolBarAPI.addButton(buttonOptions);
+        toolBar = workspaceElement.querySelector('.tool-bar');
+        expect(toolBar.children.length).toBe(1);
+      });
 
+      it('can be unregistered', () => {
+        const spy = jasmine.createSpy();
+        const settingsKey = 'tool-bar.plugins.specs-tool-bar';
+        toolBarAPI = toolBarService('specs-tool-bar');
+        toolBarAPI.addButton(buttonOptions);
+        toolBar = workspaceElement.querySelector('.tool-bar');
+        toolBarAPI.onDidDestroy(spy);
+        toolBarAPI.destroy();
+        expect(toolBar.children.length).toBe(0);
+        expect(spy).toHaveBeenCalled();
+        expect(toolBarAPI.addButton.bind(toolBarAPI, buttonOptions)).toThrow();
+        expect(atom.config.get(settingsKey)).toBeUndefined();
+      });
+
+      it('can be deactivated', () => {
+        toolBarAPI = toolBarService('specs-tool-bar');
+        toolBarAPI.addButton(buttonOptions);
+        toolBar = workspaceElement.querySelector('.tool-bar');
+        toolBarAPI.deactivate();
+        expect(toolBar.children.length).toBe(0);
+      });
+
+      it('can be activated', () => {
+        toolBarAPI = toolBarService('specs-tool-bar');
+        toolBarAPI.addButton(buttonOptions);
+        toolBar = workspaceElement.querySelector('.tool-bar');
+        toolBarAPI.deactivate();
+        toolBarAPI.activate();
+        expect(toolBar.children.length).toBe(1);
+      });
+    });
+
+    describe('which can add a button', () => {
       beforeEach(() => {
         toolBarAPI = toolBarService('specs-tool-bar');
         toolBar = workspaceElement.querySelector('.tool-bar');
-      });
-
-      it('by third-party packages', () => {
-        expect(toolBarAPI).toBeDefined();
-        expect(toolBarAPI.group).toBe('specs-tool-bar');
       });
 
       it('with minimum settings', () => {

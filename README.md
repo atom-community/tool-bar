@@ -41,9 +41,16 @@ On which edge of the editor should the tool bar appear. Possible options:
 *   Visible
 *   Hidden
 
-### Full Width (available in Atom >= 1.7)
+### Full Width
 
 When on top/bottom, expand to full window width.
+
+### Manage plugins
+
+All registered plugins. You can control whether a plugin is allowed to add
+items to the Tool Bar (enabled by default).
+
+![Tool Bar plugins](https://cloud.githubusercontent.com/assets/55841/18816833/c0fe5e0c-8351-11e6-99d0-a52e53cc1654.gif)
 
 ## Plugins
 
@@ -79,7 +86,7 @@ Make sure the following properties are part of your `package.json`.
 }
 ```
 
-We recommend using [Atom-Package-Deps](https://github.com/steelbrain/package-deps) 
+We recommend using [Atom-Package-Deps](https://github.com/steelbrain/package-deps)
 in your package for installing dependency packages like this package.
 
 ### Main package file
@@ -153,7 +160,7 @@ export function consumeToolBar(getToolBar) {
         console.log(data);
       },
       'alt+shift': 'application:cmd-5',       // Multiple modifiers
-      'alt+ctrl+shift': 'application:cmd-6'   // All modifiers 
+      'alt+ctrl+shift': 'application:cmd-6'   // All modifiers
     },
     data: 'foo'
   });
@@ -188,7 +195,7 @@ The remaining properties `tooltip` (default there is no tooltip),
 `iconset` (defaults to `Octicons`), `data` and `priority` (defaults `50`)
 are optional.
 
-The return value of this method shares another method called 
+The return value of this method shares another method called
 `setEnabled(enabled)` to enable or disable the button.
 
 ### `.addSpacer({priority})`
@@ -202,11 +209,18 @@ Use the method `removeItems` to remove the buttons added by your package. This
 is particular useful in your package `deactivate` method, but can be used at
 any time.
 
+### `.destroy()`
+
+Use the method `destroy` when you are planning not using the Tool Bar anymore.
+This will remove all buttons like `removeItems`, but also stops listening for
+new buttons.
+
 ### `.onDidDestroy(callback)`
 
 The `onDidDestroy` method takes a function that will be called when the
-`tool-bar` package is destroyed. This is useful if your package needs to do
-cleanup when the `tool-bar` is deactivated but your package continues running.
+`tool-bar` package is destroyed or when you manually call [`destroy`](#destroy).
+This is useful if your package needs to do cleanup when the `tool-bar` is
+deactivated but your package continues running.
 
 ## Supported icon sets
 
