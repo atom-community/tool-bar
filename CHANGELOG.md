@@ -6,7 +6,8 @@ tries to follow the [Keep a CHANGELOG](http://keepachangelog.com) convention.
 
 ## [vNext](https://github.com/suda/tool-bar/compare/v1.0.0...master) - Unreleased
 
-*   ...
+*   :art: Full-width is the new standard for the status-bar This restores bottom
+    border for vertical tool-bars with the One theme. Closes [#157](https://github.com/suda/tool-bar/issues/157)
 
 ## [v1.0.0](https://github.com/suda/tool-bar/compare/v0.4.0...v1.0.0) - 2016-07-03
 
