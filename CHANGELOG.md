@@ -8,7 +8,7 @@ tries to follow the [Keep a CHANGELOG](http://keepachangelog.com) convention.
 
 *   ...
 
-## [vNext](https://github.com/suda/tool-bar/compare/v1.0.0...v1.0.1) - 2016-08-07
+## [v1.0.1](https://github.com/suda/tool-bar/compare/v1.0.0...v1.0.1) - 2016-08-07
 
 *   :art: Full-width is the new standard for the status-bar This restores bottom
     border for vertical tool-bars with the One theme. Closes [#157](https://github.com/suda/tool-bar/issues/157)
