@@ -2,8 +2,6 @@
 
 /* eslint-env browser */
 
-const supportFullWidth = typeof atom.workspace.addHeaderPanel === 'function';
-
 function getGlyph (elm) {
   return window.getComputedStyle(elm, ':before')
     .getPropertyValue('content')
@@ -526,20 +524,18 @@ describe('Tool Bar package', () => {
       leftPanelElement = atom.views.getView(atom.workspace.panelContainers.left);
     });
 
-    if (supportFullWidth) {
-      describe('by triggering tool-bar:position-top', () => {
-        it('adds the tool bar view to header pane', () => {
-          atom.commands.dispatch(workspaceElement, 'tool-bar:position-top');
-          atom.config.set('tool-bar.fullWidth', true);
-          expect(headerPanelElement.querySelectorAll('.tool-bar').length).toBe(1);
-          expect(topPanelElement.querySelector('.tool-bar')).toBeNull();
-          expect(rightPanelElement.querySelector('.tool-bar')).toBeNull();
-          expect(footerPanelElement.querySelector('.tool-bar')).toBeNull();
-          expect(bottomPanelElement.querySelector('.tool-bar')).toBeNull();
-          expect(leftPanelElement.querySelector('.tool-bar')).toBeNull();
-        });
+    describe('by triggering tool-bar:position-top', () => {
+      it('adds the tool bar view to header pane', () => {
+        atom.commands.dispatch(workspaceElement, 'tool-bar:position-top');
+        atom.config.set('tool-bar.fullWidth', true);
+        expect(headerPanelElement.querySelectorAll('.tool-bar').length).toBe(1);
+        expect(topPanelElement.querySelector('.tool-bar')).toBeNull();
+        expect(rightPanelElement.querySelector('.tool-bar')).toBeNull();
+        expect(footerPanelElement.querySelector('.tool-bar')).toBeNull();
+        expect(bottomPanelElement.querySelector('.tool-bar')).toBeNull();
+        expect(leftPanelElement.querySelector('.tool-bar')).toBeNull();
       });
-    }
+    });
 
     describe('by triggering tool-bar:position-top with full width disabled', () => {
       it('adds the tool bar view to top pane', () => {
@@ -567,20 +563,18 @@ describe('Tool Bar package', () => {
       });
     });
 
-    if (supportFullWidth) {
-      describe('by triggering tool-bar:position-bottom', () => {
-        it('adds the tool bar view to footer pane', () => {
-          atom.commands.dispatch(workspaceElement, 'tool-bar:position-bottom');
-          atom.config.set('tool-bar.fullWidth', true);
-          expect(headerPanelElement.querySelector('.tool-bar')).toBeNull();
-          expect(topPanelElement.querySelector('.tool-bar')).toBeNull();
-          expect(rightPanelElement.querySelector('.tool-bar')).toBeNull();
-          expect(footerPanelElement.querySelectorAll('.tool-bar').length).toBe(1);
-          expect(bottomPanelElement.querySelector('.tool-bar')).toBeNull();
-          expect(leftPanelElement.querySelector('.tool-bar')).toBeNull();
-        });
+    describe('by triggering tool-bar:position-bottom', () => {
+      it('adds the tool bar view to footer pane', () => {
+        atom.commands.dispatch(workspaceElement, 'tool-bar:position-bottom');
+        atom.config.set('tool-bar.fullWidth', true);
+        expect(headerPanelElement.querySelector('.tool-bar')).toBeNull();
+        expect(topPanelElement.querySelector('.tool-bar')).toBeNull();
+        expect(rightPanelElement.querySelector('.tool-bar')).toBeNull();
+        expect(footerPanelElement.querySelectorAll('.tool-bar').length).toBe(1);
+        expect(bottomPanelElement.querySelector('.tool-bar')).toBeNull();
+        expect(leftPanelElement.querySelector('.tool-bar')).toBeNull();
       });
-    }
+    });
 
     describe('by triggering tool-bar:position-bottom with full width disabled', () => {
       it('adds the tool bar view to bottom pane', () => {
