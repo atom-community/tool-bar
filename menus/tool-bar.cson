@@ -1,22 +1,8 @@
 menu: [
   {
-    label: 'Packages'
+    label: 'View'
     submenu: [
-      {
-        label: '&Tool Bar'
-        submenu: [
-          { label: '&Toggle', command: 'tool-bar:toggle' }
-          {
-            label: '&Position',
-            submenu: [
-              { label: 'Top', command: 'tool-bar:position-top', type: 'radio' }
-              { label: 'Right', command: 'tool-bar:position-right', type: 'radio' }
-              { label: 'Bottom', command: 'tool-bar:position-bottom', type: 'radio' }
-              { label: 'Left', command: 'tool-bar:position-left', type: 'radio' }
-            ]
-          }
-        ]
-      }
+      { label: 'Toggle Tool Bar', command: 'tool-bar:toggle' }
     ]
   }
 ],
