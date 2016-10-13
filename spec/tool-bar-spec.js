@@ -189,6 +189,7 @@ describe('Tool Bar package', () => {
         expect(toolBar.children.length).toBe(1);
         expect(toolBar.firstChild.classList.contains('disabled')).toBe(true);
       });
+
       it('clicking button with command callback', () => {
         const spy = jasmine.createSpy();
         toolBarAPI.addButton({
@@ -200,6 +201,21 @@ describe('Tool Bar package', () => {
         toolBar.firstChild.click();
         expect(spy).toHaveBeenCalled();
         expect(spy.mostRecentCall.args[0].type).toEqual('application:about');
+      });
+
+      it('clicking button with multiple commands callback', () => {
+        const spy = jasmine.createSpy();
+        toolBarAPI.addButton({
+          icon: 'octoface',
+          callback: ['tool-bar:callback-1', 'tool-bar:callback-2']
+        });
+        jasmine.attachToDOM(toolBar);
+        atom.commands.onWillDispatch(spy);
+        toolBar.firstChild.click();
+        expect(spy).toHaveBeenCalled();
+        expect(spy.calls.length).toBe(2);
+        expect(spy.calls[0].args[0].type).toEqual('tool-bar:callback-1');
+        expect(spy.calls[1].args[0].type).toEqual('tool-bar:callback-2');
       });
 
       it('clicking button with function callback', () => {
@@ -442,6 +458,26 @@ describe('Tool Bar package', () => {
               expect(spy).toHaveBeenCalled();
               expect(spy.mostRecentCall.args[0].type).toEqual('tool-bar:modifier-alt-ctrl-shift');
             });
+          });
+
+          it('and multiple commands callback', () => {
+            const spy = jasmine.createSpy();
+            toolBarAPI.addButton({
+              icon: 'octoface',
+              callback: {
+                '': 'tool-bar:modifier-default',
+                'ctrl': ['tool-bar:callback-1', 'tool-bar:callback-2']
+              }
+            });
+            jasmine.attachToDOM(toolBar);
+            atom.commands.onWillDispatch(spy);
+            toolBar.firstChild.dispatchEvent(buildClickEvent({
+              ctrlKey: true
+            }));
+            expect(spy).toHaveBeenCalled();
+            expect(spy.calls.length).toBe(2);
+            expect(spy.calls[0].args[0].type).toEqual('tool-bar:callback-1');
+            expect(spy.calls[1].args[0].type).toEqual('tool-bar:callback-2');
           });
 
           describe('and function callback', () => {
