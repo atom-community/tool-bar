@@ -1,0 +1,24 @@
+@import "ui-variables";
+
+.theme-atom-material-ui.workspace {
+
+  .tool-bar .tool-bar-btn {
+    transition: border-bottom 250ms @md-timing-function, background-color 250ms @md-timing-function;
+    &:hover, &:focus {
+      border-bottom: 1px solid @base-color;
+    }
+    &:active {
+      background-color: @background-color-highlight;
+    }
+  }
+
+  .tool-bar.tool-bar-24px.tool-bar-horizontal .tool-bar-spacer {
+    height: 2rem;
+    opacity: 0;
+  }
+  .tool-bar.tool-bar-24px.tool-bar-vertical .tool-bar-spacer {
+    width: 2rem;
+    opacity: 0;
+  }
+
+}
