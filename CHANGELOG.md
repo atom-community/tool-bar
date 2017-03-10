@@ -10,11 +10,14 @@ tries to follow the [Keep a CHANGELOG](http://keepachangelog.com) convention.
 
 ## [v1.1.0](https://github.com/suda/tool-bar/compare/v1.0.1...v1.1.0) - 2017-03-10
 
-*   Removed API v0.1.0. [PR #153](https://github.com/suda/tool-bar/pull/153) (by [@zertosh](https://github.com/zertosh))
+*   Removed API v0.1.0. [PR #153](https://github.com/suda/tool-bar/pull/153)
+    (by [@zertosh](https://github.com/zertosh))
 *   Moved menu from Packages to View. [PR #161](https://github.com/suda/tool-bar/pull/161) (by [@jerone](https://github.com/jerone))
 *   Perf improvements by debouncing `drawGutter`. [PR #164](https://github.com/suda/tool-bar/pull/164) (by [@zertosh](https://github.com/zertosh))
 *   Allow multiple commands in an array. [PR #171](https://github.com/suda/tool-bar/pull/171) (by [@UziTech](https://github.com/UziTech))
-*   Update One themes. The One themes now handle the borders/padding of panels, so tool-bar doesn't have to worry about it. [PR #160](https://github.com/suda/tool-bar/pull/160) (by [@simurai](https://github.com/simurai))
+*   Update One themes. The One themes now handle the borders/padding of panels,
+    so tool-bar doesn't have to worry about it. [PR #160](https://github.com/suda/tool-bar/pull/160)
+    (by [@simurai](https://github.com/simurai))
 
 ## [v1.0.1](https://github.com/suda/tool-bar/compare/v1.0.0...v1.0.1) - 2016-08-07
 
