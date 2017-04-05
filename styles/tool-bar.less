@@ -128,11 +128,16 @@
     }
 
     .tool-bar-btn {
-      height: @size + (@button-border-size * 2);
-      width: @size + (@button-border-size * 2);
-      &:before {
+      margin-right: @size / 2;
+      margin-left: @size / 2;
+      min-height: @size + (@button-border-size * 2);
+      min-width: @size + (@button-border-size * 2);
+      span, span::before {
         font-size: @size / 2;
         line-height: @size;
+      }
+      span::before {
+        margin-right: @size / 4;
       }
     }
 
