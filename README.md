@@ -157,6 +157,12 @@ export function consumeToolBar(getToolBar) {
     },
     data: 'foo'
   });
+  
+  // Calling multiple callbacks at once
+  toolBar.addButton({
+    icon: 'octoface',
+    callback: ['application:cmd-1', 'application:cmd-2']
+  });  
 
   // Adding spacer and button at the beginning of the tool bar
   toolBar.addSpacer({priority: 10});
