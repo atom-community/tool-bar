@@ -9,3 +9,6 @@
 # https://atom.io/docs/latest/advanced/keymaps
 'atom-workspace':
   'ctrl-alt-t': 'tool-bar:toggle'
+  'ctrl-alt-r': 'tool-bar:position-right'
+  'ctrl-alt-b': 'tool-bar:position-bottom'
+  'ctrl-alt-l': 'tool-bar:position-left'

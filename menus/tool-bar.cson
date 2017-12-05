@@ -2,20 +2,29 @@ menu: [
   {
     label: 'View'
     submenu: [
-      { label: 'Toggle Tool Bar', command: 'tool-bar:toggle' }
+      {
+        label: '工具栏', command: 'tool-bar:toggle'
+        submenu: [
+          { label: '隐藏/显示', command: 'tool-bar:toggle' }
+          { label: '顶部', command: 'tool-bar:position-top' }
+          { label: '右侧', command: 'tool-bar:position-right' }
+          { label: '底部', command: 'tool-bar:position-bottom' }
+          { label: '左侧', command: 'tool-bar:position-left' }
+        ]
+      }
     ]
   }
 ],
 'context-menu': {
   '.tool-bar': [
-    { label: '&Hide Tool Bar', command: 'tool-bar:toggle' }
+    { label: '&隐藏工具条', command: 'tool-bar:toggle' }
     {
-      label: '&Position',
+      label: '&工具条位置',
       submenu: [
-        { label: 'Top', command: 'tool-bar:position-top' }
-        { label: 'Right', command: 'tool-bar:position-right' }
-        { label: 'Bottom', command: 'tool-bar:position-bottom' }
-        { label: 'Left', command: 'tool-bar:position-left' }
+        { label: '顶部', command: 'tool-bar:position-top' }
+        { label: '右侧', command: 'tool-bar:position-right' }
+        { label: '底部', command: 'tool-bar:position-bottom' }
+        { label: '左侧', command: 'tool-bar:position-left' }
       ]
     }
   ]
