@@ -1,6 +1,7 @@
 'use babel';
 
 /* eslint-env browser */
+/* global advanceClock */
 
 function getGlyph (elm) {
   return window.getComputedStyle(elm, ':before')
@@ -95,7 +96,13 @@ describe('Tool Bar package', () => {
           tooltip: 'About Atom'
         });
         expect(toolBar.children.length).toBe(1);
-        expect(toolBar.firstChild.dataset.originalTitle).toBe('About Atom');
+        const element = toolBar.firstChild;
+        element.dispatchEvent(new CustomEvent('mouseenter', {bubbles: false}));
+        element.dispatchEvent(new CustomEvent('mouseover', {bubbles: true}));
+        advanceClock(1000);
+        const tooltip = document.body.querySelector('.tooltip');
+        expect(tooltip).not.toBeNull();
+        expect(tooltip.outerHTML.indexOf('About Atom')).not.toBe(-1);
       });
 
       it('using default iconset', () => {
