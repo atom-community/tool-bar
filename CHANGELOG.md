@@ -8,6 +8,15 @@ tries to follow the [Keep a CHANGELOG](http://keepachangelog.com) convention.
 
 *   ...
 
+## [v1.1.1](https://github.com/suda/tool-bar/compare/v1.1.0...v1.1.1) - 2018-01-03
+
+* Added example for multiple callbacks [PR #199](https://github.com/suda/tool-bar/pull/199) (by [@pheraph](https://github.com/pheraph))
+* Remove the need for "use babel" [PR #207](https://github.com/suda/tool-bar/pull/207) (by [@bolinfest](https://github.com/bolinfest))
+* Updated `remark` to version 6 [PR #210](https://github.com/suda/tool-bar/pull/210) (by [@suda](https://github.com/suda))
+* Updated Material Design Icons to v1.8.36 [PR #183](https://github.com/suda/tool-bar/pull/183) (by [@PaulBrownMagic](https://github.com/PaulBrownMagic))
+* Display keybinding in the tooltip [PR #175](https://github.com/suda/tool-bar/pull/175) (by [@vjeux](https://github.com/vjeux))
+* Fix "Uncaught TypeError: Cannot read property 'classList' of null"
+
 ## [v1.1.0](https://github.com/suda/tool-bar/compare/v1.0.1...v1.1.0) - 2017-03-10
 
 *   Removed API v0.1.0. [PR #153](https://github.com/suda/tool-bar/pull/153)
