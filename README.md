@@ -79,7 +79,7 @@ Make sure the following properties are part of your `package.json`.
 }
 ```
 
-We recommend using [Atom-Package-Deps](https://github.com/steelbrain/package-deps) 
+We recommend using [Atom-Package-Deps](https://github.com/steelbrain/package-deps)
 in your package for installing dependency packages like this package.
 
 ### Main package file
@@ -153,11 +153,11 @@ export function consumeToolBar(getToolBar) {
         console.log(data);
       },
       'alt+shift': 'application:cmd-5',       // Multiple modifiers
-      'alt+ctrl+shift': 'application:cmd-6'   // All modifiers 
+      'alt+ctrl+shift': 'application:cmd-6'   // All modifiers
     },
     data: 'foo'
   });
-  
+
   // Calling multiple callbacks at once
   toolBar.addButton({
     icon: 'octoface',
@@ -194,7 +194,7 @@ The remaining properties `tooltip` (default there is no tooltip),
 `iconset` (defaults to `Octicons`), `data` and `priority` (defaults `50`)
 are optional.
 
-The return value of this method shares another method called 
+The return value of this method shares another method called
 `setEnabled(enabled)` to enable or disable the button.
 
 ### `.addSpacer({priority})`
@@ -221,7 +221,7 @@ cleanup when the `tool-bar` is deactivated but your package continues running.
 *   [FontAwesome](http://fortawesome.github.io/Font-Awesome) (`fa`)
 *   [Foundation](http://zurb.com/playground/foundation-icon-fonts-3) (`fi`)
 *   [IcoMoon](https://icomoon.io) (`icomoon`)
-*   [Devicon](http://devicon.fr) (`devicon`)
+*   [Devicon](http://konpa.github.io/devicon/) (`devicon`)
 *   [MaterialDesignIcons](https://materialdesignicons.com/) (`mdi`)
 
 ## Supported commands
