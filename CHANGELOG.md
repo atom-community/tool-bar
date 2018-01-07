@@ -8,6 +8,10 @@ tries to follow the [Keep a CHANGELOG](http://keepachangelog.com) convention.
 
 *   ...
 
+## [v1.1.2](https://github.com/suda/tool-bar/compare/v1.1.1...v1.1.2) - 2018-01-07
+
+* Added Touch Bar support [PR #211](https://github.com/suda/tool-bar/pull/211) (by [@suda](https://github.com/suda))
+
 ## [v1.1.1](https://github.com/suda/tool-bar/compare/v1.1.0...v1.1.1) - 2018-01-03
 
 * Added example for multiple callbacks [PR #199](https://github.com/suda/tool-bar/pull/199) (by [@pheraph](https://github.com/pheraph))
