@@ -46,6 +46,11 @@ On which edge of the editor should the tool bar appear. Possible options:
 
 When on top/bottom, expand to full window width.
 
+### Use TouchBar
+
+If your computer is equipped with a TouchBar (only Apple MacBook Pro series
+currently) it can display up to seven tool bar buttons there.
+
 ## Plugins
 
 *   [Flex Tool Bar](https://atom.io/packages/flex-tool-bar)
