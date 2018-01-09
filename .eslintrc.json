@@ -13,7 +13,8 @@
     "spyOn": false,
     "waitsFor": false,
     "waitsForPromise": false,
-    "indexedDB": false
+    "indexedDB": false,
+    "HTMLElement": true
   },
   "rules": {
     "semi": [2, "always"]
