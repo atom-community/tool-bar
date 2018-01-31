@@ -55,7 +55,12 @@
     -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0),rgba(0,0,0,0.7),rgba(0,0,0,1),rgba(0,0,0,0.7), rgba(0,0,0,0));
     margin: 0 @button-margin-size + 3;
   }
-
+  /* NB : NO-GRADIENT CLASS */
+  .tool-bar-spacer.no-gradient
+  {
+    -webkit-mask-image: none !important;
+  }
+  /*NB : END */
   &.tool-bar-horizontal {
     .tool-bar-btn,
     .tool-bar-spacer {
@@ -80,6 +85,7 @@
     }
   }
 
+  /* NB :  ADD SIZES CLASS */
   &.tool-bar-12px {
     .tool-bar-size(12px * 2);
   }
@@ -101,6 +107,7 @@
   &.tool-bar-32px {
     .tool-bar-size(32px * 2);
   }
+  /* NB : END */
 
   .tool-bar-size(@size) {
     line-height: @size;
