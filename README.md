@@ -214,7 +214,7 @@ export function consumeToolBar(getToolBar) {
 The method `addButton` requires an object with at least the property `callback`. The
 `callback` must be an Atom command string, a custom callback function or an
 object where the keys are key modifiers (`alt`, `ctrl` or `shift`) and the
-values are commands or custom function (see [example](#example)).
+values are commands or custom functions (see [example](#example)).
 
 The remaining properties
 `tooltip` (default there is no tooltip),
