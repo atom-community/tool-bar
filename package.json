@@ -10,7 +10,8 @@
   "license": "MIT",
   "main": "./lib/tool-bar",
   "repository": {
-    "url": "https://github.com/suda/tool-bar"
+    "type": "git",
+    "url": "git@github.com:suda/toolbar.git"
   },
   "scripts": {
     "lint": "eslint --format tap . && remark ."

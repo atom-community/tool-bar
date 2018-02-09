@@ -200,7 +200,7 @@ The remaining properties `tooltip` (default there is no tooltip),
 `iconset` (defaults to `Octicons`), `data` and `priority` (defaults `50`)
 are optional.
 
-The `tooltip` option may be a string or an object that is passed to Atom's
+The `tooltip` option may be a `string` or an `object` that is passed to Atom's
 [TooltipManager](https://atom.io/docs/api/latest/TooltipManager#instance-add)
 
 The return value of this method shares another method called
@@ -254,7 +254,13 @@ using this one. For all contributions credits are due:
 
 *   [Pascal Bihler](https://github.com/pbihler)
 *   [Nikita Gusakov](https://github.com/nkt)
+*   [Simon AKA simurai](https://github.com/simurai)
 *   Carlos Santos
 *   [Daniel Alejandro Cast](https://github.com/lexcast)
 *   [James Coyle](https://github.com/JamesCoyle)
 *   [Andres Suarez](https://github.com/zertosh)
+*   [Tony Brix](https://github.com/UziTech)
+*   [Gareth McMullin](https://github.com/gsmcmullin)
+*   [Christopher Chedeau](https://github.com/vjeux)
+*   [Paul Brown](https://github.com/PaulBrownMagic)
+*   [Raphael Fetzer](https://github.com/pheraph)

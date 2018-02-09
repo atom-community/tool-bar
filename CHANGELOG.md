@@ -8,6 +8,12 @@ tries to follow the [Keep a CHANGELOG](http://keepachangelog.com) convention.
 
 *   ...
 
+## [v1.1.5](https://github.com/suda/tool-bar/compare/v1.1.4...v1.1.5) - 2018-02-09
+
+* [Allow tooltip to be an object](https://github.com/suda/tool-bar/pull/216) (by [@UziTech](https://github.com/UziTech))
+* [Add support for selected buttons](https://github.com/suda/tool-bar/pull/177) (by [@gsmcmullin](https://github.com/gsmcmullin))
+* Update Atom engine version to 1.20.0
+
 ## [v1.1.4](https://github.com/suda/tool-bar/compare/v1.1.3...v1.1.4) - 2018-01-09
 
 * Fixed [Touch Bar slowing down Atom when it's not supported](https://github.com/suda/tool-bar/issues/213) (by [@suda](https://github.com/suda))
