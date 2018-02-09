@@ -200,6 +200,9 @@ The remaining properties `tooltip` (default there is no tooltip),
 `iconset` (defaults to `Octicons`), `data` and `priority` (defaults `50`)
 are optional.
 
+The `tooltip` option may be a string or an object that is passed to Atom's
+[TooltipManager](https://atom.io/docs/api/latest/TooltipManager#instance-add)
+
 The return value of this method shares another method called
 `setEnabled(enabled)` to enable or disable the button.
 
