@@ -25,7 +25,7 @@
     "remark-lint": "^6.0.1"
   },
   "engines": {
-    "atom": ">=1.6.0"
+    "atom": ">=1.20.0"
   },
   "providedServices": {
     "tool-bar": {
