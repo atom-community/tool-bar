@@ -246,13 +246,14 @@ describe('Tool Bar package', () => {
 
       it('clicking button with function callback', () => {
         const spy = jasmine.createSpy();
-        toolBarAPI.addButton({
+        const button = toolBarAPI.addButton({
           icon: 'octoface',
           callback: spy
         });
         jasmine.attachToDOM(toolBar);
         toolBar.firstChild.click();
         expect(spy).toHaveBeenCalled();
+        expect(spy.mostRecentCall.object).toBe(button);
       });
 
       it('clicking button with function callback containing data', () => {
