@@ -8,6 +8,9 @@ tries to follow the [Keep a CHANGELOG](http://keepachangelog.com) convention.
 
 *   ...
 
+## [v1.1.6](https://github.com/suda/tool-bar/compare/v1.1.5...v1.1.6) - 2018-02-11
+* Fix #219 #221 #223 #224
+
 ## [v1.1.5](https://github.com/suda/tool-bar/compare/v1.1.4...v1.1.5) - 2018-02-09
 
 * [Allow tooltip to be an object](https://github.com/suda/tool-bar/pull/216) (by [@UziTech](https://github.com/UziTech))
