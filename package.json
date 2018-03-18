@@ -11,7 +11,7 @@
   "main": "./lib/tool-bar",
   "repository": {
     "type": "git",
-    "url": "git@github.com:suda/toolbar.git"
+    "url": "https://github.com/suda/toolbar.git"
   },
   "scripts": {
     "lint": "eslint --format tap . && remark ."
