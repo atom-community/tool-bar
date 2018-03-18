@@ -8,6 +8,11 @@ tries to follow the [Keep a CHANGELOG](http://keepachangelog.com) convention.
 
 *   ...
 
+## [v1.1.6](https://github.com/suda/tool-bar/compare/v1.1.5...v1.1.6) - 2018-03-18
+
+* [Allow the text to be inserted as HTML](https://github.com/suda/tool-bar/pull/217) (by [@UziTech](https://github.com/UziTech))
+* Fix #227
+
 ## [v1.1.6](https://github.com/suda/tool-bar/compare/v1.1.5...v1.1.6) - 2018-02-11
 * Fix #219 #221 #223 #224
 
