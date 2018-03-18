@@ -178,6 +178,27 @@ export function consumeToolBar(getToolBar) {
     priority: 10
   });
 
+  // Adding text button
+  toolBar.addButton({
+    text: 'hello',
+    callback: 'application:about'
+  });
+
+  // Text buttons can also have an icon
+  toolBar.addButton({
+    icon: 'octoface',
+    text: 'hello',
+    callback: 'application:about'
+  });
+
+  // Text buttons can be html
+  toolBar.addButton({
+    icon: 'octoface',
+    text: '<b>BIG</b> button',
+    html: true,
+    callback: 'application:about'
+  });
+
   // Cleaning up when tool bar is deactivated
   toolBar.onDidDestroy(() => {
     this.toolBar = null;
@@ -188,16 +209,21 @@ export function consumeToolBar(getToolBar) {
 
 ## Methods
 
-### `.addButton({icon, callback, priority, tooltip, data})`
+### `.addButton({icon, iconset, text, html, callback, priority, tooltip, data})`
 
-The method `addButton` requires an object with at least the properties `icon`
-and `callback`. The `icon` can be any single icon from the `iconset`. The
-`callback` must be an Atom command string, an custom callback function or an
+The method `addButton` requires an object with at least the property `callback`. The
+`callback` must be an Atom command string, a custom callback function or an
 object where the keys are key modifiers (`alt`, `ctrl` or `shift`) and the
-values are commands or custom function (see [example](#example)).
+values are commands or custom functions (see [example](#example)).
 
-The remaining properties `tooltip` (default there is no tooltip),
-`iconset` (defaults to `Octicons`), `data` and `priority` (defaults `50`)
+The remaining properties
+`tooltip` (default there is no tooltip),
+`text` (default there is no text),
+`html` (default `false`),
+`icon` (default there is no icon),
+`iconset` (defaults to `Octicons`),
+`data`, and
+`priority` (defaults `50`)
 are optional.
 
 The `tooltip` option may be a `string` or an `object` that is passed to Atom's

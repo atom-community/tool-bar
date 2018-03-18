@@ -124,6 +124,29 @@ describe('Tool Bar package', () => {
         expect(tooltip.outerHTML.indexOf('&lt;h1&gt;About Atom&lt;/h1&gt;')).not.toBe(-1);
       });
 
+      it('with text', () => {
+        toolBarAPI.addButton({
+          icon: 'octoface',
+          callback: 'application:about',
+          text: '<span>text</span>'
+        });
+        expect(toolBar.children.length).toBe(1);
+        const element = toolBar.firstChild;
+        expect(element.outerHTML.indexOf('&lt;span&gt;text&lt;/span&gt;')).not.toBe(-1);
+      });
+
+      it('with html', () => {
+        toolBarAPI.addButton({
+          icon: 'octoface',
+          callback: 'application:about',
+          text: '<span>text</span>',
+          html: true
+        });
+        expect(toolBar.children.length).toBe(1);
+        const element = toolBar.firstChild;
+        expect(element.outerHTML.indexOf('<span>text</span>')).not.toBe(-1);
+      });
+
       it('using default iconset', () => {
         jasmine.attachToDOM(toolBar);
         toolBarAPI.addButton({

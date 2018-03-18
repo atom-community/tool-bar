@@ -133,10 +133,19 @@
 
     .tool-bar-btn {
       height: @size + (@button-border-size * 2);
-      width: @size + (@button-border-size * 2);
+      min-width: @size + (@button-border-size * 2);
       &:before {
         font-size: @size / 2;
         line-height: @size;
+      }
+
+      &:not(:empty) {
+        font-size: @size / 2;
+        line-height: @size;
+        padding: 0 @size / 4;
+        &:before {
+          padding-right: @size / 4;
+        }
       }
     }
 
