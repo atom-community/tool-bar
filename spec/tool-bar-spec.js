@@ -291,19 +291,6 @@ describe('Tool Bar package', () => {
         expect(spy.mostRecentCall.args[0]).toEqual('foo');
       });
 
-      it('and restores focus after click', () => {
-        toolBarAPI.addButton({
-          icon: 'octoface',
-          callback: 'editor:select-line',
-          tooltip: 'Select line'
-        });
-        const previouslyFocusedElement = document.activeElement;
-        toolBar.firstChild.dispatchEvent(new Event('mouseover'));
-        toolBar.firstChild.focus();
-        toolBar.firstChild.click();
-        expect(document.activeElement).toBe(previouslyFocusedElement);
-      });
-
       describe('using priority setting', () => {
         it('works with default values', () => {
           toolBarAPI.addButton({
