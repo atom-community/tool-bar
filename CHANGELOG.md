@@ -8,12 +8,17 @@ tries to follow the [Keep a CHANGELOG](http://keepachangelog.com) convention.
 
 *   ...
 
-## [v1.1.6](https://github.com/suda/tool-bar/compare/v1.1.5...v1.1.6) - 2018-03-18
+## [v1.1.8](https://github.com/suda/tool-bar/compare/v1.1.7...v1.1.8) - 2018-08-29
+
+* [Avoid taking focus when clicking buttons](https://github.com/suda/tool-bar/pull/239) (by [@captbaritone](https://github.com/captbaritone))
+
+## [v1.1.7](https://github.com/suda/tool-bar/compare/v1.1.6...v1.1.7) - 2018-03-18
 
 * [Allow the text to be inserted as HTML](https://github.com/suda/tool-bar/pull/217) (by [@UziTech](https://github.com/UziTech))
 * Fix #227
 
 ## [v1.1.6](https://github.com/suda/tool-bar/compare/v1.1.5...v1.1.6) - 2018-02-11
+
 * Fix #219 #221 #223 #224
 
 ## [v1.1.5](https://github.com/suda/tool-bar/compare/v1.1.4...v1.1.5) - 2018-02-09
