@@ -8,6 +8,10 @@ tries to follow the [Keep a CHANGELOG](http://keepachangelog.com) convention.
 
 *   ...
 
+## [v1.1.9](https://github.com/suda/tool-bar/compare/v1.1.9...v1.1.8) - 2018-08-31
+
+* [Remove mousedown event listener](https://github.com/suda/tool-bar/pull/243) (by [@captbaritone](https://github.com/captbaritone))
+
 ## [v1.1.8](https://github.com/suda/tool-bar/compare/v1.1.7...v1.1.8) - 2018-08-29
 
 * [Avoid taking focus when clicking buttons](https://github.com/suda/tool-bar/pull/239) (by [@captbaritone](https://github.com/captbaritone))
