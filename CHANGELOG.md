@@ -8,6 +8,11 @@ tries to follow the [Keep a CHANGELOG](http://keepachangelog.com) convention.
 
 *   ...
 
+## [v1.1.10](https://github.com/suda/tool-bar/compare/v1.1.10...v1.1.9) - 2018-09-02
+
+* [Ensure target is within atom-workspace](https://github.com/suda/tool-bar/pull/245) (by [@captbaritone](https://github.com/captbaritone))
+
+
 ## [v1.1.9](https://github.com/suda/tool-bar/compare/v1.1.9...v1.1.8) - 2018-08-31
 
 * [Remove mousedown event listener](https://github.com/suda/tool-bar/pull/243) (by [@captbaritone](https://github.com/captbaritone))
