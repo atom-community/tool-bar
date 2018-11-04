@@ -8,6 +8,10 @@ tries to follow the [Keep a CHANGELOG](http://keepachangelog.com) convention.
 
 *   ...
 
+## [v1.1.11](https://github.com/suda/tool-bar/compare/v1.1.11...v1.1.10) - 2018-11-04
+
+* [Update `font-awesome` icons to 5.4.2](https://github.com/suda/tool-bar/pull/249) (by [@unluisco](https://github.com/unluisco))
+
 ## [v1.1.10](https://github.com/suda/tool-bar/compare/v1.1.10...v1.1.9) - 2018-09-02
 
 * [Ensure target is within atom-workspace](https://github.com/suda/tool-bar/pull/245) (by [@captbaritone](https://github.com/captbaritone))
