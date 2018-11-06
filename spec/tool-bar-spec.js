@@ -166,7 +166,7 @@ describe('Tool Bar package', () => {
         });
         expect(toolBar.firstChild.classList.contains('ion')).toBe(true);
         expect(toolBar.firstChild.classList.contains('ion-ionic')).toBe(true);
-        expect(getGlyph(toolBar.firstChild)).toBe('f14b');
+        expect(getGlyph(toolBar.firstChild)).toBe('f150');
       });
 
       it('using Font Awesome iconset', () => {
