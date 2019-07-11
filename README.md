@@ -254,7 +254,7 @@ cleanup when the `tool-bar` is deactivated but your package continues running.
 
 *   [Octicons](https://octicons.github.com) (Atom's flavour)
 *   [Ionicons](http://ionicons.com) (`ion`)
-*   [FontAwesome](https://fontawesome.com/) (`fa`)
+*   [FontAwesome](https://fontawesome.com/) (`fa` and `fab` for brands)
 *   [Foundation](http://zurb.com/playground/foundation-icon-fonts-3) (`fi`)
 *   [IcoMoon](https://icomoon.io) (`icomoon`)
 *   [Devicon](http://konpa.github.io/devicon/) (`devicon`)
@@ -291,3 +291,4 @@ using this one. For all contributions credits are due:
 *   [Christopher Chedeau](https://github.com/vjeux)
 *   [Paul Brown](https://github.com/PaulBrownMagic)
 *   [Raphael Fetzer](https://github.com/pheraph)
+*   [Sven Lohrmann](https://github.com/malnvenshorn)
