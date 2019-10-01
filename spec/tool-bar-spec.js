@@ -160,13 +160,13 @@ describe('Tool Bar package', () => {
       it('using Ionicons iconset', () => {
         jasmine.attachToDOM(toolBar);
         toolBarAPI.addButton({
-          icon: 'ionic',
+          icon: 'logo-ionic',
           callback: 'application:about',
           iconset: 'ion'
         });
         expect(toolBar.firstChild.classList.contains('ion')).toBe(true);
-        expect(toolBar.firstChild.classList.contains('ion-ionic')).toBe(true);
-        expect(getGlyph(toolBar.firstChild)).toBe('f14b');
+        expect(toolBar.firstChild.classList.contains('ion-logo-ionic')).toBe(true);
+        expect(getGlyph(toolBar.firstChild)).toBe('f150');
       });
 
       it('using Font Awesome iconset', () => {
