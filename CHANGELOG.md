@@ -6,7 +6,8 @@ tries to follow the [Keep a CHANGELOG](http://keepachangelog.com) convention.
 
 ## [vNext](https://github.com/suda/tool-bar/compare/v1.1.0...master) - Unreleased
 
-*   ...
+* [Update ionicons icons (release v4.5.10-1)](https://github.com/suda/tool-bar/pull/263) (by [@ericcornelissen](https://github.com/ericcornelissen))
+
 
 ## [v1.1.12](https://github.com/suda/tool-bar/compare/v1.1.12...v1.1.11) - 2019-07-11
 
