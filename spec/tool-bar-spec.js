@@ -169,6 +169,18 @@ describe('Tool Bar package', () => {
         expect(getGlyph(toolBar.firstChild)).toBe('f150');
       });
 
+      it('prefix Ionicons with md-', () => {
+        jasmine.attachToDOM(toolBar);
+        toolBarAPI.addButton({
+          icon: 'refresh',
+          callback: 'application:about',
+          iconset: 'ion'
+        });
+        expect(toolBar.firstChild.classList.contains('ion')).toBe(true);
+        expect(toolBar.firstChild.classList.contains('ion-md-refresh')).toBe(true);
+        expect(getGlyph(toolBar.firstChild)).toBe('f366');
+      });
+
       it('using Font Awesome iconset', () => {
         jasmine.attachToDOM(toolBar);
         toolBarAPI.addButton({
