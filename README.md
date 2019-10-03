@@ -130,7 +130,8 @@ export function consumeToolBar(getToolBar) {
 
   // Using custom icon set (Ionicons)
   const button = toolBar.addButton({
-    icon: 'gear-a',
+    // For Material style icons, use md- prefix instead
+    icon: 'ios-gear-a',
     callback: 'application:show-settings',
     tooltip: 'Show Settings',
     iconset: 'ion'
@@ -253,7 +254,7 @@ cleanup when the `tool-bar` is deactivated but your package continues running.
 ## Supported icon sets
 
 *   [Octicons](https://octicons.github.com) (Atom's flavour)
-*   [Ionicons](http://ionicons.com) (`ion`)
+*   [Ionicons](http://ionicons.com) (`ion` with `ios-` and `md-` prefixes for the icon names)
 *   [FontAwesome](https://fontawesome.com/) (`fa` and `fab` for brands)
 *   [Foundation](http://zurb.com/playground/foundation-icon-fonts-3) (`fi`)
 *   [IcoMoon](https://icomoon.io) (`icomoon`)
