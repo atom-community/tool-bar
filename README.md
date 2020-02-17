@@ -206,12 +206,21 @@ export function consumeToolBar(getToolBar) {
     this.toolBar = null;
     // Teardown any stateful code that depends on tool bar ...
   });
+
+  // Colourful button and background
+  toolBar.addButton({
+    icon: 'octoface',
+    callback: 'application:about',
+    tooltip: 'About Atom'
+    color: 'red' // colors of the button
+    background: 'black' // color of the background
+  });
 }
 ```
 
 ## Methods
 
-### `.addButton({icon, iconset, text, html, callback, priority, tooltip, data})`
+### `.addButton({icon, iconset, text, html, callback, priority, tooltip, data, color, background})`
 
 The method `addButton` requires an object with at least the property `callback`. The
 `callback` must be an Atom command string, a custom callback function or an
@@ -226,6 +235,8 @@ The remaining properties
 `iconset` (defaults to `Octicons`),
 `data`, and
 `priority` (defaults `50`)
+`color`
+`background`
 are optional.
 
 The `tooltip` option may be a `string` or an `object` that is passed to Atom's
