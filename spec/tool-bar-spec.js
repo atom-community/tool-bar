@@ -396,18 +396,20 @@ describe('Tool Bar package', () => {
 
             beforeEach(() => {
               spy = jasmine.createSpy();
-              toolBarAPI.addButton({
-                icon: 'octoface',
-                callback: {
-                  '': 'tool-bar:modifier-default',
-                  'alt': 'tool-bar:modifier-alt',
-                  'ctrl': 'tool-bar:modifier-ctrl',
-                  'shift': 'tool-bar:modifier-shift',
-                  'shift+alt': 'tool-bar:modifier-shift-alt',
-                  'alt+shift': 'tool-bar:modifier-alt-shift',
-                  'ctrl+shift': 'tool-bar:modifier-ctrl-shift',
-                  'alt ctrl-shift': 'tool-bar:modifier-alt-ctrl-shift'
-                }},
+              toolBarAPI.addButton(
+                {
+                  icon: 'octoface',
+                  callback: {
+                    '': 'tool-bar:modifier-default',
+                    'alt': 'tool-bar:modifier-alt',
+                    'ctrl': 'tool-bar:modifier-ctrl',
+                    'shift': 'tool-bar:modifier-shift',
+                    'shift+alt': 'tool-bar:modifier-shift-alt',
+                    'alt+shift': 'tool-bar:modifier-alt-shift',
+                    'ctrl+shift': 'tool-bar:modifier-ctrl-shift',
+                    'alt ctrl-shift': 'tool-bar:modifier-alt-ctrl-shift'
+                  }
+                },
                 jasmine.attachToDOM(toolBar),
                 atom.commands.onWillDispatch(spy)
               );
