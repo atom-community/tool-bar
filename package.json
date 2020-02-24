@@ -17,7 +17,7 @@
     "lint": "eslint --format tap . && remark ."
   },
   "devDependencies": {
-    "babel-eslint": "^6.0.4",
+    "babel-eslint": "^10.0.3",
     "eslint": "^4.18.2",
     "eslint-config-standard": "^5.2.0",
     "eslint-plugin-promise": "^1.1.0",
