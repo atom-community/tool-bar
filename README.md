@@ -201,19 +201,19 @@ export function consumeToolBar(getToolBar) {
     callback: 'application:about'
   });
 
+  // Text buttons can be colored
+  toolBar.addButton({
+    icon: 'octoface',
+    callback: 'application:about',
+    tooltip: 'About Atom',
+    color: 'red' // color of the text or icon
+    background: 'black' // color of the background
+  });
+
   // Cleaning up when tool bar is deactivated
   toolBar.onDidDestroy(() => {
     this.toolBar = null;
     // Teardown any stateful code that depends on tool bar ...
-  });
-
-  // Colourful button and background
-  toolBar.addButton({
-    icon: 'octoface',
-    callback: 'application:about',
-    tooltip: 'About Atom'
-    color: 'red' // colors of the button
-    background: 'black' // color of the background
   });
 }
 ```
@@ -233,9 +233,9 @@ The remaining properties
 `html` (default `false`),
 `icon` (default there is no icon),
 `iconset` (defaults to `Octicons`),
-`data`, and
-`priority` (defaults `50`)
-`color`
+`data`,
+`priority` (defaults `50`),
+`color`, and
 `background`
 are optional.
 
