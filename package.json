@@ -35,5 +35,8 @@
         "1.0.0": "provideToolBar"
       }
     }
-  }
+  },
+  "activationHooks": [
+    "core:loaded-shell-environment"
+  ]
 }
