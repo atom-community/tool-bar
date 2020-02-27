@@ -36,6 +36,9 @@ describe('Tool Bar package', () => {
       const pack = await atom.packages.activatePackage('tool-bar');
       toolBarService = pack.mainModule.provideToolBar();
     });
+
+    atom.packages.triggerDeferredActivationHooks();
+    atom.packages.triggerActivationHook('core:loaded-shell-environment');
   });
 
   describe('@activate', () => {
