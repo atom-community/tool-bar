@@ -58,6 +58,7 @@ currently) it can display up to seven tool bar buttons there.
 *   [Toolbar Almighty](https://atom.io/packages/tool-bar-almighty)
 *   [Toolbar for Atom](https://atom.io/packages/tool-bar-atom)
 *   [Toolbar Shortcuts](https://atom.io/packages/tool-bar-shortcuts)
+*   [Juno Plus](https://atom.io/packages/juno-plus) in TypeScript
 *   And [more](https://atom.io/packages/search?utf8=%E2%9C%93&q=keyword%3Atool-bar)...
 
 ## Packages using tool-bar
