@@ -207,6 +207,18 @@ export function consumeToolBar(getToolBar) {
     background: 'black' // color of the background
   });
 
+  // Buttons can be styled with arbitrary CSS through classes
+  toolBar.addButton({
+    icon: 'octoface',
+    callback: 'application:about',
+    class: 'my-awesome-class'
+  });
+  toolBar.addButton({
+    icon: 'octoface',
+    callback: 'application:about',
+    class: ['multiple', 'classes', 'also', 'works']
+  });
+
   // Cleaning up when tool bar is deactivated
   toolBar.onDidDestroy(() => {
     this.toolBar = null;
@@ -232,8 +244,9 @@ The remaining properties
 `iconset` (defaults to `Octicons`),
 `data`,
 `priority` (defaults `50`),
-`color`, and
-`background`
+`color`,
+`background`, and
+`class`
 are optional.
 
 The `tooltip` option may be a `string` or an `object` that is passed to Atom's
