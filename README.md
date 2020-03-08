@@ -61,7 +61,6 @@ currently) it can display up to seven tool bar buttons there.
 ## Packages using tool-bar
 
 *   [Particle Dev](https://atom.io/packages/spark-dev)
-*   [Facebook Nuclide](https://atom.io/packages/nuclide)
 *   [PlatformIO IDE](https://atom.io/packages/platformio-ide)
 *   [Organized](https://atom.io/packages/organized)
 
