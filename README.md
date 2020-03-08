@@ -55,15 +55,12 @@ currently) it can display up to seven tool bar buttons there.
 
 *   [Flex Tool Bar](https://atom.io/packages/flex-tool-bar)
 *   [Tool Bar Main](https://atom.io/packages/tool-bar-main)
-*   [Toolbar Almighty](https://atom.io/packages/tool-bar-almighty)
 *   [Toolbar for Atom](https://atom.io/packages/tool-bar-atom)
-*   [Toolbar Shortcuts](https://atom.io/packages/tool-bar-shortcuts)
 *   And [more](https://atom.io/packages/search?utf8=%E2%9C%93&q=keyword%3Atool-bar)...
 
 ## Packages using tool-bar
 
 *   [Particle Dev](https://atom.io/packages/spark-dev)
-*   [Facebook Nuclide](https://atom.io/packages/nuclide)
 *   [PlatformIO IDE](https://atom.io/packages/platformio-ide)
 *   [Organized](https://atom.io/packages/organized)
 
