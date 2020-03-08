@@ -1,6 +1,6 @@
 {
   "name": "tool-bar",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Package providing customisable tool bar",
   "keywords": [
     "toolbar",
@@ -35,5 +35,8 @@
         "1.0.0": "provideToolBar"
       }
     }
-  }
+  },
+  "activationHooks": [
+    "core:loaded-shell-environment"
+  ]
 }

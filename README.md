@@ -57,14 +57,11 @@ currently) it can display up to seven tool bar buttons there.
 *   [Tool Bar Main](https://atom.io/packages/tool-bar-main)
 *   [Toolbar for Atom](https://atom.io/packages/tool-bar-atom)
 *   [Juno Plus](https://atom.io/packages/juno-plus) in TypeScript
-*   [Toolbar Almighty](https://atom.io/packages/tool-bar-almighty)
-*   [Toolbar Shortcuts](https://atom.io/packages/tool-bar-shortcuts)
 *   And [more](https://atom.io/packages/search?utf8=%E2%9C%93&q=keyword%3Atool-bar)...
 
 ## Packages using tool-bar
 
 *   [Particle Dev](https://atom.io/packages/spark-dev)
-*   [Facebook Nuclide](https://atom.io/packages/nuclide)
 *   [PlatformIO IDE](https://atom.io/packages/platformio-ide)
 *   [Organized](https://atom.io/packages/organized)
 
@@ -202,6 +199,15 @@ export function consumeToolBar(getToolBar) {
     callback: 'application:about'
   });
 
+  // Text buttons can be colored
+  toolBar.addButton({
+    icon: 'octoface',
+    callback: 'application:about',
+    tooltip: 'About Atom',
+    color: 'red' // color of the text or icon
+    background: 'black' // color of the background
+  });
+
   // Cleaning up when tool bar is deactivated
   toolBar.onDidDestroy(() => {
     this.toolBar = null;
@@ -212,7 +218,7 @@ export function consumeToolBar(getToolBar) {
 
 ## Methods
 
-### `.addButton({icon, iconset, text, html, callback, priority, tooltip, data})`
+### `.addButton({icon, iconset, text, html, callback, priority, tooltip, data, color, background})`
 
 The method `addButton` requires an object with at least the property `callback`. The
 `callback` must be an Atom command string, a custom callback function or an
@@ -225,8 +231,10 @@ The remaining properties
 `html` (default `false`),
 `icon` (default there is no icon),
 `iconset` (defaults to `Octicons`),
-`data`, and
-`priority` (defaults `50`)
+`data`,
+`priority` (defaults `50`),
+`color`, and
+`background`
 are optional.
 
 The `tooltip` option may be a `string` or an `object` that is passed to Atom's
