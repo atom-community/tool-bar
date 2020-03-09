@@ -207,7 +207,8 @@ export function consumeToolBar(getToolBar) {
     background: 'black' // color of the background
   });
 
-  // Buttons can be styled with arbitrary CSS through classes
+  // Buttons can be styled with arbitrary CSS through classes.
+  // An example of how the class can be used is show below.
   toolBar.addButton({
     icon: 'octoface',
     callback: 'application:about',
@@ -224,6 +225,19 @@ export function consumeToolBar(getToolBar) {
     this.toolBar = null;
     // Teardown any stateful code that depends on tool bar ...
   });
+}
+```
+
+```css
+/*
+Follow the instructions at:
+https://flight-manual.atom.io/using-atom/sections/basic-customization/#style-tweaks
+to define your classes.
+*/
+.my-awesome-class {
+  background-image: url(data:image/svg+xml;base64,...);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 ```
 
