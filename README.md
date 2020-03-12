@@ -56,6 +56,7 @@ currently) it can display up to seven tool bar buttons there.
 *   [Flex Tool Bar](https://atom.io/packages/flex-tool-bar)
 *   [Tool Bar Main](https://atom.io/packages/tool-bar-main)
 *   [Toolbar for Atom](https://atom.io/packages/tool-bar-atom)
+*   [Juno Plus](https://atom.io/packages/juno-plus) in TypeScript
 *   And [more](https://atom.io/packages/search?utf8=%E2%9C%93&q=keyword%3Atool-bar)...
 
 ## Packages using tool-bar
