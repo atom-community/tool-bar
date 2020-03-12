@@ -8,6 +8,11 @@ tries to follow the [Keep a CHANGELOG](http://keepachangelog.com) convention.
 
 *
 
+## [v1.2.2](https://github.com/suda/tool-bar/compare/v1.2.2...v1.2.1) - 2020-03-12
+
+* [Add any class to a toolbar button](https://github.com/suda/tool-bar/pull/285) (by [@ericcornelissen](https://github.com/ericcornelissen))
+* [Allow more iconsizes](https://github.com/suda/tool-bar/pull/277) (by [@aminya](https://github.com/aminya))
+
 ## [v1.2.1](https://github.com/suda/tool-bar/compare/v1.2.1...v1.2.0) - 2020-03-08
 
 * [Update icons](https://github.com/suda/tool-bar/pull/267) (by [@UziTech](https://github.com/UziTech))
