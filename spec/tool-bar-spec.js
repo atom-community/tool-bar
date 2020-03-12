@@ -150,6 +150,29 @@ describe('Tool Bar package', () => {
         expect(element.outerHTML.indexOf('<span>text</span>')).not.toBe(-1);
       });
 
+      it('with one class', () => {
+        toolBarAPI.addButton({
+          icon: 'octoface',
+          callback: 'application:about',
+          class: 'class'
+        });
+        expect(toolBar.children.length).toBe(1);
+        const element = toolBar.firstChild;
+        expect(element.classList.contains('class')).toBe(true);
+      });
+
+      it('with multiple classes', () => {
+        toolBarAPI.addButton({
+          icon: 'octoface',
+          callback: 'application:about',
+          class: ['class-a', 'class-b']
+        });
+        expect(toolBar.children.length).toBe(1);
+        const element = toolBar.firstChild;
+        expect(element.classList.contains('class-a')).toBe(true);
+        expect(element.classList.contains('class-b')).toBe(true);
+      });
+
       it('using default iconset', () => {
         jasmine.attachToDOM(toolBar);
         toolBarAPI.addButton({
