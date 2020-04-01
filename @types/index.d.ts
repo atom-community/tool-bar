@@ -134,3 +134,9 @@ export declare interface ButtonOptions {
      */
     class?: string | Array<string>
 }
+
+export declare interface SpacerOptions {
+    /** (optional) defaults to `50` */
+    priority?: number
+}
+
