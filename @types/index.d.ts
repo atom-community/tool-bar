@@ -1,3 +1,8 @@
+// tool-bar 1.2.x
+// https://atom.io/packages/tool-bar
+
+/// <reference path="./config.d.ts" />
+
 export declare interface ButtonOptions {
     /** (optional)
      *  icon name
