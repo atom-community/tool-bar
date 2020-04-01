@@ -140,3 +140,16 @@ export declare interface SpacerOptions {
     priority?: number
 }
 
+export declare class ToolBarManager {
+    /** Adds a button. The input to this function is a `ButtonOptions` object */
+    addButton(options: ButtonOptions): void
+
+    /** Adds a spacer. Optionally, you can pass a `SpacerOptions` object */
+    addSpacer(options?: SpacerOptions): void
+
+    /** Use the method removeItems to remove the buttons added by your package. This is particular useful in your package deactivate method, but can be used at any time. */
+    removeItems(): void
+
+    /** The onDidDestroy method takes a function that will be called when the tool-bar package is destroyed. This is useful if your package needs to do cleanup when the tool-bar is deactivated but your package continues running. */
+    onDidDestroy(callback: () => void): void
+}
