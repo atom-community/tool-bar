@@ -3,6 +3,8 @@
 
 /// <reference path="./config.d.ts" />
 
+import { TooltipManager } from "../index"
+
 export declare interface ButtonOptions {
     /** (optional)
      *  icon name
@@ -25,7 +27,7 @@ export declare interface ButtonOptions {
      *    - `mdi` (MaterialDesignIcons)
      *
      * ## Example:
-     * ```js
+     * ```ts
      *     icon: 'ios-gear-a',
      *     iconset: 'ion'
      * ```
@@ -45,13 +47,13 @@ export declare interface ButtonOptions {
      * - add text as a button, or
      *
      * ## Example:
-     * ```js
+     * ```ts
      * text: 'hello',
      * ```
      * - use HTML for a button. Needs `html` to be set to `true`
      *
      * ## Example:
-     * ```
+     * ```ts
      * text: '<b>BIG</b> button',
      * html: true,
      * ```
@@ -61,7 +63,7 @@ export declare interface ButtonOptions {
     /** (optional)
      * if set to `true`, `text` will be rendered as HTML
      * ## Example:
-     * ```js
+     * ```ts
      * text: '<b>BIG</b> button',
      * html: true,
      * ```
@@ -76,13 +78,13 @@ export declare interface ButtonOptions {
      * - or an object where the keys are key modifiers (alt, ctrl or shift) and the values are commands or custom functions
      *
      * ## Example:
-     * ```js
+     * ```ts
      * callback: 'application:about',
      * ```
      *
      *
      * ## Example - Callback with modifiers
-     * ```js
+     * ```ts
      * callback: {
      *    '': 'application:cmd-1',      // Without modifiers is default action
      *    'alt': 'application:cmd-2',
@@ -116,7 +118,7 @@ export declare interface ButtonOptions {
     /** (optional)
      * The tooltip option may be a string or an object that is passed to Atom's TooltipManager
      */
-    tooltip?: string | object
+    tooltip?: string | TooltipManager
 
     /** (optional) Color of the button */
     color?: string
@@ -128,12 +130,12 @@ export declare interface ButtonOptions {
      * An example of how the class can be used is show below.
      *
      * ## Example:
-     * ```js
+     * ```ts
      * class: 'my-awesome-class'
      * ```
      *
      * ## Example:
-     * ```js
+     * ```ts
      * class: ['multiple', 'classes', 'also', 'works']
      * ```
      */
@@ -163,7 +165,7 @@ export declare class ToolBarManager {
  *  Passed as an input to `consumeToolBar(getToolBar: getToolbarCallback)` function of your package.
  *
  *  In your main package file, add the following methods and replace your-package-name with your package name.
- * ```js
+ * ```ts
  *  let toolBar: ToolBarManager
  *
  *  export function consumeToolBar(getToolBar: getToolbarCallback) {
@@ -178,6 +180,6 @@ export declare class ToolBarManager {
  *     toolBar = null;
  *   }
  * }
- *  ```
+ * ```
  */
 export type getToolbarCallback = (packageName: string) => ToolBarManager
