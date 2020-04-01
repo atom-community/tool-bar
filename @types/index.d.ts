@@ -153,3 +153,26 @@ export declare class ToolBarManager {
     /** The onDidDestroy method takes a function that will be called when the tool-bar package is destroyed. This is useful if your package needs to do cleanup when the tool-bar is deactivated but your package continues running. */
     onDidDestroy(callback: () => void): void
 }
+
+/**
+ *  Passed as an input to `consumeToolBar(getToolBar: getToolbarCallback)` function of your package.
+ *
+ *  In your main package file, add the following methods and replace your-package-name with your package name.
+ * ```js
+ *  let toolBar: ToolBarManager
+ *
+ *  export function consumeToolBar(getToolBar: getToolbarCallback) {
+ *   toolBar = getToolBar("packageName");
+ *   // Add buttons and spacers here...
+ * }
+ *
+ *
+ *  export function deactivate() {
+ *   if (toolBar) {
+ *     toolBar.removeItems();
+ *     toolBar = null;
+ *   }
+ * }
+ *  ```
+ */
+export type getToolbarCallback = (packageName: string) => ToolBarManager
