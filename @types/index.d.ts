@@ -162,6 +162,28 @@ export declare interface SpacerOptions {
 }
 
 export declare class ToolBarManager {
+declare interface ToolBarButtonView {
+    element: HTMLButtonElement;
+    subscriptions: Disposable;
+    priority: number;
+    options: ButtonOptions;
+    group: any;
+    enabled: boolean;
+
+    setEnabled(enabled: boolean): void;
+
+    setSelected(selected: boolean): void;
+
+    getSelected(): boolean;
+
+    _onMouseDown(event: MouseEvent): void;
+
+    _onClick(event: MouseEvent): void;
+
+    executeCallback(event: MouseEvent): void;
+
+    destroy(): void;
+}
     /** Adds a button. The input to this function is a `ButtonOptions` object */
     addButton(options: ButtonOptions): void
 
