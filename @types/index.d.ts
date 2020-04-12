@@ -13,7 +13,7 @@ export declare interface ButtonOptions {
      * icon: 'octoface',
      * ```
      */
-    icon?: string
+    icon?: string;
 
     /** (optional)
      * icon set name.
@@ -40,7 +40,7 @@ export declare interface ButtonOptions {
         | "fi"
         | "icomoon"
         | "devicon"
-        | "mdi"
+        | "mdi";
 
     /** (optional)
      * You can use `text` to:
@@ -58,7 +58,7 @@ export declare interface ButtonOptions {
      * html: true,
      * ```
      */
-    text?: string
+    text?: string;
 
     /** (optional)
      * if set to `true`, `text` will be rendered as HTML
@@ -68,7 +68,7 @@ export declare interface ButtonOptions {
      * html: true,
      * ```
      */
-    html?: boolean
+    html?: boolean;
 
     /** (mandatory)
 
@@ -103,17 +103,17 @@ export declare interface ButtonOptions {
         | Array<string>
         | ((data?: any) => void)
         | { [modifier: string]: string }
-        | { [modifier: string]: (data?: any) => void }
+        | { [modifier: string]: (data?: any) => void };
 
     /** `data` can be passed as the input argument of callback,  If callback is of type
      * - `(data: any) => void)` or
      * - `{ [modifier: string]: ((data: any) => void) }`,
      *
      */
-    data?: any
+    data?: any;
 
     /** (optional) defaults to `50` */
-    priority?: number
+    priority?: number;
 
     /** (optional)
      * The tooltip option may be a string or an object that is passed to Atom's TooltipManager
@@ -135,10 +135,10 @@ export declare interface ButtonOptions {
     });
 
     /** (optional) Color of the button */
-    color?: string
+    color?: string;
 
     /** (optional) Color of the button's background */
-    background?: string
+    background?: string;
 
     /** Buttons can be styled with arbitrary CSS through classes.
      * An example of how the class can be used is show below.
@@ -153,15 +153,14 @@ export declare interface ButtonOptions {
      * class: ['multiple', 'classes', 'also', 'works']
      * ```
      */
-    class?: string | Array<string>
+    class?: string | Array<string>;
 }
 
 export declare interface SpacerOptions {
     /** (optional) defaults to `50` */
-    priority?: number
+    priority?: number;
 }
 
-export declare class ToolBarManager {
 declare interface ToolBarButtonView {
     element: HTMLButtonElement;
     subscriptions: Disposable;
@@ -193,19 +192,20 @@ declare interface ToolBarSpacerView {
     destroy(): void;
 }
 
+export declare interface ToolBarManager {
     /** Adds a button. The input to this function is a `ButtonOptions` object */
-    addButton(options: ButtonOptions): void
+    addButton(options: ButtonOptions): ToolBarButtonView;
 
     /** Adds a spacer. Optionally, you can pass a `SpacerOptions` object */
-    addSpacer(options?: SpacerOptions): void
+    addSpacer(options?: SpacerOptions): ToolBarSpacerView;
 
     /** Use the method removeItems to remove the buttons added by your package. This is particular useful in your package deactivate method, but can be used at any time.
      */
-    removeItems(): void
+    removeItems(): void;
 
     /** The onDidDestroy method takes a function that will be called when the tool-bar package is destroyed. This is useful if your package needs to do cleanup when the tool-bar is deactivated but your package continues running.
      */
-    onDidDestroy(callback: () => void): void
+    onDidDestroy(callback: () => void): void;
 }
 
 /**
@@ -229,4 +229,4 @@ declare interface ToolBarSpacerView {
  * }
  * ```
  */
-export type getToolbarCallback = (packageName: string) => ToolBarManager
+export type getToolbarCallback = (packageName: string) => ToolBarManager;
