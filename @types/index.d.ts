@@ -209,13 +209,13 @@ export declare interface ToolBarManager {
 }
 
 /**
- *  Passed as an input to `consumeToolBar(getToolBar: getToolbarCallback)` function of your package.
+ *  Passed as an input to `consumeToolBar(getToolBar: getToolBarManager)` function of your package.
  *
  *  In your main package file, add the following methods and replace your-package-name with your package name.
  * ```ts
  *  let toolBar: ToolBarManager
  *
- *  export function consumeToolBar(getToolBar: getToolbarCallback) {
+ *  export function consumeToolBar(getToolBar: getToolBarManager) {
  *   toolBar = getToolBar("packageName");
  *   // Add buttons and spacers here...
  * }
@@ -229,4 +229,4 @@ export declare interface ToolBarManager {
  * }
  * ```
  */
-export type getToolbarCallback = (packageName: string) => ToolBarManager;
+export type getToolBarManager = (packageName: string) => ToolBarManager;
