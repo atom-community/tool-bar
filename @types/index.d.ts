@@ -184,6 +184,15 @@ declare interface ToolBarButtonView {
 
     destroy(): void;
 }
+
+declare interface ToolBarSpacerView {
+    element: HTMLButtonElement;
+    priority: number;
+    group: any;
+
+    destroy(): void;
+}
+
     /** Adds a button. The input to this function is a `ButtonOptions` object */
     addButton(options: ButtonOptions): void
 
