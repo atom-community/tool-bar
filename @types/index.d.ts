@@ -3,7 +3,7 @@
 
 /// <reference path="./config.d.ts" />
 
-import { TooltipManager } from "../index"
+import {TooltipPlacement, Disposable} from "../index";
 
 export declare interface ButtonOptions {
     /** (optional)
@@ -118,7 +118,21 @@ export declare interface ButtonOptions {
     /** (optional)
      * The tooltip option may be a string or an object that is passed to Atom's TooltipManager
      */
-    tooltip?: string | TooltipManager
+    tooltip?:
+        | string // minimally sets title
+        // similar to what TooltipManager.add options accepts:
+        | { item?: object }
+        | ({
+        title?: string | (() => string);
+        html?: boolean;
+        keyBindingCommand?: string;
+        keyBindingTarget?: HTMLElement;
+    } & {
+        class?: string;
+        placement?: TooltipPlacement | (() => TooltipPlacement);
+        trigger?: "click" | "hover" | "focus" | "manual";
+        delay?: { show: number; hide: number };
+    });
 
     /** (optional) Color of the button */
     color?: string
