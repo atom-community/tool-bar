@@ -247,6 +247,12 @@ to define your classes.
 
 ## Methods
 
+### `.addItem({element, priority})`
+
+Adds a custom HTML element as an item to the tool-bar. Arguments are:
+- `element`: pass your HTML element.
+- `priority`: optional field specifying the position of the item.
+
 ### `.addButton({icon, iconset, text, html, callback, priority, tooltip, data, color, background})`
 
 The method `addButton` requires an object with at least the property `callback`. The
