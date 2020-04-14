@@ -14,7 +14,8 @@
     "url": "https://github.com/suda/toolbar.git"
   },
   "scripts": {
-    "lint": "eslint --format tap . && remark ."
+    "lint": "eslint --format tap . && remark .",
+    "test": "atom --test spec"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
