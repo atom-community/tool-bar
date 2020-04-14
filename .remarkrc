@@ -1,8 +1,6 @@
 {
-  "plugins": {
-    "lint": {
-      "no-html": false,
-      "list-item-spacing": false
-    }
-  }
+  "plugins": [
+    "remark-preset-lint-recommended",
+    ["remark-lint-list-item-indent", false]
+  ]
 }
