@@ -1,8 +1,5 @@
 'use babel';
 
-/* eslint-env browser */
-/* global advanceClock */
-
 function getGlyph (elm) {
   return window.getComputedStyle(elm, ':before')
     .getPropertyValue('content')
