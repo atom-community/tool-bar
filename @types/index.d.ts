@@ -174,6 +174,28 @@ declare interface ToolBarButtonView {
     options: ButtonOptions;
     group: string;
     enabled: boolean;
+    classNames: string[];
+
+    /** Put the button at the end of the toolbar using 'tool-bar-item-align-end' class. */
+    putAtEnd (): void;
+
+    /** Add an icon for the button using built-in icons. */
+    addIcon (): void;
+
+    /** Adds a text/html to the button */
+    addText (): void;
+
+    /** adds a Tooltip for your item. Returns a Disposable tooltip  */
+    addTooltip (tooltipOptions: ButtonOptions["tooltip"], callback: ButtonOptions["callback"] | null): Disposable;
+
+    /** Add color to the button */
+    addColor (): void;
+
+    /** Add background color to the button */
+    addBackgroundColor (): void;
+
+    /** Add all the classes (custom and others) to the button */
+    addClasses (): void;
 
     setEnabled(enabled: boolean): void;
 
@@ -181,7 +203,11 @@ declare interface ToolBarButtonView {
 
     getSelected(): boolean;
 
+    addOnMouseDown (): void;
+
     _onMouseDown(event: MouseEvent): void;
+
+    addOnClick (): void;
 
     _onClick(event: MouseEvent): void;
 
