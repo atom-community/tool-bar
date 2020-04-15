@@ -162,6 +162,11 @@ export declare interface SpacerOptions {
     priority?: number;
 }
 
+export declare interface ItemOptions {
+    element: HTMLElement;
+    priority?: number;
+}
+
 declare interface ToolBarButtonView {
     element: HTMLButtonElement;
     subscriptions: Disposable;
@@ -193,12 +198,24 @@ declare interface ToolBarSpacerView {
     destroy(): void;
 }
 
+
+export declare interface ToolBarItem {
+    element: HTMLElement;
+    priority?: number;
+    group: string;
+
+    destroy(): void;
+}
+
 export declare interface ToolBarManager {
     /** Adds a button. The input to this function is a `ButtonOptions` object */
     addButton(options: ButtonOptions): ToolBarButtonView;
 
     /** Adds a spacer. Optionally, you can pass a `SpacerOptions` object */
     addSpacer(options?: SpacerOptions): ToolBarSpacerView;
+
+    /** Adds a custom HTML element as an item to the tool-bar */
+    addItem(options: ItemOptions): ToolBarItem
 
     /** Use the method removeItems to remove the buttons added by your package. This is particular useful in your package deactivate method, but can be used at any time.
      */
