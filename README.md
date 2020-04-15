@@ -279,6 +279,12 @@ The return value of this method shares another method called
 The method `addSpacer` has only one optional property `priority` (defaults
 `50`).
 
+### `.addItem({element, priority})`
+
+Adds a custom HTML element as an item to the tool-bar. Arguments are:
+- `element`: pass your HTML element.
+- `priority`: optional field specifying the position of the item.
+
 ### `.removeItems()`
 
 Use the method `removeItems` to remove the buttons added by your package. This
