@@ -4,7 +4,7 @@
 
 /// <reference path="./config.d.ts" />
 
-import {TooltipPlacement, Disposable} from "../index";
+import {TooltipPlacement, Disposable} from "atom" // "../index";
 
 export declare interface ButtonOptions {
     /** (optional)
