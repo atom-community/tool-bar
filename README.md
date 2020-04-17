@@ -1,7 +1,7 @@
 # Atom Tool Bar
 
 ![CI](https://github.com/suda/tool-bar/workflows/CI/badge.svg)
-[![apm](https://img.shields.io/apm/dm/tool-bar.svg)]()
+[![apm](https://img.shields.io/apm/dm/tool-bar.svg)](https://atom.io/packages/tool-bar)
 [![Chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/suda/tool-bar?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 This package provides extensible tool bar for Atom.
