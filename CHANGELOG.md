@@ -8,6 +8,13 @@ tries to follow the [Keep a CHANGELOG](http://keepachangelog.com) convention.
 
 *
 
+## [v1.3.0](https://github.com/suda/tool-bar/compare/v1.3.0...v1.2.2) - 2020-04-17
+
+* [Type declarations for TypeScript](https://github.com/suda/tool-bar/pull/289) (by [@aminya](https://github.com/aminya))
+* [14px icon size](https://github.com/suda/tool-bar/pull/293) (by [@aminya](https://github.com/aminya))
+* [Ability to add custom HTML element as tool-bar item](https://github.com/suda/tool-bar/pull/294) (by [@aminya](https://github.com/aminya))
+* [Switch to use GitHub Action instead of CircleCI and TravisCI](https://github.com/suda/tool-bar/pull/296) (by [@aminya](https://github.com/aminya))
+
 ## [v1.2.2](https://github.com/suda/tool-bar/compare/v1.2.2...v1.2.1) - 2020-03-12
 
 * [Add any class to a toolbar button](https://github.com/suda/tool-bar/pull/285) (by [@ericcornelissen](https://github.com/ericcornelissen))
