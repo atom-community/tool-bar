@@ -38,6 +38,7 @@
     }
   }
 
+  // Set the margin between the buttons (that are not at the end)
   &.tool-bar-horizontal .tool-bar-btn:not(.tool-bar-item-align-end) + .tool-bar-btn {
     margin-left: 0;
   }
@@ -61,8 +62,7 @@
   }
 
   &.tool-bar-horizontal {
-    .tool-bar-btn,
-    .tool-bar-spacer {
+    .tool-bar-btn, .tool-bar-spacer {
       &.tool-bar-item-align-end {
         order: 2;
         &:first-child {
@@ -73,8 +73,7 @@
   }
 
   &.tool-bar-vertical {
-    .tool-bar-btn,
-    .tool-bar-spacer {
+    .tool-bar-btn, .tool-bar-spacer {
       &.tool-bar-item-align-end {
         order: 2;
         &:first-child {
