@@ -1,9 +1,10 @@
 // tool-bar 1.2.x
 // https://atom.io/packages/tool-bar
+// Definitions by: aminya <https://github.com/aminya>
 
 /// <reference path="./config.d.ts" />
 
-import { TooltipManager } from "../index"
+import {TooltipPlacement, Disposable} from "atom" // "../index";
 
 export declare interface ButtonOptions {
     /** (optional)
@@ -13,7 +14,7 @@ export declare interface ButtonOptions {
      * icon: 'octoface',
      * ```
      */
-    icon?: string
+    icon?: string;
 
     /** (optional)
      * icon set name.
@@ -40,7 +41,7 @@ export declare interface ButtonOptions {
         | "fi"
         | "icomoon"
         | "devicon"
-        | "mdi"
+        | "mdi";
 
     /** (optional)
      * You can use `text` to:
@@ -58,7 +59,7 @@ export declare interface ButtonOptions {
      * html: true,
      * ```
      */
-    text?: string
+    text?: string;
 
     /** (optional)
      * if set to `true`, `text` will be rendered as HTML
@@ -68,7 +69,7 @@ export declare interface ButtonOptions {
      * html: true,
      * ```
      */
-    html?: boolean
+    html?: boolean;
 
     /** (mandatory)
 
@@ -103,28 +104,42 @@ export declare interface ButtonOptions {
         | Array<string>
         | ((data?: any) => void)
         | { [modifier: string]: string }
-        | { [modifier: string]: (data?: any) => void }
+        | { [modifier: string]: (data?: any) => void };
 
     /** `data` can be passed as the input argument of callback,  If callback is of type
      * - `(data: any) => void)` or
      * - `{ [modifier: string]: ((data: any) => void) }`,
      *
      */
-    data?: any
+    data?: any;
 
     /** (optional) defaults to `50` */
-    priority?: number
+    priority?: number;
 
     /** (optional)
      * The tooltip option may be a string or an object that is passed to Atom's TooltipManager
      */
-    tooltip?: string | TooltipManager
+    tooltip?:
+        | string // minimally sets title
+        // similar to what TooltipManager.add options accepts:
+        | { item?: object }
+        | ({
+        title?: string | (() => string);
+        html?: boolean;
+        keyBindingCommand?: string;
+        keyBindingTarget?: HTMLElement;
+    } & {
+        class?: string;
+        placement?: TooltipPlacement | (() => TooltipPlacement);
+        trigger?: "click" | "hover" | "focus" | "manual";
+        delay?: { show: number; hide: number };
+    });
 
     /** (optional) Color of the button */
-    color?: string
+    color?: string;
 
     /** (optional) Color of the button's background */
-    background?: string
+    background?: string;
 
     /** Buttons can be styled with arbitrary CSS through classes.
      * An example of how the class can be used is show below.
@@ -139,38 +154,112 @@ export declare interface ButtonOptions {
      * class: ['multiple', 'classes', 'also', 'works']
      * ```
      */
-    class?: string | Array<string>
+    class?: string | Array<string>;
 }
 
 export declare interface SpacerOptions {
     /** (optional) defaults to `50` */
-    priority?: number
+    priority?: number;
 }
 
-export declare class ToolBarManager {
+export declare interface ItemOptions {
+    element: HTMLElement;
+    priority?: number;
+}
+
+declare interface ToolBarButtonView {
+    element: HTMLButtonElement;
+    subscriptions: Disposable;
+    priority: number;
+    options: ButtonOptions;
+    group: string;
+    enabled: boolean;
+    classNames: string[];
+
+    /** Put the button at the end of the toolbar using 'tool-bar-item-align-end' class. */
+    putAtEnd (): void;
+
+    /** Add an icon for the button using built-in icons. */
+    addIcon (): void;
+
+    /** Adds a text/html to the button */
+    addText (): void;
+
+    /** adds a Tooltip for your item. Returns a Disposable tooltip  */
+    addTooltip (tooltipOptions: ButtonOptions["tooltip"], callback: ButtonOptions["callback"] | null): Disposable;
+
+    /** Add color to the button */
+    addColor (): void;
+
+    /** Add background color to the button */
+    addBackgroundColor (): void;
+
+    /** Add all the classes (custom and others) to the button */
+    addClasses (): void;
+
+    setEnabled(enabled: boolean): void;
+
+    setSelected(selected: boolean): void;
+
+    getSelected(): boolean;
+
+    addOnMouseDown (): void;
+
+    _onMouseDown(event: MouseEvent): void;
+
+    addOnClick (): void;
+
+    _onClick(event: MouseEvent): void;
+
+    executeCallback(event: MouseEvent): void;
+
+    destroy(): void;
+}
+
+declare interface ToolBarSpacerView {
+    element: HTMLButtonElement;
+    priority: number;
+    group: string;
+
+    destroy(): void;
+}
+
+
+export declare interface ToolBarItem {
+    element: HTMLElement;
+    priority?: number;
+    group: string;
+
+    destroy(): void;
+}
+
+export declare interface ToolBarManager {
     /** Adds a button. The input to this function is a `ButtonOptions` object */
-    addButton(options: ButtonOptions): void
+    addButton(options: ButtonOptions): ToolBarButtonView;
 
     /** Adds a spacer. Optionally, you can pass a `SpacerOptions` object */
-    addSpacer(options?: SpacerOptions): void
+    addSpacer(options?: SpacerOptions): ToolBarSpacerView;
+
+    /** Adds a custom HTML element as an item to the tool-bar */
+    addItem(options: ItemOptions): ToolBarItem
 
     /** Use the method removeItems to remove the buttons added by your package. This is particular useful in your package deactivate method, but can be used at any time.
      */
-    removeItems(): void
+    removeItems(): void;
 
     /** The onDidDestroy method takes a function that will be called when the tool-bar package is destroyed. This is useful if your package needs to do cleanup when the tool-bar is deactivated but your package continues running.
      */
-    onDidDestroy(callback: () => void): void
+    onDidDestroy(callback: () => void): void;
 }
 
 /**
- *  Passed as an input to `consumeToolBar(getToolBar: getToolbarCallback)` function of your package.
+ *  Passed as an input to `consumeToolBar(getToolBar: getToolBarManager)` function of your package.
  *
  *  In your main package file, add the following methods and replace your-package-name with your package name.
  * ```ts
  *  let toolBar: ToolBarManager
  *
- *  export function consumeToolBar(getToolBar: getToolbarCallback) {
+ *  export function consumeToolBar(getToolBar: getToolBarManager) {
  *   toolBar = getToolBar("packageName");
  *   // Add buttons and spacers here...
  * }
@@ -184,4 +273,4 @@ export declare class ToolBarManager {
  * }
  * ```
  */
-export type getToolbarCallback = (packageName: string) => ToolBarManager
+export type getToolBarManager = (packageName: string) => ToolBarManager;

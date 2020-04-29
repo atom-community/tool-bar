@@ -8,6 +8,7 @@ declare module "atom" {
         /** Icon size. - default: "24px" */
         "tool-bar.iconSize":
             | "12px"
+            | "14px"
             | "16px"
             | "18px"
             | "21px"
