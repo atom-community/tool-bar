@@ -34,8 +34,9 @@ describe('Tool Bar package', () => {
       toolBarService = pack.mainModule.provideToolBar();
     });
 
-    atom.packages.triggerDeferredActivationHooks();
-    atom.packages.triggerActivationHook('core:loaded-shell-environment');
+    // if activation hook was being used
+    // atom.packages.triggerDeferredActivationHooks();
+    // atom.packages.triggerActivationHook('core:loaded-shell-environment');
   });
 
   describe('@activate', () => {
