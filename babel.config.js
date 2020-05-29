@@ -17,4 +17,4 @@ module.exports = {
     plugins: plugins,
     exclude: "node_modules/**",
     sourceMaps: "inline"
-}
+};
