@@ -1,6 +1,8 @@
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import {terser} from 'rollup-plugin-terser';
+import css from 'rollup-plugin-css-only';
+import execute from 'rollup-plugin-execute';
 
 let plugins = [
 
@@ -26,6 +28,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 export default [
+    // Rollup lib
     {
         input: 'lib/tool-bar.js',
         output: [
@@ -44,5 +47,20 @@ export default [
             "path",
         ],
         plugins: plugins,
+    },
+    // Rollup iconsets
+    {
+        input: 'iconsets/rollup-iconsets.js',
+        output: {
+            dir: "dist",
+            format: 'cjs'
+        },
+        plugins: [
+            css({ output: 'dist/iconsets.css' }),
+            execute([
+                'csso dist/iconsets.css --output dist/iconsets.css',
+                'shx rm dist/rollup-iconsets.js'
+            ]),
+        ],
     },
 ];
