@@ -1,4 +1,4 @@
-// This file is the entry file for css rollup
+// This file is the entry file for iconsets rollup
 import "./ionicons/ionicons.css";
 import "./font-awesome/font-awesome.css";
 import "./foundation/foundation-icons.css";
