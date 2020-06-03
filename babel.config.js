@@ -6,7 +6,7 @@ let presets = [
     }]
 ];
 
-let plugins = [];
+let plugins = ["@babel/plugin-proposal-optional-chaining"];
 
 if (process.env.BABEL_ENV === "development") {
     plugins.push("@babel/plugin-transform-modules-commonjs");

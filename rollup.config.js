@@ -3,8 +3,10 @@ import commonjs from '@rollup/plugin-commonjs';
 import {terser} from 'rollup-plugin-terser';
 import css from 'rollup-plugin-css-only';
 import execute from 'rollup-plugin-execute';
+import babel from 'rollup-plugin-babel';
 
 let plugins = [
+    babel(),
 
     // so Rollup can find externals
     resolve({extensions: ['.js'], preferBuiltins: true}),
