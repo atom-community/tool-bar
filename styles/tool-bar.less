@@ -9,6 +9,7 @@
 .tool-bar {
   @button-margin-size: 2px;
   @button-border-size: 1px;
+  animation-duration: .3s;
   background-color: @base-background-color;
   border: 1px solid @base-border-color;
   color: @text-color;
@@ -167,5 +168,38 @@
     &.tool-bar-vertical .tool-bar-spacer {
       width: @size - 4;
     }
+
+    @keyframes slide-in-top {
+      from {margin-top: -@size;}
+      to {margin-top: 0;}
+    }
+
+    @keyframes slide-in-right {
+      from {margin-right: -@size;}
+      to {margin-right: 0;}
+    }
+
+    @keyframes slide-in-bottom {
+      from {margin-bottom: -@size;}
+      to {margin-bottom: 0;}
+    }
+
+    @keyframes slide-in-left {
+      from {margin-left: -@size;}
+      to {margin-left: 0;}
+    }
+  }
+
+  &.tool-bar-top {
+    animation-name: slide-in-top;
+  }
+  &.tool-bar-right {
+    animation-name: slide-in-right;
+  }
+  &.tool-bar-bottom {
+    animation-name: slide-in-bottom;
+  }
+  &.tool-bar-left {
+    animation-name: slide-in-left;
   }
 }
