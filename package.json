@@ -8,14 +8,20 @@
     "service"
   ],
   "license": "MIT",
-  "main": "./lib/tool-bar",
+  "main": "./dist/tool-bar",
   "repository": {
     "type": "git",
     "url": "https://github.com/suda/toolbar.git"
   },
   "scripts": {
     "lint": "eslint . --fix --ext js,json && remark *.md",
-    "test": "atom --test spec"
+    "test": "atom --test spec",
+    "clean": "shx rm -rf dist",
+    "debug": "npm run clean && shx cp -r lib dist && env NODE_ENV=development env BABEL_ENV=development babel dist --out-dir dist",
+    "dev": "npm run clean && env NODE_ENV=development env BABEL_ENV=production rollup -c -w",
+    "build": "npm run clean && env NODE_ENV=production env BABEL_ENV=production rollup -c",
+    "build-commit": "build-commit -o dist",
+    "prepare": "npm run build"
   },
   "devDependencies": {
     "@types/atom": "latest",
@@ -23,7 +29,21 @@
     "babel-eslint": "^10.1.0",
     "eslint-plugin-json": "^2.1.1",
     "remark-cli": "^8.0.0",
-    "remark-preset-lint-recommended": "^4.0.0"
+    "remark-preset-lint-recommended": "^4.0.0",
+    "rollup": "^2.11.2",
+    "@rollup/plugin-node-resolve": "^8.0.0",
+    "@rollup/plugin-commonjs": "^12.0.0",
+    "rollup-plugin-terser": "^6.1.0",
+    "rollup-plugin-css-only": "^2.1.0",
+    "rollup-plugin-execute": "^1.1.1",
+    "rollup-plugin-babel": "^4.4.0",
+    "csso-cli": "^3.0.0",
+    "shx": "^0.3.2",
+    "@babel/core": "^7.10.1",
+    "@babel/cli": "^7.10.1",
+    "@babel/preset-env": "^7.10.1",
+    "@babel/plugin-proposal-optional-chaining": "7.10.1",
+    "build-commit": "^0.1.1"
   },
   "engines": {
     "atom": ">=1.20.0"

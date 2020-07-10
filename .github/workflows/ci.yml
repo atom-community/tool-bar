@@ -27,6 +27,8 @@ jobs:
       - name: Install APM dependencies
         run: |
           apm ci  # uses locked module. use `apm install` for non-locked
+      - name: Build
+        run: npm run build
       - name: Run tests 👩🏾‍💻
         run: npm run test
 
