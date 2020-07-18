@@ -4,4 +4,3 @@ import "./font-awesome/font-awesome.css";
 import "./foundation/foundation-icons.css";
 import "./icomoon/icomoon.css";
 import "./devicon/devicon.css";
-import "./mdi/materialdesignicons.css";
