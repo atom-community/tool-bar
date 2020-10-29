@@ -32,7 +32,7 @@ if (process.env.NODE_ENV === 'production') {
 export default [
     // Rollup lib
     {
-        input: 'lib/tool-bar.js',
+        input: 'src/tool-bar.js',
         output: [
             {
                 dir: "dist",
