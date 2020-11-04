@@ -30,7 +30,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 export default [
-    // Rollup lib
+    // Rollup src
     {
         input: 'src/tool-bar.js',
         output: [
