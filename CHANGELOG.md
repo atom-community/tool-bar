@@ -8,9 +8,13 @@ tries to follow the [Keep a CHANGELOG](http://keepachangelog.com) convention.
 
 *
 
+## [v1.4.2](https://github.com/suda/tool-bar/compare/v1.4.2...v1.4.1) - 2020-11-05
+
+* [Fix deactivating package](https://github.com/suda/tool-bar/pull/326)  (by [@UziTech](https://github.com/UziTech))
+
 ## [v1.4.1](https://github.com/suda/tool-bar/compare/v1.4.1...v1.4.0) - 2020-10-15
 
-* [Fix `Failed to load the tool-bar package`](https://github.com/suda/tool-bar/pull/326)  (by [@UziTech](https://github.com/UziTech))
+* Fix `Failed to load the tool-bar package`
 
 ## [v1.4.0](https://github.com/suda/tool-bar/compare/v1.4.0...v1.3.0) - 2020-10-15
 
