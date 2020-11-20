@@ -14,7 +14,7 @@ export function activate() {
 
 async function useTouchBar() {
   if (atom.config.get('tool-bar.useTouchBar') && process.platform === 'darwin') {
-    let TouchBarManager = await import('./touch-bar-manager');
+    let {TouchBarManager} = await import('./touch-bar-manager');
     touchBarManager = new TouchBarManager();
   }
 }
