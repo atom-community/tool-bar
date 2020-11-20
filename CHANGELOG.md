@@ -8,6 +8,23 @@ tries to follow the [Keep a CHANGELOG](http://keepachangelog.com) convention.
 
 *
 
+## [v1.4.2](https://github.com/suda/tool-bar/compare/v1.4.2...v1.4.1) - 2020-11-05
+
+* [Fix deactivating package](https://github.com/suda/tool-bar/pull/326)  (by [@UziTech](https://github.com/UziTech))
+
+## [v1.4.1](https://github.com/suda/tool-bar/compare/v1.4.1...v1.4.0) - 2020-10-15
+
+* Fix `Failed to load the tool-bar package`
+
+## [v1.4.0](https://github.com/suda/tool-bar/compare/v1.4.0...v1.3.0) - 2020-10-15
+
+* [Using Github Actions](https://github.com/suda/tool-bar/pull/296) (by [@aminya](https://github.com/aminya))
+* [Remove activation hook](https://github.com/suda/tool-bar/pull/300) (by [@aminya](https://github.com/aminya))
+* [Refactor to decrease code duplication and complexity](https://github.com/suda/tool-bar/pull/301) (by [@ericcornelissen](https://github.com/ericcornelissen))
+* [Rollup - improve loading time](https://github.com/suda/tool-bar/pull/302) (by [@aminya](https://github.com/aminya))
+* [useGutter option](https://github.com/suda/tool-bar/pull/305) (by [@aminya](https://github.com/aminya))
+* [Update to current TouchBar Electron API](https://github.com/suda/tool-bar/pull/312) (by [@thatcomputerguy0101](https://github.com/thatcomputerguy0101))
+
 ## [v1.3.0](https://github.com/suda/tool-bar/compare/v1.3.0...v1.2.2) - 2020-04-17
 
 * [Type declarations for TypeScript](https://github.com/suda/tool-bar/pull/289) (by [@aminya](https://github.com/aminya))

@@ -20,9 +20,9 @@ async function useTouchBar() {
 }
 
 export function deactivate() {
-  toolBarView.destroy();
+  toolBarView?.destroy();
   toolBarView = null;
-  touchBarManager.destroy();
+  touchBarManager?.destroy();
   touchBarManager = null;
 }
 
