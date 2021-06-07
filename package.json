@@ -11,7 +11,7 @@
   "main": "./dist/tool-bar",
   "repository": {
     "type": "git",
-    "url": "https://github.com/atom-community/toolbar.git"
+    "url": "https://github.com/atom-community/tool-bar"
   },
   "scripts": {
     "lint": "eslint . --fix --ext js,json && remark *.md",
