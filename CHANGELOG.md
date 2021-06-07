@@ -4,9 +4,12 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and
 tries to follow the [Keep a CHANGELOG](http://keepachangelog.com) convention.
 
-## [vNext](https://github.com/suda/tool-bar/compare/v1.2.1...master) - Unreleased
+## [vNext](https://github.com/suda/tool-bar/compare/v1.4.3...master) - Unreleased
 
-*
+## [v1.4.3](https://github.com/suda/tool-bar/compare/v1.4.3...v1.4.2) - 2021-06-07
+
+* [Fix touchbar](https://github.com/atom-community/tool-bar/pull/329)  (by [@thatcomputerguy0101](https://github.com/thatcomputerguy0101))
+
 
 ## [v1.4.2](https://github.com/suda/tool-bar/compare/v1.4.2...v1.4.1) - 2020-11-05
 

@@ -1,8 +1,8 @@
 # Atom Tool Bar
 
-[![CI](https://github.com/suda/tool-bar/workflows/CI/badge.svg)](https://github.com/suda/tool-bar/actions?query=workflow%3ACI)
+[![CI](https://github.com/atom-community/tool-bar/workflows/CI/badge.svg)](https://github.com/atom-community/tool-bar/actions?query=workflow%3ACI)
 [![apm](https://img.shields.io/apm/dm/tool-bar.svg)](https://atom.io/packages/tool-bar)
-[![Chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/suda/tool-bar?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/atom-community/tool-bar?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 This package provides extensible tool bar for Atom.
 
@@ -345,4 +345,3 @@ using this one. For all contributions credits are due:
 *   [Juan Rial](https://github.com/jrial)
 *   [Vadim Kotov](https://github.com/vkotovv)
 *   [Michael Bolin](https://github.com/bolinfest)
-
