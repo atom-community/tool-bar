@@ -17,9 +17,9 @@
     "lint": "eslint . --fix --ext js,json && remark *.md",
     "test": "atom --test spec",
     "clean": "shx rm -rf dist",
-    "debug": "npm run clean && shx cp -r src dist && env NODE_ENV=development env BABEL_ENV=development babel dist --out-dir dist",
-    "dev": "npm run clean && env NODE_ENV=development env BABEL_ENV=production rollup -c -w",
-    "build": "npm run clean && env NODE_ENV=production env BABEL_ENV=production rollup -c",
+    "debug": "npm run clean && shx cp -r src dist && cross-env NODE_ENV=development cross-env BABEL_ENV=development babel dist --out-dir dist",
+    "dev": "npm run clean && cross-env NODE_ENV=development cross-env BABEL_ENV=production rollup -c -w",
+    "build": "npm run clean && cross-env NODE_ENV=production cross-env BABEL_ENV=production rollup -c",
     "build-commit": "build-commit -o dist",
     "prepare": "npm run build"
   },
@@ -43,7 +43,8 @@
     "@babel/cli": "^7.10.1",
     "@babel/preset-env": "^7.10.1",
     "@babel/plugin-proposal-optional-chaining": "7.10.1",
-    "build-commit": "^0.1.1"
+    "build-commit": "^0.1.4",
+    "cross-env": "^7.0.3"
   },
   "engines": {
     "atom": ">=1.20.0"
