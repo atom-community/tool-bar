@@ -58,7 +58,7 @@ export default [
             format: 'cjs'
         },
         plugins: [
-            css({ output: 'dist/iconsets.css' }),
+            css({ output: 'iconsets.css' }),
             execute([
                 'csso dist/iconsets.css --output dist/iconsets.css',
                 'shx rm dist/rollup-iconsets.js'
