@@ -1,6 +1,6 @@
 import {CompositeDisposable, Emitter} from 'atom';
 import {rafDebounce} from './raf-debounce';
-import {useGutter} from './tool-bar.js'
+import {useGutter} from './tool-bar.js';
 
 export class ToolBarView {
   constructor () {
