@@ -33,7 +33,7 @@
     "remark-preset-lint-recommended": "^5.0.0",
     "rollup": "^2.53.3",
     "@rollup/plugin-node-resolve": "^13.0.4",
-    "@rollup/plugin-commonjs": "^19.0.1",
+    "@rollup/plugin-commonjs": "^20.0.0",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-execute": "^1.1.1",
